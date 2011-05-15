@@ -16,6 +16,8 @@ http://2.bp.blogspot.com/-wbE8PN0RffI/TdBJLE6n4jI/AAAAAAAAA50/GkZ0mTSqJNc/s1600/
 
 SWAP device addresses are 1-byte length. Thus, the automatic address filtering may be enabled on the RF IC. Broadcast address is 0 so wireless devices must take an addresses between 1 and 255 (0xFF).
 
+== Function codes ==
+
 There are only three function codes:
 
  * 0x00 - Information packet
@@ -24,7 +26,7 @@ There are only three function codes:
 
 All SWAP packets share the same structure except query packets (function code = 0x02) that don't contain a data field. This makes parsing wireless packets a simple task.
 
-== Information packets (function code = 0x00) ==
+=== Information packets (function code = 0x00) ===
 
 Information packets report actual register values. Any device wanting to inform about a register value has to send an information packet. In order to guarantee interoperability between devices, the following conventions must be guaranteed:
 
@@ -32,11 +34,11 @@ Information packets report actual register values. Any device wanting to inform 
  * After receiving a command packet, an information message has to be sent with the register being modified.
  * Developers may decide whether transmit periodic information message or not and the transmission interval in each case. In general, sending periodic infos about the most relevant registers may be a good practice.
 
-== Query packets (function code = 0x01) ==
+=== Query packets (function code = 0x01) ===
 
 Query packets are transmitted to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with an information packet. Query packets can be broadcasted (address 0).
 
-== Command packets (function code = 0x02) ==
+=== Command packets (function code = 0x02) ===
 
 Command packets are used to control register values on any remote device. After completing the necessary changes on the register, the remote device must reply with an information packet informing about the value of the affected register. In case the register could not be modified, the remote device should reply with the contents of the unaltered register.
 
