@@ -1,0 +1,13 @@
+SWAP, a very tiny protocol for constrained wireless M2M networks
+
+= Introduction =
+
+SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol designed to be used on Texas Instruments CC11XX-based radios.
+
+
+= Details =
+
+Supported radio IC's:
+
+The whole CC11XX radio family, including the popular CC1100 and CC1101 front-ends
+CC430 MCU's with integrated RF interfaces
