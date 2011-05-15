@@ -1,13 +1,45 @@
+#labels SWAPprotocol
 SWAP, a very tiny protocol for constrained wireless M2M networks
 
 = Introduction =
 
-SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol designed to be used on Texas Instruments CC11XX-based radios.
+SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol designed to be used on Texas Instruments CC11XX-based radios. SWAP primarily focus on these radio chips because it relies on their packet structure but any other RF front-end with a similar frame format may be used too. On the other hand, this protocol can be adapted to other packet structures (and hence to other IC's) with little work.
 
+= Supported IC's =
+
+* The whole CC11XX radio family, including the popular CC1100 and CC1101 front-ends
+* CC430 MCU's with integrated RF interfaces
+
+= Packet structure =
+
+http://2.bp.blogspot.com/-wbE8PN0RffI/TdBJLE6n4jI/AAAAAAAAA50/GkZ0mTSqJNc/s1600/swap.png
+
+SWAP device addresses are 1-byte length. Thus, the automatic address filtering may be enabled on the RF IC. Broadcast address is 0 so wireless devices must take an addresses between 1 and 255 (0xFF).
+
+There are only three function codes:
+
+* 0x00 - Information packet
+* 0x01 - Query packet
+* 0x02 - Command packet
+
+All SWAP packets share the same structure except query packets (function code = 0x02) that don't contain a data field. This makes parsing wireless packets a simple task.
+
+== Information packets (function code = 0x00) ==
+
+Information packets report actual register values. Any device wanting to inform about a register value has to send an information packet. In order to guarantee interoperability between devices, the following conventions must be guaranteed:
+
+* The reception of a query packet must be followed by the transmission of an information message. Thus, querying a register must be answered by an information packet containing the register value being queried.
+* After receiving a command packet, an information message has to be sent with the register being modified.
+* Developers may decide whether transmit periodic information message or not and the transmission interval in each case. In general, sending periodic infos about the most relevant registers may be a good practice.
+
+== Query packets (function code = 0x01) ==
+
+Query packets are transmitted to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with an information packet. Query packets can be broadcasted (address 0).
+
+== Command packets (function code = 0x02) ==
+
+Command packets are used to control register values on any remote device. After completing the necessary changes on the register, the remote device must reply with an information packet informing about the value of the affected register. In case the register could not be modified, the remote device should reply with the contents of the unaltered register.
 
 = Details =
 
-Supported radio IC's:
-
-The whole CC11XX radio family, including the popular CC1100 and CC1101 front-ends
-CC430 MCU's with integrated RF interfaces
+SWAP aims to be a very lightweight protocol, typically codable in 4 KBytes or less. It's essentially a peer-to-peer protocol but some of its features make it suitable for basic mesh networks.
