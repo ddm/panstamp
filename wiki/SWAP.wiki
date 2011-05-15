@@ -8,6 +8,7 @@ SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol d
 = Supported IC's =
 
 * The whole CC11XX radio family, including the popular CC1100 and CC1101 front-ends
+
 * CC430 MCU's with integrated RF interfaces
 
 = Packet structure =
@@ -19,7 +20,9 @@ SWAP device addresses are 1-byte length. Thus, the automatic address filtering m
 There are only three function codes:
 
 * 0x00 - Information packet
+
 * 0x01 - Query packet
+
 * 0x02 - Command packet
 
 All SWAP packets share the same structure except query packets (function code = 0x02) that don't contain a data field. This makes parsing wireless packets a simple task.
@@ -29,7 +32,9 @@ All SWAP packets share the same structure except query packets (function code = 
 Information packets report actual register values. Any device wanting to inform about a register value has to send an information packet. In order to guarantee interoperability between devices, the following conventions must be guaranteed:
 
 * The reception of a query packet must be followed by the transmission of an information message. Thus, querying a register must be answered by an information packet containing the register value being queried.
+
 * After receiving a command packet, an information message has to be sent with the register being modified.
+
 * Developers may decide whether transmit periodic information message or not and the transmission interval in each case. In general, sending periodic infos about the most relevant registers may be a good practice.
 
 == Query packets (function code = 0x01) ==
