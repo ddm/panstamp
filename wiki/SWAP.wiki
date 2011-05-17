@@ -16,9 +16,9 @@ SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol d
 
 = Registers and values =
 
-Registers are SWAP's unit of information. Measured values, I/O's, and configuration parameters are treated as registers by SWAP. Every register has its own 1-byte identifier. Combining register address and register ID, each register is uniquely identified within a SWAP network (see Packet structure section [SWAP#Packet_structure hola]).
+Registers are SWAP's unit of information. Measured values, I/O's, and configuration parameters are treated as registers by SWAP. Every register has its own 1-byte identifier. Combining register address and register ID, each register is uniquely identified within a SWAP network (see [SWAP#Packet_structure Packet structure section]).
 
-The register approach has been inspired on Modbus, an abstract protocol that has proven its flexibility and adaptability in almost any application since 1970. Working with abstract registers provides us with a way of working with different data independently of its type and origin. SWAP does not include a way of identifying the nature of the data being transmitted.
+The register approach has been inspired on Modbus, an abstract protocol that has proven its flexibility and adaptability in almost any application since 1970. Working with abstract registers provides us with a way of working with different data independently of its type and origin. SWAP does not provide a way of identifying the nature of the data being transmitted.
 
 = Packet structure =
 
