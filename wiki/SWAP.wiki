@@ -18,7 +18,11 @@ SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol d
 
 Registers are SWAP's unit of information. Measured values, I/O's, and configuration parameters are treated as registers by SWAP. Every register has its own 1-byte identifier. Combining register address and register ID, each register is uniquely identified within a SWAP network (see [SWAP#Packet_structure Packet structure section]).
 
-This register approach has been inspired on Modbus, an abstract protocol that has proven its flexibility and adaptability in almost any application since the 70's. Working with abstract registers provides us with a way of transmitting different data independently from its type and origin. SWAP does not provide a way of identifying the nature of the data being transmitted, it just provides the necessary mechanisms for sending, requesting and controlling _abstract_ data registers. Freeing the protocol from having to deal with functional profiles, data types or dictionaries simplifies the implementation (smaller firmware footprint, faster processing speed, ...). Instead, end applications may compensate this by accessing central (or remote) repositories containing data descriptions in form of XML files.
+Register values must not be longer than 61 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
+
+
+
+This register approach has been inspired on Modbus, an abstract protocol that has proven its flexibility and adaptability in almost any application since the 70's. Working with abstract registers provides us with a way of transmitting different data independently from its type and origin, in a homogeneous manner. SWAP does not provide a way of identifying the nature of the data being transmitted, it just provides the necessary mechanisms for sending, requesting and controlling _abstract_ data registers. Freeing the protocol from having to deal with functional profiles, data types or dictionaries simplifies the implementation (smaller firmware footprint, faster processing speed, ...). Instead, end applications may compensate this by accessing central (or remote) repositories containing data descriptions in form of XML files.
 
 = Packet structure =
 
