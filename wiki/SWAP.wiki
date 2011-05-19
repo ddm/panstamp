@@ -18,15 +18,22 @@ SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol d
 
 Registers are SWAP's unit of information. Measured values, I/O's, and configuration parameters are treated as registers by SWAP. Every register has its own 1-byte identifier. Combining register address and register ID, each register is uniquely identified within a SWAP network (see [SWAP#Packet_structure Packet structure section]).
 
-Register values must not be longer than 55 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
+Register values have not a fixed length and must not be longer than 55 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
 
+ # Multi-sensor boards typically run all ADC conversions at the same interval. Thus, the developer may prefer to maintain a single register combining all ADC values so that only a single information packet is needed.
+ # Multi-output boards are usually easier to control using one command packet per endpoint (or in other words, one register per endpoint). Otherwise, the sender risks to unintentionally alter any other output when trying to control one of them.
 
+In summary, input endpoints can efficiently be combined into a single register whilst outputs are better managed from multiple registers.
 
 This register approach has been inspired on Modbus, an abstract protocol that has proven its flexibility and adaptability in almost any application since the 70's. Working with abstract registers provides us with a way of transmitting different data independently from its type and origin, in a homogeneous manner. SWAP does not provide a way of identifying the nature of the data being transmitted, it just provides the necessary mechanisms for sending, requesting and controlling _abstract_ data registers. Freeing the protocol from having to deal with functional profiles, data types or dictionaries simplifies the implementation (smaller firmware footprint, faster processing speed, ...). Instead, end applications may compensate this by accessing central (or remote) repositories containing data descriptions in form of XML files.
 
 = Packet structure =
 
-http://2.bp.blogspot.com/-wbE8PN0RffI/TdBJLE6n4jI/AAAAAAAAA50/GkZ0mTSqJNc/s1600/swap.png
+http://4.bp.blogspot.com/-ldLSH3Mfsko/TdWPySWWQHI/AAAAAAAAA54/MUON0rlIr0A/s1600/swap.png
+
+== Network ID ==
+
+SWAP uses CC1101's Synchronization Word to identify the wireless network. Defining different network id's, multiple wireless networks can co-exist without interaction between them. Length of the Network ID: 2 bytes.
 
 == Function codes ==
 
@@ -81,6 +88,10 @@ But the sensor device would unlikely respond to the query since it passes most o
  # Query the register directly to the data recorder device:
 
 *0x06* 0x07 0x00 0x00 0x01 0x05 0x0A
+
+== Register ID ==
+
+Each register is uniquely identified within a device by this 1-byte digit. Combined with the register address, any register is uniquely identified within a wireless network. Length of the register id: 1 byte.
 
 == Wireless hop ==
 
