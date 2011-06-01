@@ -116,7 +116,3 @@ Query packets do not have to include the correct nonce. Thus, nonce = 0 in all q
 == Cyclic Redundancy Check ==
 
 This is a simple 16-bit CRC field, automatically calculated and appended by the CC11XX IC, based on the contents of the cc11XX data payload.
-
-= Details =
-
-SWAP aims to be a very lightweight protocol, with a typical firmware footprint of 3 KBytes or less. It's essentially a peer-to-peer protocol but some of its features make it suitable for basic mesh networks.
