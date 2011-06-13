@@ -1,3 +1,4 @@
+#labels CC11XX,Arduino,library
 = Introduction =
 
 Description of the CC1101 class, its public arguments and methods. Any developer wanting to receive and transmit raw wireless data may use this class instead of the higher level PANSTAMP class.
