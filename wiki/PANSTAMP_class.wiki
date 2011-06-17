@@ -1,0 +1,77 @@
+PANSTAMP_class
+
+= Introduction =
+
+The PANSTAMP class contains the necessary mechanisms to control the board. This class provides some basic methods that will let you initialize and reset the panStamp board and enter the low-power mode. Everything related to the board is contained into this class.
+
+= Public arguments =
+
+{{{
+    /**
+     * CC1101 radio interface
+     */
+    CC1101 cc1101;
+    
+    /**
+     * Security options
+     */
+    byte security;
+
+    /**
+     * Security cyclic nonce
+     */
+    byte nonce;
+}}}
+
+= Public methods =
+
+{{{
+    /**
+     * init
+     * 
+     * Initialize panStamp board
+     */
+    void init(void);
+
+    /**
+     * reset
+     * 
+     * Reset panStamp
+     */
+    void reset(void);
+
+    /**
+     * sleepFor
+     * 
+     * Put panStamp into Power-down state during "time".
+     * This function uses the internal watchdog timer in order to exit (interrupt)
+     * from the power-doen state
+     * 
+     * 'time'	Sleeping time:
+     *  WDTO_15MS  = 15 ms
+     *  WDTO_30MS  = 30 ms
+     *  WDTO_60MS  = 60 ms
+     *  WDTO_120MS  = 120 ms
+     *  WDTO_250MS  = 250 ms
+     *  WDTO_500MS  = 500 ms
+     *  WDTO_1S = 1 s
+     *  WDTO_2S = 2 s
+     *  WDTO_4S = 4 s
+     *  WDTO_8S = 8 s
+     */
+    void sleepFor(byte time);
+    
+    /**
+     * getInternalTemp
+     * 
+     * Read internal (ATMEGA328 only) temperature sensor
+     * 
+     * Return:
+     * 	Temperature in milli-degrees Celsius
+     */
+    long getInternalTemp(void);
+}}}
+
+= Example =
+
+[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphum.pde temphum.pde] is a good example about the use of this class.
