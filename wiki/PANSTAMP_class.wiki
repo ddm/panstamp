@@ -1,3 +1,4 @@
+#labels PANSTAMP,Arduino,library
 PANSTAMP_class
 
 = Introduction =
