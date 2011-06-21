@@ -83,6 +83,9 @@ void setup()
   // Init panStamp
   panstamp.init();
 
+  // Send SWAP info packet containing product information
+  getRegister(REGI_PRODUCTCODE)->getData();
+
   // Run here your initialization code
 }
 
