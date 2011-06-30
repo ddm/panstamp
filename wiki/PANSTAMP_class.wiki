@@ -110,5 +110,39 @@ void loop()
 The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP information:
 
 {{{
+// Define here what you want to do with incoming SWAP infos
+void (*infoReceived)(SWPACKET *info)
+{
+  // SWAP info packet received
+  byte sAddr = info->srcAddr;       // Source address
+  byte rAddr = info->regAddr;       // Register address
+  byte rId = info->regId;           // Register id
+  byte len = info->value->length;   // Length of the register value
+  byte *val = info->value->data;    // register value
 
+  // Run here your code
+}
+
+void setup()
+{ 
+  // Init panStamp
+  panstamp.init();
+
+  // Declare SWAP info callback function
+  panstamp.infoReceived = gotAnInfo;
+
+  // Send SWAP info packet containing product information
+  getRegister(REGI_PRODUCTCODE)->getData();
+
+  // Run here your initialization code
+}
+
+void loop()
+{
+  // Run ADC conversions and send SWAP info packet
+  getRegister(REGI_HUMIDTEMP)->getData();
+  
+  // Only for battery-operated devices, sleep the board for a given time
+  panstamp.sleepFor(WDTO_8S);   // Sleep for 8 seconds
+}
 }}}
