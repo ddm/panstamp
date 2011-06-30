@@ -110,7 +110,7 @@ void loop()
 The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP information:
 
 {{{
-// Define here what you want to do with incoming SWAP infos
+// Define here what you want to do with the incoming SWAP infos
 void (*infoReceived)(SWPACKET *info)
 {
   // SWAP info packet received
@@ -146,3 +146,7 @@ void loop()
   panstamp.sleepFor(WDTO_8S);   // Sleep for 8 seconds
 }
 }}}
+
+Defining the "infoReceived" callback function is the way to pick up SWAP info packets. SWAP infos are always broadcasted so our device maybe wants to do something with an info coming from a given device and register.
+
+On the other hand, SWAP commands and queries addressed to our device are automatically dispatched by the panstamp stack, as explained in **********
