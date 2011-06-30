@@ -20,6 +20,16 @@ The PANSTAMP class contains the necessary mechanisms to control the board. This 
      * Security cyclic nonce
      */
     byte nonce;
+    
+    /**
+     * System state
+     */
+    byte systemState;
+
+    /**
+     * SWAP info packet received. Callaback function
+     */
+    void (*infoReceived)(SWPACKET *info);
 }}}
 
 = Public methods =
