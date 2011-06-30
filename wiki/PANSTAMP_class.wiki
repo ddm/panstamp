@@ -83,7 +83,7 @@ The PANSTAMP class contains the necessary mechanisms to control the board. This 
 
 = Example =
 
-[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphum.pde temphum.pde] is a good example about the use of this class. Generally, you will want to use the following code:
+[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphum.pde temphum.pde] is a good example about the use of this class. Generally, you will want to use something similar to the following code:
 
 {{{
 void setup()
@@ -105,4 +105,10 @@ void loop()
   // Only for battery-operated devices, sleep the board for a given time
   panstamp.sleepFor(WDTO_8S);   // Sleep for 8 seconds
 }
+}}}
+
+The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP information:
+
+{{{
+
 }}}
