@@ -1,0 +1,6 @@
+#The stack, the core of the panStamps
+
+= Introduction =
+
+The panStamp stack is the firmware behind the scenes. It's primarily formed by a public set of functions, variables and, the most important, all the automatic procedures 
+
