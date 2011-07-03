@@ -19,6 +19,6 @@ The stack is responsible of doing the following tasks:
 
 All the above features provide a high degree of isolation between network communications, endpoint management and user code. In fact, the main goal of using this stack is letting the user concentrate on developing the application whilst the stack does the rest.
 
-https://lh6.googleusercontent.com/-Xmc7fKc6ia8/ThCLP_fqwJI/AAAAAAAAA9k/Lbol66lwSlc/stack_3.png
+<a <lign="center">https://lh6.googleusercontent.com/-Xmc7fKc6ia8/ThCLP_fqwJI/AAAAAAAAA9k/Lbol66lwSlc/stack_3.png</a>
 
 = How it works =
