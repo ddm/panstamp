@@ -21,4 +21,7 @@ All the above features provide a high degree of isolation between network commun
 
 <p align="center">https://lh6.googleusercontent.com/-9pPNOkG2-Os/ThCPlE7RceI/AAAAAAAAA9s/vZb_3ZX4GiM/stack_3.png</p>
 
+
 = How it works =
+
+The panStamp stack, through the use of the panStamp library, works in a simply manner:
