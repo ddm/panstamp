@@ -4,7 +4,7 @@
 
 The panStamp stack is the firmware behind the scenes. It's primarily formed by a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
 
-== Functionality ==
+= Functionality =
 
 The stack is responsible of doing the following tasks:
 
@@ -18,3 +18,7 @@ The stack is responsible of doing the following tasks:
  * Storage of configuration registers in EEPROM
 
 All the above features provide a high degree of isolation between network communications, endpoint management and user code. In fact, the main goal of using this stack is letting the user concentrate on developing the application whilst the stack does the rest.
+
+https://picasaweb.google.com/lh/photo/TFFYl-AyqDW1VzmQa_JUdLIMAvQWT7HUuqBAgyhZCEQ?feat=directlink
+
+= How it works =
