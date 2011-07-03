@@ -1,6 +1,17 @@
-#The stack, the core of the panStamps
+*The stack, the core of the panStamps*
 
 = Introduction =
 
-The panStamp stack is the firmware behind the scenes. It's primarily formed by a public set of functions, variables and, the most important, all the automatic procedures 
+The panStamp stack is the firmware behind the scenes. It's primarily formed by a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
 
+== Functionality ==
+
+The stack is responsible of doing the following tasks:
+
+ * Listening to the wireless SWAP network
+ * Parsing incoming SWAP packets
+ * Transmission of SWAP packets
+ * Automatic generation of responses to incoming SWAP commands and queries
+ * Management of registers, including updates and external control
+ * Control of the internal state machine
+ * Power management
