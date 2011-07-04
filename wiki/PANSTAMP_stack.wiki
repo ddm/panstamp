@@ -25,6 +25,15 @@ All the above features provide a high degree of isolation between network commun
 
 = How it works =
 
-panStamp stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application.
+Stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application.
 
-The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, 
+The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, the following mechanisms comes into play:
+
+*1. SWAP query addressed to our device*
+The panStamp stack looks up the table of registers and responds with an info packet.
+
+*2. SWAP command addressed to our device*
+The panStamp stack looks up the table of registers, runs register's setter function and responds with an info packet
+
+*3. SWAP info packet broadcasted*
+The panStamp stack calls a user callback function so that the info packet can be dispatched from the Arduino sketch.
