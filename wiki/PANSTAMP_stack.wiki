@@ -25,15 +25,36 @@ All the above features provide a high degree of isolation between network commun
 
 = How it works =
 
-Stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application.
-
-The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, the following mechanisms comes into play:
+Stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application. The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, the following mechanisms come into play:
 
 *1. SWAP query addressed to our device*
 The panStamp stack looks up the table of registers and responds with an info packet.
 
 *2. SWAP command addressed to our device*
-The panStamp stack looks up the table of registers, runs register's setter function and responds with an info packet
+The panStamp stack looks up the table of registers, runs register's setter function (if exists) and responds with an info packet
 
 *3. SWAP info packet broadcasted*
 The panStamp stack calls a user callback function so that the info packet can be dispatched from the Arduino sketch.
+
+With the above automatic procedures, a good degree of abstraction between stack and user application is achieved. At the same time, user application is freed from having to deal with SWAP-related details. Which is the magics behind all this?
+
+In order to make this engine work, developers have to build a table of registers for each device (each sketch). The first part of the table is common to all devices, formed by some standard registers as _channel number_, _address_ or _network id_. The rest of registers are proprietary to each application.
+
+
+= Table of registers =
+
+_regTable_ is the global table of registers. Each member of this table (REGISTER) has to be created using the following constructor:
+
+{{{
+    /**
+     * REGISTER
+     * 
+     * Constructor
+     * 
+     * 'val'          Pointer to the register value
+     * 'len'          Length of the register value
+     * 'getValH'      Pointer to the getter function
+     * 'setValH'      Pointer to the setter function
+     */
+    REGISTER(byte *val, const byte len, const void (*updateValH)(byte rId), const void (*setValH)(byte rId, byte *v)):id(regIndex++), value(val), length(len), updateValue(updateValH), setValue(setValH) {};
+}}}
