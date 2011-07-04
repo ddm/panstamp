@@ -1,3 +1,4 @@
+#labels panstamp,arduino,library
 *The stack, the core of the panStamps*
 
 = Introduction =
@@ -24,4 +25,6 @@ All the above features provide a high degree of isolation between network commun
 
 = How it works =
 
-The panStamp stack, through the use of the panStamp library, works in a simply manner:
+panStamp stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application.
+
+The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, 
