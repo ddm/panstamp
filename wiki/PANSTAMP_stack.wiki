@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The panStamp stack is the firmware behind the scenes. It's primarily formed by a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
+The panStamp stack is the firmware behind the scenes. It primarily consists of a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
 
 = Functionality =
 
@@ -58,3 +58,65 @@ _regTable_ is the global table of registers. Each member of this table (REGISTER
      */
     REGISTER(byte *val, const byte len, const void (*updateValH)(byte rId), const void (*setValH)(byte rId, byte *v)):id(regIndex++), value(val), length(len), updateValue(updateValH), setValue(setValH) {};
 }}}
+
+For example, let's imagine that we want to create a custom register intended to store humidity and temperature values. In our example, temperature and humidity take one byte each one so we need a two-byte register:
+
+{{{
+// Allocating the two-byte register field
+static byte dtTempHum[2];
+// Definition of the register itself
+REGISTER regTempHum(dtTempHum, sizeof(dtTempHum), &updtTempHum, NULL);
+}}}
+
+On the above example _dtTempHum_ is the array that really stores the value of the _regTempHum_ register. _updtTempHum_ is the _getter function_, a callback function defined by the user and called whenever _regTempHum.getValue()_ is called from the Arduino sketch. Thus, if you need to run ADC conversions and do other calculations over the register value, this callback function is the place to do it.
+
+Following with the above example, let's suppose that we need to update the "temperature & humidity" register every 8 seconds and then go to sleep. We would do the following in the main loop:
+
+{{{
+/**
+ * loop
+ *
+ * Arduino main loop
+ */
+void loop()
+{
+  // Update _updtTempHum_ register and send SWAP info packet
+  getRegister(REGI_HUMIDTEMP)->getData();
+  
+  // Sleep for 8 seconds
+  panstamp.sleepFor(WDTO_8S);
+}
+}}}
+
+Back to the above register definition, there is no pointer to a _setter function_ (null). A _setter function_ is another callback function to be defined by the user. However, unlike the _getter function_, a _setter function_ is called from register.setValue(val). In other words, this function automatically runs whenever a SWAP command is addressed to the register. Since _regTempHum_ is not controllable (it's just a couple of ADC inputs), there is no setter function associated to the register. As result, whenever a SWAP command is sent to our register the panStamp will respond with a SWAP info packet containing the value unaltered. That's all.
+
+OK, once our custom register defined, let's define _regTable_, the complete array of registers:
+
+{{{
+/**
+ * Initialize table of registers
+ */
+REGISTER *regTable[] = {
+        &regProductCode,
+        &regHwVersion,
+        &regFwVersion,
+        &regSysState,
+        &regFreqChannel,
+        &regSecuOption,
+        &regSecuNonce,
+        &regNetworkId,
+        &regDevAddress,
+        // And here our custom register
+        &regTempHum
+}; 
+}}}
+
+_regTable_ is in fact an array of pointers to registers. This let us manipulate very diverse information and variable data-lengths without having to allocate any unused memory space.
+
+Before _regTempHum_ we must place the main standard registers, common to all SWAP devices, following the above order. The index of each register within _regTable_ matchs its ID so whenever a SWAP command or query is addressed to our device, the id is used to find the register in _regTable_ and run the necessary operations with the help of the pre-defined callback functions. This would seem a bit complicated but it's fast and saves a lot of flash.
+
+= Other examples =
+
+Reviewing some real code is maybe the best way to understand these concepts. Any _regtable.pde_ file from any of the available sample sketches will show you how to define custom registers and create your own _getter_/_setter_ callback functions.
+
+For example, from the temphum sample code: [http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/regtable.pde regtable.pde]
