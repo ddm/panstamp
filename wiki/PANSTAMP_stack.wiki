@@ -96,24 +96,15 @@ OK, once our custom register defined, let's define _regTable_, the complete arra
 /**
  * Initialize table of registers
  */
-REGISTER *regTable[] = {
-        &regProductCode,
-        &regHwVersion,
-        &regFwVersion,
-        &regSysState,
-        &regFreqChannel,
-        &regSecuOption,
-        &regSecuNonce,
-        &regNetworkId,
-        &regDevAddress,
-        // And here our custom register
-        &regTempHum
-}; 
+DECLARE_REGISTERS_START()
+  &regVoltSupply,
+  &regTempHum
+DECLARE_REGISTERS_END()
 }}}
 
 _regTable_ is in fact an array of pointers to registers. This let us manipulate very diverse information and variable data-lengths without having to allocate any unused memory space.
 
-Before _regTempHum_ we must place the main standard registers, common to all SWAP devices, following the above order. The index of each register within _regTable_ matchs its ID so whenever a SWAP command or query is addressed to our device, the id is used to find the register in _regTable_ and run the necessary operations with the help of the pre-defined callback functions. This would seem a bit complicated but it's fast, saves a lot of flash and prevents the user from having to deal with the SWAP protocol.
+The above macro automatically adds the main [SWAPregisters#Standard_registers standard registers], common to all SWAP devices. The index of each register within _regTable_ matches its ID so whenever a SWAP command or query is addressed to our device, the id is used to find the register in _regTable_ and run the necessary operations with the help of the pre-defined callback functions. This would seem a bit complicated but it's fast, saves a lot of flash and prevents the user from having to deal with the SWAP protocol.
 
 = Other examples =
 
