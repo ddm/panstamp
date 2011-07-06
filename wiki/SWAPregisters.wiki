@@ -14,8 +14,11 @@ The following registers must be included by any device implementing the SWAP pro
 == Product code ==
 
 Register ID = 0
+
 Length = 8 bytes
+
 Access: read only
+
 Description: code is formed by Manufacturer ID (4 bytes) and Product ID (4 bytes)
 
 https://lh4.googleusercontent.com/-O0yUvAEqRgY/TYDko4wALjI/AAAAAAAAAy4/CgFfzcjaK88/s1600/product_code.png
