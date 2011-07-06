@@ -69,23 +69,31 @@ Description: type of security protection used against different wireless attacks
 
 Developers are free to define new security options, using custom encryption algorithms.
 
+== Security password ==
+
+(Not supported yet)
+Register ID = 6
+Length = n bytes
+Access: read and write
+Description: Encryption password, to be used according to _Security option_.
+
 == Security nonce ==
 
-Register ID = 6
+Register ID = 7
 Length = 1 byte
 Access: read only
 Description: when enabled, security nonces add protection against play-back attacks. As explained in the protocol definition page, security nonces can be queried before sending commands to a given device.
 
 == Network ID ==
 
-Register ID = 7
+Register ID = 8
 Length = 2 bytes
 Access: read and write
 Description: each SWAP network is identified by a 2-byte code. This ID is appended by the CC11XX IC at the beginning of every wireless packet, just after the preamble.
 
 == Device address ==
 
-Register ID = 8
+Register ID = 9
 Length = 1 byte
 Access: read and write
 Description: 1-byte SWAP address
