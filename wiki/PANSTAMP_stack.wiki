@@ -94,7 +94,7 @@ OK, once our custom register defined, let's define _regTable_, the complete arra
 
 {{{
 /**
- * Initialize table of registers
+ * Initialize table of registers (regTable)
  */
 DECLARE_REGISTERS_START()
   &regVoltSupply,
