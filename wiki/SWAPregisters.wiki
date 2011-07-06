@@ -25,28 +25,38 @@ https://lh4.googleusercontent.com/-O0yUvAEqRgY/TYDko4wALjI/AAAAAAAAAy4/CgFfzcjaK
 
 * Manufacturer ID *
 Each developer or manufacturer of SWAP devices owns a unique Manufacturer ID. This ID is part of the product code of any device made by this developer.
+
 * Product Id *
 Each type of wireless device is identified by a unique Product ID, common to all devices of the same type belonging to the a given manufacturer.
 
 == Hardware Version ==
 
 Register ID = 1
+
 Length = 4 bytes
+
 Access: read only
+
 Description: 4-byte code identifying the hardware version of the wireless device
 
 == Firmware Version ==
 
 Register ID = 2
+
 Length = 4 bytes
+
 Access: read only
+
 Description: 4-byte code identifying the firmware version of the wireless device
 
 == System state ==
 
 Register ID = 3
+
 Length = 1 byte
+
 Access: read and write
+
 Description: 1-byte register used to query and control the state of the wireless device. Developers are free to define their own states but, at least, the following should be used:
 
  * State = 0 -> Restart wireless device
@@ -55,15 +65,21 @@ Description: 1-byte register used to query and control the state of the wireless
 == Frequency channel ==
 
 Register ID = 4
+
 Length = 1 byte
+
 Access: read and write
+
 Description: RF frequency channel used by the wireless device
 
 == Security option ==
 
 Register ID = 5
+
 Length = 1 byte
+
 Access: read and write
+
 Description: type of security protection used against different wireless attacks.
 
  * Security option = 0 -> No security
@@ -75,30 +91,43 @@ Developers are free to define new security options, using custom encryption algo
 == Security password ==
 
 (Not supported yet)
+
 Register ID = 6
+
 Length = n bytes
+
 Access: read and write
+
 Description: Encryption password, to be used according to _Security option_.
 
 == Security nonce ==
 
 Register ID = 7
+
 Length = 1 byte
+
 Access: read only
+
 Description: when enabled, security nonces add protection against play-back attacks. As explained in the protocol definition page, security nonces can be queried before sending commands to a given device.
 
 == Network ID ==
 
 Register ID = 8
+
 Length = 2 bytes
+
 Access: read and write
+
 Description: each SWAP network is identified by a 2-byte code. This ID is appended by the CC11XX IC at the beginning of every wireless packet, just after the preamble.
 
 == Device address ==
 
 Register ID = 9
+
 Length = 1 byte
+
 Access: read and write
+
 Description: 1-byte SWAP address
 
 = Custom registers =
