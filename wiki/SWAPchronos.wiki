@@ -1,4 +1,5 @@
-#SWAPing packets from your ez430-Chronos watch
+#labels ez430-Chronos,watch,swap
+*SWAPing packets from your ez430-Chronos watch*
 
 == SWAP-enabled Chronos watch =
 
