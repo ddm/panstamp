@@ -11,9 +11,7 @@ Introduction
 
 [PANSTAMP_stack#Table_of_registers Table of registers]
 
-[PANSTAMP_stack#Other_examples Other examples]
-
-[SWAP#Introduction JEJE]
+[Other_examples Other examples]
 
 = Introduction =
 
