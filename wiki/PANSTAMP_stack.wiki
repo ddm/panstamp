@@ -1,8 +1,6 @@
 #labels panstamp,arduino,library
 *The stack, core of panStamps*
 
-= stack =
-
  * Introduction
  * [PANSTAMP_stack#Introduction Introduction]
  * [PANSTAMP_stack#Functionality Functionality]
