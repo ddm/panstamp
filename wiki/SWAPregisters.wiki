@@ -1,6 +1,22 @@
 #labels SWAP,protocol,registers
 *SWAP registers and the importance of interoperability*
 
+= Standard SWAP registers =
+
+ * [SWAPregisters#Introduction Introduction]
+ * [SWAPregisters#Standard_registers Standard registers]
+  * [SWAPregisters#Product_code Product code]
+  * [SWAPregisters#Hardware_Version Hardware Version]
+  * [SWAPregisters#Firmware_Version Firmware Version]
+  * [SWAPregisters#System_state System state]
+  * [SWAPregisters#Frequency_channel Frequency channel]
+  * [SWAPregisters#Security_option Security option]
+  * [SWAPregisters#Security_password Security password]
+  * [SWAPregisters#Security_nonce Security nonce]
+  * [SWAPregisters#Network_ID Network ID]
+  * [SWAPregisters#Device_address Device address]
+ * [SWAPregisters#Custom_registers Custom registers]
+
 = Introduction =
 
 We commented in the [http://code.google.com/p/panstamp/wiki/SWAP SWAP description page] the importance of registers. Every wireless parameter, endpoint value or user configuration setting can have a register representation. Doing this, SWAP can address very different actions using a basic packet exchange schema. In other words, using abstract data registers is the main reason of SWAP being so simple and flexible.
