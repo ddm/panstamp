@@ -1,24 +1,24 @@
-#labels SWAP,protocol
+#labels SWAP,protocol,wireless
 *SWAP, a very tiny protocol for constrained wireless M2M networks*
 
-= Index =
+= Simple Wireless Abstract Protocol (SWAP) =
 
  * [SWAP#Motivation Motivation]
- * [SWAP#Introduction]
- * [SWAP#Supported IC's]
- * [SWAP#Registers and values]
- * [SWAP#Packet structure]
-  * [SWAP#Network id]
-  * [SWAP#Function codes]
-   * [SWAP#Information packets (function code = 0x00)]
-   * [SWAP#Query packets (function code = 0x01)]
-   * [SWAP#Command packets (function code = 0x02)]
-  * [SWAP#Device address]
-  * [SWAP#Register ID]
-  * [SWAP#Wireless hop]
-  * [SWAP#Security option]
-  * [SWAP#Security nonce]
-  * [SWAP#Cyclic Redundancy Check]
+ * [SWAP#Introduction Introduction]
+ * [SWAP#Supported_IC's]
+ * [SWAP#Registers_and_values Registers and values]
+ * [SWAP#Packet_structure Packet structure]
+  * [SWAP#Network_id Network id]
+  * [SWAP#Function_codes Function codes]
+   * [SWAP#Information_packets_(function_code_=_0x00) Information packets]
+   * [SWAP#Query_packets_(function_code_=_0x01) Query packets]
+   * [SWAP#Command_packets_(function_code_=_0x02) Command packets]
+  * [SWAP#Device_address Device address]
+  * [SWAP#Register_ID Register ID]
+  * [SWAP#Wireless_hop Wireless hop]
+  * [SWAP#Security_option Security option]
+  * [SWAP#Security_nonce Security nonce]
+  * [SWAP#Cyclic_Redundancy_Check Cyclic Redundancy Check]
 
 = Motivation =
 
