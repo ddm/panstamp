@@ -3,22 +3,22 @@
 
 = Index =
 
- * Motivation
- * Introduction
- * Supported IC's
- * Registers and values
- * Packet structure
-  * Network id
-  * Function codes
-   * Information packets (function code = 0x00)
-   * Query packets (function code = 0x01)
-   * Command packets (function code = 0x02)
-  * Device address
-  * Register ID
-  * Wireless hop
-  * Security option
-  * Security nonce
-  * Cyclic Redundancy Check
+ * [SWAP#Motivation Motivation]
+ * [SWAP#Introduction]
+ * [SWAP#Supported IC's]
+ * [SWAP#Registers and values]
+ * [SWAP#Packet structure]
+  * [SWAP#Network id]
+  * [SWAP#Function codes]
+   * [SWAP#Information packets (function code = 0x00)]
+   * [SWAP#Query packets (function code = 0x01)]
+   * [SWAP#Command packets (function code = 0x02)]
+  * [SWAP#Device address]
+  * [SWAP#Register ID]
+  * [SWAP#Wireless hop]
+  * [SWAP#Security option]
+  * [SWAP#Security nonce]
+  * [SWAP#Cyclic Redundancy Check]
 
 = Motivation =
 
