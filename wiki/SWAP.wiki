@@ -3,22 +3,22 @@
 
 = Index =
 
-Motivation
-Introduction
-Supported IC's
-Registers and values
-Packet structure
-Network id
-Function codes
-Information packets (function code = 0x00)
-Query packets (function code = 0x01)
-Command packets (function code = 0x02)
-Device address
-Register ID
-Wireless hop
-Security option
-Security nonce
-Cyclic Redundancy Check
+ * Motivation
+ * Introduction
+ * Supported IC's
+ * Registers and values
+ * Packet structure
+  * Network id
+  * Function codes
+   * Information packets (function code = 0x00)
+   * Query packets (function code = 0x01)
+   * Command packets (function code = 0x02)
+  * Device address
+  * Register ID
+  * Wireless hop
+  * Security option
+  * Security nonce
+  * Cyclic Redundancy Check
 
 = Motivation =
 
