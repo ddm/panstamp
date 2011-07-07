@@ -1,0 +1,36 @@
+#SWAPing packets from your ez430-Chronos watch
+
+== SWAP-enabled Chronos watch =
+
+= Introduction =
+
+The [http://processors.wiki.ti.com/index.php/EZ430-Chronos?DCMP=Chronos&HQS=Other+OT+chronoswiki ez430-Chronos watch] is a development platform manufactured by Texas Instruments. Based on the [http://focus.ti.com/docs/prod/folders/print/cc430f6137.html CC430F6137] core, this micro-controlled watch is capable to communicate on several ISM bands, 868 MHz and 915 MHz included. It can be programmed using [http://mspgcc4.sourceforge.net MSPGCC4] and the open source port of TI's official sources, [https://github.com/poelzi/OpenChronos OpenChronos].
+
+CC430 processors share the same packet structure as the CC11XX family of RF interfaces. Thus, potential synergies came into the picture once the first panStamp boards started working. A [https://github.com/dberenguer/OpenChronos fork] from the OpenChronos project was created and new [SWAP SWAP] communication capabilities were added onto the existing features. Among them:
+
+ * Ability to periodically broadcast (SWAP infos) temperature, pressure and altitude data measured from the internal sensors
+ * Wireless configuration (synchronization) from a PC tool called SWAPdmt.
+ * Possibility to enter in ACC mode, where accelerometer data is boradcasted every second.
+ * SWAP browser: a number of external SWAP values can be browsed and controlled from the watch.
+
+One of the interesting things about this new firmware is that most of the above functions can be configured wirelessly so there is no need to recompile the code for every SWAP network.
+
+= How to compile the code =
+
+Under Linux:
+
+ # First of all, you need to install [http://mspgcc4.sourceforge.net MSPGCC4] on your PC.
+ # Then, download the new OpenChronos sources from [https://github.com/dberenguer/OpenChronos here].
+ # Then _cd_ into OpenChronos and run _make clean main_.
+ # The new binary image will be found into OpenChronos/build.
+
+= How to install the new firmware =
+
+Under Linux:
+
+ # Install [http://mspdebug.sourceforge.net/ MSPDEBUG] on your PC.
+ # Compile the code following the above instructions or download the image from the _Download_ page.
+ # Open the watch and connect the USB/JTAG programmer supplied with the development kit
+ # Run this other command: _mspdebug rf2500_. A MSPdebug console will open.
+ # Run this new command from the MSPDEBUG console: _prog build/eZChronos.txt_
+ # Wait the necessary time until the flashing process completes (usually some minutes on my computer).
