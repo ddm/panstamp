@@ -1,5 +1,5 @@
 #labels panstamp,arduino,library
-*The stack, the core of the panStamps*
+*The stack, the core of panStamps*
 
 = PANSTAMP stack =
 
