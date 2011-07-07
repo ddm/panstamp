@@ -3,9 +3,10 @@
 
 = SWAP-enabled Chronos watch =
 
-[SWAPchronos#Introduction Introduction]
-[SWAPchronos#How_to_compile_the_code How to compile the code]
-[SWAPchronos#How_to_install_the_new_firmware How to install the new firmware]
+ * [SWAPchronos#Introduction Introduction]
+ * [SWAPchronos#How_to_compile_the_code How to compile the code]
+ * [SWAPchronos#How_to_install_the_new_firmware How to install the new firmware]
+ * [SWAPchronos#Links Links]
 
 = Introduction =
 
