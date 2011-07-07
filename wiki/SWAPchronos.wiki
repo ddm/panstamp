@@ -42,5 +42,4 @@ Under Linux:
 
 = Chronos tour =
 
-<p>
-<embed flashvars="host=picasaweb.google.com&amp;hl=en_US&amp;feat=flashalbum&amp;interval=7&amp;RGB=0x000000&amp;feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fusapiens%2Falbumid%2F5623335869010438177%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" height="430" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" type="application/x-shockwave-flash" width="400"></embed></p>
+<div style="width:288px;font-family:arial,sans-serif;font-size:13px;"><div><embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="288" height="192" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fusapiens%2Falbumid%2F5623335869010438177%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div><span style="float:left;"><a href="https://picasaweb.google.com/usapiens/ChronosMenus?authuser=0&feat=flashalbum" style="color:#3964c2">View all</a></span><div style="text-align:right;"><a href="http://picasaweb.google.com/lh/getEmbed?feat=flashalbum" style="color:#3964c2">Get your own</a></div></div>
