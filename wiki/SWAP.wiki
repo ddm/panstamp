@@ -1,6 +1,25 @@
 #labels SWAP,protocol
 *SWAP, a very tiny protocol for constrained wireless M2M networks*
 
+= Index =
+
+Motivation
+Introduction
+Supported IC's
+Registers and values
+Packet structure
+Network id
+Function codes
+Information packets (function code = 0x00)
+Query packets (function code = 0x01)
+Command packets (function code = 0x02)
+Device address
+Register ID
+Wireless hop
+Security option
+Security nonce
+Cyclic Redundancy Check
+
 = Motivation =
 
 We needed a very simple and lightweight protocol for our panStamp boards, 8-bit AVR MCU's interfacing CC1101 RF front-ends. Most of the existing protocols provide an excess of functionality (and size) that was not necessary for the project. Again, we really needed a very low-footprint stack with enough flexibility to do great things.
@@ -57,13 +76,13 @@ Information messages are always broadcasted.
 
 === Query packets (function code = 0x01) ===
 
-Query packets are transmitted to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with an information packet. Query packets can be broadcasted (address 0).
+Query packets are intended to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with an information packet. Query packets can be occasionally broadcasted (address 0) only in some situations. For example, when a new high-end device (ex: IP gateway) starts or enters the network the first time then it can broadcast a query on register "Product Code" in order to know which awake nodes are available in the network.
 
 === Command packets (function code = 0x02) ===
 
 Command packets are used to control register values on any remote device. After completing the necessary changes on the register, the remote device must reply with an information packet informing about the value of the affected register. In case the register could not be modified, the remote device should reply with the contents of the unaltered register.
 
-Command packets are never broadcasted.
+Command packets can never be broadcasted.
 
 == Device address ==
 
