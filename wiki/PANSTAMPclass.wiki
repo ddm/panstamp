@@ -1,0 +1,158 @@
+= PANSTAMP class =
+
+ * [PANSTAMPclass#Introduction Introduction]
+ * [PANSTAMPclass#Public_arguments Public arguments]
+ * [PANSTAMPclass#Public_methods Public methods]
+ * [PANSTAMPclass#Example Example]
+
+= Introduction =
+
+The PANSTAMP class contains the necessary mechanisms to control the board. This class provides some basic methods that will let you initialize and reset the panStamp board and enter the low-power mode. Everything related to the board is contained into this class. Behind the scenes, PANSTAMP automatically dispatches SWAP commands and queries, replaying with SWAP information packets when necessary. 
+
+= Public arguments =
+
+{{{
+    /**
+     * CC1101 radio interface
+     */
+    CC1101 cc1101;
+    
+    /**
+     * Security options
+     */
+    byte security;
+
+    /**
+     * Security cyclic nonce
+     */
+    byte nonce;
+    
+    /**
+     * System state
+     */
+    byte systemState;
+
+    /**
+     * SWAP info packet received. Callaback function
+     */
+    void (*infoReceived)(SWPACKET *info);
+}}}
+
+= Public methods =
+
+{{{
+    /**
+     * init
+     * 
+     * Initialize panStamp board
+     */
+    void init(void);
+
+    /**
+     * reset
+     * 
+     * Reset panStamp
+     */
+    void reset(void);
+
+    /**
+     * sleepFor
+     * 
+     * Put panStamp into Power-down state during "time".
+     * This function uses the internal watchdog timer in order to exit (interrupt)
+     * from the power-doen state
+     * 
+     * 'time'	Sleeping time:
+     *  WDTO_15MS  = 15 ms
+     *  WDTO_30MS  = 30 ms
+     *  WDTO_60MS  = 60 ms
+     *  WDTO_120MS  = 120 ms
+     *  WDTO_250MS  = 250 ms
+     *  WDTO_500MS  = 500 ms
+     *  WDTO_1S = 1 s
+     *  WDTO_2S = 2 s
+     *  WDTO_4S = 4 s
+     *  WDTO_8S = 8 s
+     */
+    void sleepFor(byte time);
+    
+    /**
+     * getInternalTemp
+     * 
+     * Read internal (ATMEGA328 only) temperature sensor
+     * 
+     * Return:
+     * 	Temperature in milli-degrees Celsius
+     */
+    long getInternalTemp(void);
+}}}
+
+= Example =
+
+[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphum.pde temphum.pde] is a good example about the use of this class. Generally, you will want to use something similar to the following code:
+
+{{{
+void setup()
+{ 
+  // Init panStamp
+  panstamp.init();
+
+  // Send SWAP info packet containing product information
+  getRegister(REGI_PRODUCTCODE)->getData();
+
+  // Run here your initialization code
+}
+
+void loop()
+{
+  // Run ADC conversions and send SWAP info packet
+  getRegister(REGI_HUMIDTEMP)->getData();
+  
+  // Only for battery-operated devices, sleep the board for a given time
+  panstamp.sleepFor(WDTO_8S);   // Sleep for 8 seconds
+}
+}}}
+
+The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP information:
+
+{{{
+// Define here what you want to do with the incoming SWAP infos
+void (*infoReceived)(SWPACKET *info)
+{
+  // SWAP info packet received
+  byte sAddr = info->srcAddr;       // Source address
+  byte rAddr = info->regAddr;       // Register address
+  byte rId = info->regId;           // Register id
+  byte len = info->value->length;   // Length of the register value
+  byte *val = info->value->data;    // register value
+
+  // Run here your code
+}
+
+void setup()
+{ 
+  // Init panStamp
+  panstamp.init();
+
+  // Declare SWAP info callback function
+  panstamp.infoReceived = gotAnInfo;
+
+  // Send SWAP info packet containing product information
+  getRegister(REGI_PRODUCTCODE)->getData();
+
+  // Run here your initialization code
+}
+
+void loop()
+{
+  // Run ADC conversions and send SWAP info packet
+  getRegister(REGI_HUMIDTEMP)->getData();
+  
+  // Only for battery-operated devices, sleep the board for a given time
+  panstamp.sleepFor(WDTO_8S);   // Sleep for 8 seconds
+}
+}}}
+
+Defining the "infoReceived" callback function is the way to pick up SWAP info packets. SWAP infos are always broadcasted so our device maybe wants to do something with an info coming from a given device and register.
+
+On the other hand, SWAP commands and queries addressed to our device are automatically dispatched by the panstamp stack, as explained in [PANSTAMPstack this page].
