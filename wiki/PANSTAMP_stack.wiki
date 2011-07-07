@@ -1,6 +1,14 @@
 #labels panstamp,arduino,library
 *The stack, the core of the panStamps*
 
+= PANSTAMP stack =
+
+ * [PANSTAMP_stack#Introduction Introduction]
+ * [PANSTAMP_stack#Functionality Functionality]
+ * [PANSTAMP_stack#How_it_works How it works]
+ * [PANSTAMP_stack#Table_of_registers Table of registers]
+ * [PANSTAMP_stack#Other_examples Other examples]
+
 = Introduction =
 
 The panStamp stack is the firmware behind the scenes. It primarily consists of a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
