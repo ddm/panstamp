@@ -1,17 +1,13 @@
 #labels panstamp,arduino,library
 *The stack, core of panStamps*
 
-Introduction
+= PANSTAMP stack=
 
-[PANSTAMP_stack#Introduction Introduction]
-
-[PANSTAMP_stack#Functionality Functionality]
-
-[PANSTAMP_stack#How_it_works How it works]
-
-[PANSTAMP_stack#Table_of_registers Table of registers]
-
-[panstamp_stack#Other_examples Other examples]
+ * [PANSTAMPstack#Introduction Introduction]
+ * [PANSTAMPstack#Functionality Functionality]
+ * [PANSTAMPstack#How_it_works How it works]
+ * [PANSTAMPstack#Table_of_registers Table of registers]
+ * [PANSTAMPstack#Other_examples Other examples]
 
 = Introduction =
 
