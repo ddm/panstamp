@@ -3,8 +3,8 @@
 
 = PANSTAMP stack =
 
- * [Introduction Introduction]
- * [PANSTAMP_stack#Functionality Functionality]
+[PANSTAMP_stack#Introduction Introduction]
+[PANSTAMP_stack#Functionality Functionality]
  * [PANSTAMP_stack#How_it_works How it works]
  * [PANSTAMP_stack#Table_of_registers Table of registers]
  * [PANSTAMP_stack#Other_examples Other examples]
