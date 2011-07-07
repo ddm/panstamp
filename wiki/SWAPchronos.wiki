@@ -1,7 +1,11 @@
 #labels ez430-Chronos,watch,swap
-*SWAPing packets from your ez430-Chronos watch*
+*SWAPping packets from your ez430-Chronos watch*
 
-== SWAP-enabled Chronos watch =
+= SWAP-enabled Chronos watch =
+
+[SWAPchronos#Introduction Introduction]
+[SWAPchronos#How_to_compile_the_code How to compile the code]
+[SWAPchronos#How_to_install_the_new_firmware How to install the new firmware]
 
 = Introduction =
 
@@ -35,3 +39,5 @@ Under Linux:
  # Run this other command: _mspdebug rf2500_. A MSPdebug console will open.
  # Run this new command from the MSPDEBUG console: _prog build/eZChronos.txt_
  # Wait the necessary time until the flashing process completes (usually some minutes on my computer).
+
+= Chronos tour =
