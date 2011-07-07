@@ -42,5 +42,5 @@ Under Linux:
 
 = Chronos tour =
 
-<div align="CENTER" style="margin-bottom: 0in;">
-<embed flashvars="host=picasaweb.google.com&amp;hl=en_US&amp;feat=flashalbum&amp;interval=7&amp;RGB=0x000000&amp;feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fusapiens%2Falbumid%2F5623335869010438177%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" height="430" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" type="application/x-shockwave-flash" width="400"></embed></div>
+<p>
+<embed flashvars="host=picasaweb.google.com&amp;hl=en_US&amp;feat=flashalbum&amp;interval=7&amp;RGB=0x000000&amp;feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fusapiens%2Falbumid%2F5623335869010438177%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" height="430" pluginspage="http://www.macromedia.com/go/getflashplayer" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" type="application/x-shockwave-flash" width="400"></embed></p>
