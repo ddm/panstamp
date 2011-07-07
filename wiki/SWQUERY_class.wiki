@@ -1,7 +1,7 @@
 #labels panstamp,arduino,library
 = Introduction =
 
-SWAP queries are used to request information about remote registers. This class controls everything related to queries: construction and transmission.
+SWAP queries are used to request information about remote registers. Any device receiving a SWAP query must respond with a SWAP info packet containing information about the queried register. This class controls everything related to queries: construction and transmission.
 
 = Public constructor =
 
