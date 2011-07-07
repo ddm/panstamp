@@ -42,5 +42,5 @@ Under Linux:
 
 = Links =
 
- * The following blog post makes a tour around the main features of the SWAP Chronos port: [http://panstamp.blogspot.com/2011/06/openchronos-is-finally-swap-enabled.html Link].
+ * [http://panstamp.blogspot.com/2011/06/openchronos-is-finally-swap-enabled.html tour around the main features of the SWAP Chronos port].
  * [http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBQQFjAA&url=http%3A%2F%2Fgroups.google.com%2Fgroup%2Fopenchronos&rct=j&q=openchronos&ei=CCkWTs6RI8i6-Aa2wPET&usg=AFQjCNFg97VM6QNMJjyz3LIP3CNGRL6qdQ&sig2=GV2XMHVzjbgVsrYNbEpnmA&cad=rja OpenChronos Google Group]
