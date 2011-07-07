@@ -40,6 +40,7 @@ Under Linux:
  # Run this new command from the MSPDEBUG console: _prog build/eZChronos.txt_
  # Wait the necessary time until the flashing process completes (usually some minutes on my computer).
 
-= Chronos tour =
+= Links =
 
-<div style="width:288px;font-family:arial,sans-serif;font-size:13px;"><div><embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="288" height="192" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fusapiens%2Falbumid%2F5623335869010438177%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></div><span style="float:left;"><a href="https://picasaweb.google.com/usapiens/ChronosMenus?authuser=0&feat=flashalbum" style="color:#3964c2">View all</a></span><div style="text-align:right;"><a href="http://picasaweb.google.com/lh/getEmbed?feat=flashalbum" style="color:#3964c2">Get your own</a></div></div>
+ * The following blog post makes a tour around the main features of the SWAP Chronos port: [http://panstamp.blogspot.com/2011/06/openchronos-is-finally-swap-enabled.html Link].
+ * [http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBQQFjAA&url=http%3A%2F%2Fgroups.google.com%2Fgroup%2Fopenchronos&rct=j&q=openchronos&ei=CCkWTs6RI8i6-Aa2wPET&usg=AFQjCNFg97VM6QNMJjyz3LIP3CNGRL6qdQ&sig2=GV2XMHVzjbgVsrYNbEpnmA&cad=rja OpenChronos Google Group]
