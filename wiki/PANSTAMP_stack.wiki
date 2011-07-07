@@ -13,6 +13,8 @@ Introduction
 
 [PANSTAMP_stack#Other_examples Other examples]
 
+[SWAP#Introduction JEJE]
+
 = Introduction =
 
 The panStamp stack is the firmware behind the scenes. It primarily consists of a public set of functions, variables and, the most important, all the automatic procedures that deal with the SWAP protocol.
