@@ -1,3 +1,4 @@
+#labels panstamp,class
 = PANSTAMP class =
 
  * [PANSTAMPclass#Introduction Introduction]
@@ -155,4 +156,4 @@ void loop()
 
 Defining the "infoReceived" callback function is the way to pick up SWAP info packets. SWAP infos are always broadcasted so our device maybe wants to do something with an info coming from a given device and register.
 
-On the other hand, SWAP commands and queries addressed to our device are automatically dispatched by the panstamp stack, as explained in [PANSTAMPstack this page].
+On the other hand, SWAP commands and queries addressed to our device are automatically dispatched by the panstamp stack, as explained in [PANSTAMPstack#How_it_works this page].
