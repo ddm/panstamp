@@ -27,7 +27,7 @@ Besides, SWAPdmt provides some other features:
 
 
 = Serial port =
-In order to connect SWAPdmt to the network, a SWAP wireless gateway must be available on the computer. At the moment of writing this document only panStick or a usb/serial panStamp can be used as SWAP interfaces. The SWAP modem communicates with the computer via serial port (a real serial port or a virtual one) so before pressing the “_Connect_” button you should check the serial settings.
+In order to connect SWAPdmt to the network, a SWAP wireless gateway must be available on the computer. At the moment of writing this document only panStick or a usb/serial panStamp can be used as SWAP interfaces. The SWAP modem communicates with the computer via serial port (a real serial port or a virtual one) so before pressing the “Connect” button you should check the serial settings.
 
 <p align="center">
 https://lh4.googleusercontent.com/-Fy8AqJA5yPw/TjLgRI2hTLI/AAAAAAAABDg/XGMORe7eTt8/dmtserial.png
