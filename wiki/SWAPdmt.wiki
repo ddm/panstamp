@@ -9,6 +9,7 @@
  * [SWAPdmt#Configuring_ez430-Chronos_watches Configuring ez430-Chronos watches]
  * [SWAPdmt#Change_register_value_on_remote_device Change register value on remote device]
 
+
 = Introduction =
 SWAPdmt is a software tool for configuring SWAP devices. This tool mainly acts as a wireless configuration interface for some of the standard registers found in any SWAP mote:
 
@@ -24,6 +25,7 @@ Besides, SWAPdmt provides some other features:
  * Change any other SWAP register on the wireless network
  * Configure ez430-Chronos specific parameters (time, date, alarm, calibration, SWAP pages, etc.)
 
+
 = Serial port =
 In order to connect SWAPdmt to the network, a SWAP wireless gateway must be available on the computer. At the moment of writing this document only panStick or a usb/serial panStamp can be used as SWAP interfaces. The SWAP modem communicates with the computer via serial port (a real serial port or a virtual one) so before pressing the “_Connect_” button you should check the serial settings.
 
@@ -36,6 +38,7 @@ Figure 1: Serial port settings
 
 Once the serial port configured, you can connect SWAPdmt to the wireless network.
 
+
 = Serial gateway network settings =
 SWAPdmt can only be connected to a single SWAP network at the same time. This said, specific network parameter for the management tool can be configured from _Gateway->Network_. Frequency channel, network id, device address and security can be directly changed from this menu.
 
@@ -46,6 +49,7 @@ https://lh4.googleusercontent.com/-knVNvij9a6M/TjLgQcbwNmI/AAAAAAAABDU/juv98EPwO
 Figure 2: Serial gateway network settings
 </p>
 
+
 = Identify SWAP devices =
 Once SWAPdmt is connected to the wireless network, it continuously listens to broadcasted info packets as a way of identifying new devices. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their I/O resources.
 
@@ -55,6 +59,7 @@ https://lh4.googleusercontent.com/-OpLZU8TMpDs/TjLgQ2Pq5pI/AAAAAAAABDY/EWqK9sD3B
 <p align="center">
 Figure 3: Main SWAPdmt window. Wireless devices being discovered by the management tool
 </p>
+
 
 = Device network settings =
 _Devices->Network_ opens a configuration window that lets you configure the configuration registers that have to do with network connectivity on each wireless device. Frequency channel, network id, device address and security are the most important network parameters when you need to add new motes to a SWAP network. Just remember that in order to connect to a given wireless device, SWAP gateway and wireless device must share the same network parameters, except address, that must be different.
@@ -70,6 +75,7 @@ Figure 4: Device network settings
 
 After pressing _OK_ SWAPdmt checks the availability of the wireless device. If the device is supposed to be sleeping – mostly happening on battery-operated devices – the user will be prompted to manually put the device into _SYNC_ mode. This action will awake the wireless mote from its sleeping state and will let the mote receive the necessary wireless commands before leaving the _SYNC_ state again.
 
+
 = Configuring ez430-Chronos watches =
 First of all, you need a TI ez430-Chronos with the latest SWAP-enabled firmware. Take a look at [ez430-Chronos here] in order to learn how to flash our custom firmware for this watch.
 
@@ -81,7 +87,8 @@ https://lh6.googleusercontent.com/-c4IO8UkIlq4/TjLgQdu-4sI/AAAAAAAABDM/XBe6xi4ck
 Figure 5: ez430-Chronos configuration menu
 </p>
 
-Once the form filled, press OK. You will then be prompted to put your Chronos into SYNC mode.  Press “*” several times until “_SYNC_” is displayed on your Chronos and then press the down arrow button in order to activate the _SYNC_ mode. Once in _SYNC_ mode, your Chronos will enter full RX/TX mode so it will be consuming an important amount of energy from the battery in this mode. Anyway, this should last a few seconds and once completed, SWAPdmt will bring your Chronos back to the low-power state.
+Once the form filled, press OK. You will then be prompted to put your Chronos into SYNC mode.  Press _asterisk_ several times until “_SYNC_” is displayed on your Chronos and then press the down arrow button in order to activate the _SYNC_ mode. Once in _SYNC_ mode, your Chronos will enter full RX/TX mode so it will be consuming an important amount of energy from the battery in this mode. Anyway, this should last a few seconds and once completed, SWAPdmt will bring your Chronos back to the low-power state.
+
 
 = Change register value on remote device =
 SWAPdmt allows changing any (modifiable) register value on any device within the same SWAP network. This is mainly a functionality for developers and debuggers since most of the configuration settings available on every SWAP device are managed from proper configuration menus on the SWAPdmt tool.
