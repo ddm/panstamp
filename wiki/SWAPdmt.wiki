@@ -87,13 +87,13 @@ https://lh6.googleusercontent.com/-c4IO8UkIlq4/TjLgQdu-4sI/AAAAAAAABDM/XBe6xi4ck
 Figure 5: ez430-Chronos configuration menu
 </p>
 
-Once the form filled, press OK. You will then be prompted to put your Chronos into SYNC mode.  Press _asterisk_ several times until “_SYNC_” is displayed on your Chronos and then press the down arrow button in order to activate the _SYNC_ mode. Once in _SYNC_ mode, your Chronos will enter full RX/TX mode so it will be consuming an important amount of energy from the battery in this mode. Anyway, this should last a few seconds and once completed, SWAPdmt will bring your Chronos back to the low-power state.
+Once the form filled, press OK. You will then be prompted to put your Chronos into SYNC mode.  Press _asterisk_ several times until "SYNC" is displayed on your Chronos and then press the down arrow button in order to activate the _SYNC_ mode. Once in _SYNC_ mode, your Chronos will enter full RX/TX mode so it will be consuming an important amount of energy from the battery in this mode. Anyway, this should last a few seconds and once completed, SWAPdmt will bring your Chronos back to the low-power state.
 
 
 = Change register value on remote device =
 SWAPdmt allows changing any (modifiable) register value on any device within the same SWAP network. This is mainly a functionality for developers and debuggers since most of the configuration settings available on every SWAP device are managed from proper configuration menus on the SWAPdmt tool.
 
-Let's say you want to change the register with ID = 15 to “_new value_” on the mote with address 7. You just have to select the mote from the list of devices and then open _Devices->Set register value_. Then enter the register id and the new value and press OK.
+Let's say you want to change the register with ID = 15 to “new value” on the mote with address 7. You just have to select the mote from the list of devices and then open _Devices->Set register value_. Then enter the register id and the new value and press OK.
 
 <p align="center">
 https://lh5.googleusercontent.com/-IvFkIK6ODLE/TjLgQ1RbyGI/AAAAAAAABDc/UuUV6rmgtiU/dmtsetreg.png
