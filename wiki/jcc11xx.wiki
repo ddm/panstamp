@@ -1,0 +1,163 @@
+*jcc11xx, basic Java class library for serial gateways*
+
+= Introduction =
+jcc11xx is a Java class library to be used with any serial gateway running the [SerialProtocol#Introduction _modem_] application. It provides the necessary classes and procedures to send and receive raw CC11XX packets through a serial gateway. jcc11xx needs [http://users.frii.com/jarvi/rxtx/index.html RxTxComm] in order to get access to the serial port.
+
+This wiki page does a small approach to the contents of this library. If you find these informations insufficient, we invite you to take a look at the [http://code.google.com/p/panstamp/source/checkout source code].
+
+= Description =
+This chapter tries to describe the most common elements in the jcc11xx library.
+
+== Classes and Interfaces ==
+Depending on your application, you will need to import different classes from this library. Most applications will do the following:
+
+{{{
+import ccmodem.CcModem;
+import ccmodem.CcPacket;
+import ccmodem.CcPacketHandler;I
+mport ccexception.CcException;
+}}}
+
+== CcModem class ==
+CcModem is the main class within the library. You will need to create a CcModem object if you want to control the serial gateway.
+
+{{{
+ /**
+  * Wireless interface
+  */
+ private CcModem modem = new CcModem(this, “/dev/ttyUSB0”, 9600);
+}}}
+
+== CcPacket class ==
+This class represents CC11XX wireless packets. Thus the raw CC11XX packet structure fits the list of attributes provided by this class:
+
+{{{
+  /**
+   * Data length
+   */
+  public int length;
+
+  /**
+   * Data buffer
+   */
+  public int[] data;
+
+  /**
+   * CRC OK flag
+   */
+  public boolean crc_ok;
+
+  /**
+   * Received Strength Signal Indication
+   */
+  public int rssi;
+
+  /**
+   * Link Quality Index
+   */
+  public int lqi;
+}}}
+
+The above attributes are public so you can consume them from your own application after having instantiated a CcPacket object.
+
+== CcPacketHandler interface ==
+The jcc11xx class library event-driven. This means that you do not need to be continuously polling the serial gateway for incoming wireless packets. Callback functions are used instead,being called every time a new packet is received. In order to use this feature, your custom class must implement the  _CcPacketHandler_ interface and include the _ccPacketReceived_ method:
+
+{{{
+public class MyClass implements CcPacketHandler
+{
+  /**
+   * ccPacketReceived
+   * 
+   * CC1101 packet received
+   */
+  public void ccPacketReceived(CcPacket packet)
+  {
+    // Do here whatever you want with packet
+  }
+}
+}}}
+
+= Start serial gateway =
+In order to open the serial port and start the serial gateway you just need to call the _connect_ method provided by the CcModem class:
+
+{{{
+  // Start serial gateway
+  modem.connect();
+}}}
+
+= Send CC11XX packet =
+Sending wireless CC11XX packets is quite straightforward:
+
+{{{
+  // Define the contents of the packet. The first byte is the destination address
+  String dataStr = “0001020304”;  // Destination address = “00” → broadcast
+  
+  // Create CcPacket object
+  CcPacket packet = new CcPacket(dataStr);
+
+  // Transmit packet
+  packet.send();
+}}}
+
+= Receive CC11XX packet =
+Packet reception is event driven so your custom implementation of the _CcPacketHandler_ interface will need to include the _ccPacketReceived_ method. This method will be automatically called whenever a new wireless packet is received.
+
+= Stop serial gateway =
+In order to stop communications, you just need to call _CcModem's close_ method:
+
+{{{
+  // Close serial gateway
+  modem.close();
+}}}
+
+= Configuration commands =
+All configuration routines are run via serial AT commands. The following CcModem methods will automatically run these configuration commands for you:
+
+== Enter data mode ==
+Enter data mode. You need to enter this mode before trying to transmit or receive wireless packets.
+
+{{{
+  // Enter data mode
+  modem.goToDataMode();
+}}}
+
+== Enter command mode ==
+Enter command mode. You need to enter this mode before running any AT command. However, all the below methods already do this for you so most of the times you do not need to run this method.
+
+{{{
+  // Enter command mode
+  modem.goToCommandMode();
+}}}
+
+== Reset serial gateway ==
+Run a software reset in the serial gateway.
+
+{{{
+  // Reset serial gateway
+  modem.reset();
+}}}
+
+== Set frequency channel ==
+This method accepts up to 16 frequency channels (0 – 15). However, your application and frequency band will exactly tell you how many channels you will be allowed to use.
+
+{{{
+  // Set frequency channel = 0
+  modem.setFreqChannel(0);
+}}}
+
+== Set synchronization word ==
+Like with the frequency channel, different wireless nodes will be able to communicate between them only if the share the same Synchronization Word.
+
+{{{
+  // Set synch word to 0x15AB
+  modem.setSyncWord(0x15AB);
+}}}
+
+== Set device address ==
+panStamp serial gateways use 1-byte addresses, starting from 1 to 255. 0 is reserved as broadcast address.
+
+{{{
+  // Set device address to 16
+  modem.setDeviceAddr(16);
+}}}
