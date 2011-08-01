@@ -1,7 +1,7 @@
 *jcc11xx, basic Java class library for serial gateways*
 
 = Introduction =
-jcc11xx is a Java class library to be used with any serial gateway running the [SerialProtocol#Introduction _modem_] application. It provides the necessary classes and procedures to send and receive raw CC11XX packets through a serial gateway. jcc11xx needs [http://users.frii.com/jarvi/rxtx/index.html RxTxComm] in order to get access to the serial port.
+jcc11xx is a Java class library to be used with any serial gateway running the [SerialProtocol#Introduction modem] application. It provides the necessary classes and procedures to send and receive raw CC11XX packets through a serial gateway. jcc11xx needs [http://users.frii.com/jarvi/rxtx/index.html RxTxComm] in order to get access to the serial port.
 
 This wiki page does a small approach to the contents of this library. If you find these informations insufficient, we invite you to take a look at the [http://code.google.com/p/panstamp/source/checkout source code].
 
