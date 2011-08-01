@@ -29,7 +29,7 @@ Incoming wireless packets are passed to the host with the following structure:
  * DD (1 byte) : Destination address
  * payload (n byte) : Data payload
 
-Bytes are represented in HEX format. All ASCII packets are terminated by carriage return (\r = 0x13).
+Bytes are represented in HEX format. All ASCII packets are terminated by carriage return (\r = 0x0D).
 
 Outgoing packets are passed to the serial gateway following the same structure shown above without the (RSSI,LQI) pair:
 
