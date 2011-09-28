@@ -184,4 +184,4 @@ Whenever you want to iterate among all the existing motes in a given SWAP networ
 
 = Important classes =
 
-*pyswap* is comprised by different classes, some of them being very useful for any custom application. The most important classes are explained [http://panstamp.googlecode.com/svn/trunk/doc/pyswap/index.html here].
+*pyswap* is composed of different classes, some of them being very useful for any custom application. The most important classes are explained [http://panstamp.googlecode.com/svn/trunk/doc/pyswap/index.html here].
