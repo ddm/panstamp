@@ -182,6 +182,6 @@ Whenever you want to iterate among all the existing motes in a given SWAP networ
         print "Devie with address", mote.address, mote.definition.product
 }}}
 
-= Important classes =
+= Documentation =
 
-*pyswap* is composed of different classes, some of them being very useful for any custom application. The most important classes are explained [http://panstamp.googlecode.com/svn/trunk/doc/pyswap/index.html here].
+*pyswap* code is documented by means of the generated class docs: [http://panstamp.googlecode.com/svn/trunk/python/pyswap/doc/index.html HTML documentation].
