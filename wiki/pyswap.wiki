@@ -1,6 +1,12 @@
 #labels python,panstamp,swap
 *Python SWAP library*
 
+ * [pyswap#Introduction Introduction]
+ * [pyswap#Description Description]
+  * [pyswap#Interface Interface]
+  * [pyswap#Mote_iteration Mote iteration]
+ * [pyswap#Documentation Documentation]
+
 = Introduction =
 
 *pyswap* is a Python library made to communicate with SWAP networks through a serial panStamp. This library is the core of every application written for computers in the scope of the panStamp project; SWAPdmt and the SWAP plugin for HouseAgent are indeed based on this library.
