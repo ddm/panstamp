@@ -18,7 +18,7 @@ The [http://processors.wiki.ti.com/index.php/EZ430-Chronos?DCMP=Chronos&HQS=Othe
 
 CC430 processors share the same packet structure as the CC11XX family of RF interfaces. Thus, potential synergies came into the picture once the first panStamp boards started working. A [https://github.com/dberenguer/OpenChronos fork] from the OpenChronos project was created and new [SWAP SWAP] communication capabilities were added onto the existing features. Among them:
 
- * Ability to periodically broadcast (SWAP infos) temperature, pressure and altitude data measured from the internal sensors
+ * Ability to periodically broadcast (SWAP status) temperature, pressure and altitude data measured from the internal sensors
  * Wireless configuration (synchronization) from a PC tool called SWAPdmt.
  * Possibility to enter in ACC mode, where accelerometer data is boradcasted every second.
  * SWAP browser: a number of external SWAP values can be browsed and controlled from the watch.
