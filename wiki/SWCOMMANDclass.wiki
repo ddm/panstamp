@@ -1,7 +1,7 @@
 #labels panstamp,swap,command
 = Introduction =
 
-When you need to send a SWAP command to another device, this is your class. SWAP commands address a given remote register, trying to alter it. If the remote device can not alter the addressed register then it must respond with an info message containing the unaltered value. Otherwise, the remote device responds with an info message after having altered the register value.
+When you need to send a SWAP command to another device, this is your class. SWAP commands address a given remote register, trying to alter it. If the remote device can not alter the addressed register then it must respond with a status message containing the unaltered value. Otherwise, the remote device responds with a status message after having altered the register value.
 
 = Public constructor =
 
