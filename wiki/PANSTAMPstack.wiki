@@ -36,13 +36,13 @@ All the above features provide a high degree of isolation between network commun
 Stack and application run on a single-thread. Through the use of interruptions, the stack receives and parses wireless packets without interfering the normal operation of the user application. The CC1101 IC does an address check on each packet received. Thus, only packets addressed to our device are passed to the stack. Whenever a SWAP packet is received, the following mechanisms come into play:
 
 *1. SWAP query addressed to our device*
-The panStamp stack looks up the table of registers and responds with an info packet.
+The panStamp stack looks up the table of registers and responds with a status packet.
 
 *2. SWAP command addressed to our device*
-The panStamp stack looks up the table of registers, runs register's setter function (if exists) and responds with an info packet
+The panStamp stack looks up the table of registers, runs register's setter function (if exists) and responds with a status packet
 
-*3. SWAP info packet broadcasted*
-The panStamp stack calls a user callback function so that the info packet can be dispatched from the Arduino sketch.
+*3. SWAP status packet broadcasted*
+The panStamp stack calls a user callback function so that the status packet can be dispatched from the Arduino sketch.
 
 With the above automatic procedures, a good degree of abstraction between stack and user application is achieved. At the same time, user application is freed from having to deal with SWAP-related details. Which is the magics behind all this?
 
@@ -88,7 +88,7 @@ Following with the above example, let's suppose that we need to update the "temp
  */
 void loop()
 {
-  // Update _updtTempHum_ register and send SWAP info packet
+  // Update _updtTempHum_ register and send SWAP status packet
   getRegister(REGI_HUMIDTEMP)->getData();
   
   // Sleep for 8 seconds
@@ -96,7 +96,7 @@ void loop()
 }
 }}}
 
-Back to the above register definition, there is no pointer to a _setter function_ (null). A _setter function_ is another callback function to be defined by the user. However, unlike the _getter function_, a _setter function_ is called from register.setValue(val). In other words, this function automatically runs whenever a SWAP command is addressed to the register. Since _regTempHum_ is not controllable (it's just a couple of ADC inputs), there is no setter function associated to the register. As result, whenever a SWAP command is sent to our register the panStamp will respond with a SWAP info packet containing the value unaltered. That's all.
+Back to the above register definition, there is no pointer to a _setter function_ (null). A _setter function_ is another callback function to be defined by the user. However, unlike the _getter function_, a _setter function_ is called from register.setValue(val). In other words, this function automatically runs whenever a SWAP command is addressed to the register. Since _regTempHum_ is not controllable (it's just a couple of ADC inputs), there is no setter function associated to the register. As result, whenever a SWAP command is sent to our register the panStamp will respond with a SWAP status packet containing the value unaltered. That's all.
 
 OK, once our custom register defined, let's define _regTable_, the complete array of registers:
 
