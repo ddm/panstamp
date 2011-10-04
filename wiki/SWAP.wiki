@@ -10,7 +10,7 @@
  * [SWAP#Packet_structure Packet structure]
   * [SWAP#Network_id Network id]
   * [SWAP#Function_codes Function codes]
-   * [SWAP#Information_packets_(function_code_=_0x00) Information packets]
+   * [SWAP#Status_packets_(function_code_=_0x00) Status packets]
    * [SWAP#Query_packets_(function_code_=_0x01) Query packets]
    * [SWAP#Command_packets_(function_code_=_0x02) Command packets]
   * [SWAP#Device_address Device address]
@@ -39,7 +39,7 @@ Registers are SWAP's unit of information. Measured values, I/O's, and configurat
 
 Register values have not a fixed length and must not be longer than 55 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
 
- # Multi-sensor boards typically run all ADC conversions at the same interval. Thus, the developer may prefer to maintain a single register combining all ADC values so that only a single information packet is needed.
+ # Multi-sensor boards typically run all ADC conversions at the same interval. Thus, the developer may prefer to maintain a single register combining all ADC values so that only a single status packet is needed.
  # Multi-output boards are usually easier to control using one command packet per endpoint (or in other words, one register per endpoint). Otherwise, the sender risks to unintentionally alter any other output when trying to control one of them.
 
 In summary, input endpoints can efficiently be combined into a single register whilst outputs are better managed from multiple registers.
@@ -58,29 +58,29 @@ SWAP uses CC1101's Synchronization Word to identify the wireless network. Defini
 
 There are only three function codes:
 
- * 0x00 - Information packet
+ * 0x00 - Status packet
  * 0x01 - Query packet
  * 0x02 - Command packet
 
 All SWAP packets share the same structure except query packets (function code = 0x02) that don't contain a data field. This makes parsing wireless packets a simple task.
 
-=== Information packets (function code = 0x00) ===
+=== Status packets (function code = 0x00) ===
 
-Information packets report actual register values. Any device wanting to inform about a register value has to send an information packet. In order to guarantee interoperability between devices, the following conventions must be guaranteed:
+Status packets report actual register values. Any device wanting to inform about a register value has to send a status packet. In order to guarantee interoperability between devices, the following conventions must be guaranteed:
 
- * The reception of a query packet must be followed by the transmission of an information message. Thus, querying a register must be answered by an information packet containing the register value being queried.
- * After receiving a command packet, an information message has to be sent with the register being modified.
- * Developers may decide whether transmit periodic information message or not and the transmission interval in each case. In general, sending periodic infos about the most relevant registers may be a good practice.
+ * The reception of a query packet must be followed by the transmission of a status message. Thus, querying a register must be answered by a status packet containing the register value being queried.
+ * After receiving a command packet, a status message has to be sent with the register being modified.
+ * Developers may decide whether transmit periodic status message or not and the transmission interval in each case. In general, sending periodic status about the most relevant registers may be a good practice.
 
-Information messages are always broadcasted.
+Status messages are always broadcasted.
 
 === Query packets (function code = 0x01) ===
 
-Query packets are intended to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with an information packet. Query packets can be occasionally broadcasted (address 0) only in some situations. For example, when a new high-end device (ex: IP gateway) starts or enters the network the first time then it can broadcast a query on register "Product Code" in order to know which awake nodes are available in the network.
+Query packets are intended to request information from remote devices. Queries are directly addressed to the requested registers and remote nodes must reply with a status packet. Query packets can be occasionally broadcasted (address 0) only in some situations. For example, when a new high-end device (ex: IP gateway) starts or enters the network the first time then it can broadcast a query on register "Product Code" in order to know which awake nodes are available in the network.
 
 === Command packets (function code = 0x02) ===
 
-Command packets are used to control register values on any remote device. After completing the necessary changes on the register, the remote device must reply with an information packet informing about the value of the affected register. In case the register could not be modified, the remote device should reply with the contents of the unaltered register.
+Command packets are used to control register values on any remote device. After completing the necessary changes on the register, the remote device must reply with a status packet informing about the value of the affected register. In case the register could not be modified, the remote device should reply with the contents of the unaltered register.
 
 Command packets can never be broadcasted.
 
@@ -128,7 +128,7 @@ We are still in the process of working on a simple encryption algorithm. Once co
 
 == Security nonce ==
 
-When enabled, security nonces provide a way of combating against play-back attacks. Every wireless device maintains its own single nonce counter. Whenever a device sends an information packet, the nonce is incremented by one. Information packets that do not contain the correct nonce have to be discarded by any other device listening the media. Later, any device wanting to send a command has to include the current nonce of the targeted device.
+When enabled, security nonces provide a way of combating against play-back attacks. Every wireless device maintains its own single nonce counter. Whenever a device sends a status packet, the nonce is incremented by one. Status packets that do not contain the correct nonce have to be discarded by any other device listening the media. Later, any device wanting to send a command has to include the current nonce of the targeted device.
 
 Query packets do not have to include the correct nonce. Thus, nonce = 0 in all query messages.
 
