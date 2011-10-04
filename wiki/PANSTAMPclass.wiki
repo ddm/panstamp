@@ -8,7 +8,7 @@
 
 = Introduction =
 
-The PANSTAMP class contains the necessary mechanisms to control the board. This class provides some basic methods that will let you initialize and reset the panStamp board and enter the low-power mode. Everything related to the board is contained into this class. Behind the scenes, PANSTAMP automatically dispatches SWAP commands and queries, replaying with SWAP information packets when necessary. 
+The PANSTAMP class contains the necessary mechanisms to control the board. This class provides some basic methods that will let you initialize and reset the panStamp board and enter the low-power mode. Everything related to the board is contained into this class. Behind the scenes, PANSTAMP automatically dispatches SWAP commands and queries, replaying with SWAP status packets when necessary. 
 
 = Public arguments =
 
@@ -34,9 +34,9 @@ The PANSTAMP class contains the necessary mechanisms to control the board. This 
     byte systemState;
 
     /**
-     * SWAP info packet received. Callaback function
+     * SWAP status packet received. Callaback function
      */
-    void (*infoReceived)(SWPACKET *info);
+    void (*statusReceived)(SWPACKET *status);
 }}}
 
 = Public methods =
@@ -98,7 +98,7 @@ void setup()
   // Init panStamp
   panstamp.init();
 
-  // Send SWAP info packet containing product information
+  // Send SWAP status packet containing product information
   getRegister(REGI_PRODUCTCODE)->getData();
 
   // Run here your initialization code
@@ -106,7 +106,7 @@ void setup()
 
 void loop()
 {
-  // Run ADC conversions and send SWAP info packet
+  // Run ADC conversions and send SWAP status packet
   getRegister(REGI_HUMIDTEMP)->getData();
   
   // Only for battery-operated devices, sleep the board for a given time
@@ -114,18 +114,18 @@ void loop()
 }
 }}}
 
-The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP information:
+The above code is specially suited for a sensor that sleeps most of the time. Let's imagine now that we have a node permanently connected to the mains. This node continuously listens to the network, awaiting for specific SWAP status:
 
 {{{
-// Define here what you want to do with the incoming SWAP infos
-void (*infoReceived)(SWPACKET *info)
+// Define here what you want to do with the incoming SWAP status
+void (*statusReceived)(SWPACKET *status)
 {
-  // SWAP info packet received
-  byte sAddr = info->srcAddr;       // Source address
-  byte rAddr = info->regAddr;       // Register address
-  byte rId = info->regId;           // Register id
-  byte len = info->value->length;   // Length of the register value
-  byte *val = info->value->data;    // register value
+  // SWAP status packet received
+  byte sAddr = status->srcAddr;       // Source address
+  byte rAddr = status->regAddr;       // Register address
+  byte rId = status->regId;           // Register id
+  byte len = status->value->length;   // Length of the register value
+  byte *val = status->value->data;    // register value
 
   // Run here your code
 }
@@ -135,10 +135,10 @@ void setup()
   // Init panStamp
   panstamp.init();
 
-  // Declare SWAP info callback function
-  panstamp.infoReceived = gotAnInfo;
+  // Declare SWAP status callback function
+  panstamp.statusReceived = gotStatus;
 
-  // Send SWAP info packet containing product information
+  // Send SWAP status packet containing product information
   getRegister(REGI_PRODUCTCODE)->getData();
 
   // Run here your initialization code
@@ -146,7 +146,7 @@ void setup()
 
 void loop()
 {
-  // Run ADC conversions and send SWAP info packet
+  // Run ADC conversions and send SWAP status packet
   getRegister(REGI_HUMIDTEMP)->getData();
   
   // Only for battery-operated devices, sleep the board for a given time
@@ -154,6 +154,6 @@ void loop()
 }
 }}}
 
-Defining the "infoReceived" callback function is the way to pick up SWAP info packets. SWAP infos are always broadcasted so our device maybe wants to do something with an info coming from a given device and register.
+Defining the "statusReceived" callback function is the way to pick up SWAP status packets. SWAP status are always broadcasted so our device maybe wants to do something with a status coming from a given device and register.
 
 On the other hand, SWAP commands and queries addressed to our device are automatically dispatched by the panstamp stack, as explained in [PANSTAMPstack#How_it_works this page].
