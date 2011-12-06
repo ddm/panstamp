@@ -6,24 +6,20 @@
  * [SWAPdmt#Serial_gateway_network_settings Serial gateway network settings]
  * [SWAPdmt#Identify_SWAP_devices Identify SWAP devices]
  * [SWAPdmt#Device_network_settings Device network settings]
- * [SWAPdmt#Configuring_ez430-Chronos_watches Configuring ez430-Chronos watches]
- * [SWAPdmt#Change_register_value_on_remote_device Change register value on remote device]
+ * [SWAPdmt#Configuring_custom_settings Configuring custom settings]
 
 
 = Introduction =
-SWAPdmt is a software tool for configuring SWAP devices. This tool mainly acts as a wireless configuration interface for some of the standard registers found in any SWAP mote:
+SWAPdmt is a software tool, written in Python, for configuring SWAP devices wirelessly. There is a command-line version and a graphical one (wxPython).  The current tutorial will focus on the GUI version only. SWAPdmt basically acts as a remote editor for any register belonging to any of the wireless devices (motes) within the same SWAP network.
 
- * Frequency Channel
- * Network Identifier
- * Device Address
+SWAPdmt lets us configure the following parameters:
 
-The above registers are vital when creating SWAP networks since they allow adding new motes to the wireless ecosystem.
+ * Serial port settings on the modem (serial interface).
+ * Network settings on the modem: frequency channel, network ID, address and security options.
+ * Network settings on any mote: frequency channel, network ID, address, security options and periodic Tx interval.
+ * Custom registers on any mote
 
-Besides, SWAPdmt provides some other features:
-
- * Identify any SWAP mote on the network (with a given frequency channel and network id)
- * Change any other SWAP register on the wireless network
- * Configure ez430-Chronos specific parameters (time, date, alarm, calibration, SWAP pages, etc.)
+Besides, SWAPdmt identifies any SWAP mote on the network (with the same frequency channel and network id as the modem) and monitors the network, providing feedback for register values and device addresses.
 
 
 = Serial port =
@@ -51,7 +47,7 @@ Figure 2: Serial gateway network settings
 
 
 = Identify SWAP devices =
-Once SWAPdmt is connected to the wireless network, it continuously listens to broadcasted status packets as a way of identifying new devices. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their I/O resources.
+Once SWAPdmt is connected to the wireless network, it continuously listens to broadcasted status packets as a way of identifying new devices. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their respective I/O resources.
 
 <p align="center">
 https://lh4.googleusercontent.com/-OpLZU8TMpDs/TjLgQ2Pq5pI/AAAAAAAABDY/EWqK9sD3BTk/dmtmain.png
@@ -62,7 +58,7 @@ Figure 3: Main SWAPdmt window. Wireless devices being discovered by the manageme
 
 
 = Device network settings =
-_Devices->Network_ opens a configuration window that lets you configure the configuration registers that have to do with network connectivity on each wireless device. Frequency channel, network id, device address and security are the most important network parameters when you need to add new motes to a SWAP network. Just remember that in order to connect to a given wireless device, SWAP gateway and wireless device must share the same network parameters, except address, that must be different.
+_Devices->Network_ opens a configuration window that lets you configure the configuration registers that have to do with network connectivity on each wireless device (mote). Frequency channel, network id, device address, security and Tx interval are the most important network parameters when you need to add new motes to a SWAP network. Just remember that in order to connect to a given wireless device, SWAP gateway and wireless device must share the same network parameters, except address, that must be different.
 
 As a side note, SWAP devices, including serial gateways, can take any address from 1 to 255. 0 is reserved as broadcast address.
 
@@ -76,29 +72,14 @@ Figure 4: Device network settings
 After pressing _OK_ SWAPdmt checks the availability of the wireless device. If the device is supposed to be sleeping – mostly happening on battery-operated devices – the user will be prompted to manually put the device into _SYNC_ mode. This action will awake the wireless mote from its sleeping state and will let the mote receive the necessary wireless commands before leaving the _SYNC_ state again.
 
 
-= Configuring ez430-Chronos watches =
-First of all, you need a TI ez430-Chronos with the latest SWAP-enabled firmware. Take a look at [ez430-Chronos here] in order to learn how to flash our custom firmware for this watch.
+= Configuring custom settings =
 
-The configuration procedure is quite straightforward. Open the Chronos menu from _Devices->ez430-Chronos_ and then enter the necessary settings for your watch, including the external SWAP values to be viewed and controlled from the Chronos.
+The configuration procedure is quite straightforward. First click on Devices->Custom Settings and then select "your wireless device from the list. This action will tell SWAPdmt which settings to edit. Then, the configuration tool will sequentially prompt the user for the required values. At the end, SWAPdmt will ask the user to put his device in SYNC mode, probably pressing a button.
+
+The magics behind this procedure resides in the creation of a XML definition file for each type of mote. Every XML file defines the position of each register within the device, bit length, data type and the way to filter the user input.
 
 <p align="center">
 https://lh6.googleusercontent.com/-c4IO8UkIlq4/TjLgQdu-4sI/AAAAAAAABDM/XBe6xi4ck60/dmtchronos.png
 <p align="center">
-Figure 5: ez430-Chronos configuration menu
+Figure 5: ez430-Chronos custom settings dialog
 </p>
-
-Once the form filled, press OK. You will then be prompted to put your Chronos into SYNC mode.  Press _asterisk_ several times until "SYNC" is displayed on your Chronos and then press the down arrow button in order to activate the _SYNC_ mode. Once in _SYNC_ mode, your Chronos will enter full RX/TX mode so it will be consuming an important amount of energy from the battery in this mode. Anyway, this should last a few seconds and once completed, SWAPdmt will bring your Chronos back to the low-power state.
-
-
-= Change register value on remote device =
-SWAPdmt allows changing any (modifiable) register value on any device within the same SWAP network. This is mainly a functionality for developers and debuggers since most of the configuration settings available on every SWAP device are managed from proper configuration menus on the SWAPdmt tool.
-
-Let's say you want to change the register with ID = 15 to “new value” on the mote with address 7. You just have to select the mote from the list of devices and then open _Devices->Set register value_. Then enter the register id and the new value and press OK.
-
-<p align="center">
-https://lh5.googleusercontent.com/-IvFkIK6ODLE/TjLgQ1RbyGI/AAAAAAAABDc/UuUV6rmgtiU/dmtsetreg.png
-<p align="center">
-Figure 6: Set register value menu
-</p>
-
-In case you do not select a device from the list or  this device is powered from batteries, SWAPdmt will ask you to put the device into _SYNC_ mode, probably physically opening the device and pressing a button. SWAPdmt will do the rest, including bringing the mote back to the low-power state.
