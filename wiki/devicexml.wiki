@@ -1,0 +1,12 @@
+
+= Introduction =
+
+We've seen that panStamps rely on a compact wireless protocol called SWAP. This protocol was designed to provide high flexibility without compromising the size of the stack. Wanting something really compact and flexible, we decided to define a register-based protocol, something really pointing to memory locations instead of having to deal with function profiles and complex resource discovery mechanisms. We also explained that, in order for gateways and software applications to understand what the wireless network is talking about, we need to define each wireless product by a XML file. This file will tell the application about the existing custom registers, how to configure them and how to modify their readings in order to make them understandable.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
