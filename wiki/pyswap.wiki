@@ -11,7 +11,7 @@
 
 *pyswap* is a Python library made to communicate with SWAP networks through a serial panStamp. This library is the core of every application written for computers in the scope of the panStamp project; SWAPdmt and the SWAP plugin for HouseAgent are also based on this library.
 
-*pyswap* is more than a communication library in fact. It takes care of discovering motes, registering resources in memory and maintaining configuration files. You'll find that this library does the most part of whatever application you may need for your computer. At the end, you'll need to subscribe to some callback functions that will alert your application about any event in the network.
+*pyswap* is more than a communication library in fact. It takes care of discovering motes, registering resources in memory and maintaining configuration files. You'll find that this library does the most part of whatever computer application you may need. At the end, you'll need to subscribe to some callback functions that will alert your application about any event in the network.
 
 = Description =
 
