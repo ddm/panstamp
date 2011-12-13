@@ -190,4 +190,4 @@ Whenever you want to iterate among all the existing motes in a given SWAP networ
 
 = Documentation =
 
-*pyswap* code is documented by means of the generated class docs: [http://panstamp.googlecode.com/svn/trunk/python/pyswap/doc/index.html HTML documentation].
+*pyswap* code is documented by means of the generated class docs: [http://panstamp.googlecode.com/svn/trunk/python/pyswap/doc/annotated.html HTML documentation].
