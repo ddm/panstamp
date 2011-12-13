@@ -66,5 +66,5 @@ Once in _command mode_, the _modem_ application accepts the following set of AT 
 || ATAC=x || Set address check to x. 1 = enabled, 0 = disabled ||
 
 
-= Existing computer libraries =
+= Existing software libraries =
 At the moment of writing this tutorial, only [jswap jswap] and [jcc11xx jcc11xx] have been developed for the _modem_ application. [jswap jswap] has entirely been developed under Java SE and lets you interface any SWAP network through a serial panStamp (ex: USB panStick). [jcc11xx jcc11xx] is a lower lever library, designed to work with raw CC11XX-based packets. jswap is based on jcc11xx.
