@@ -1,0 +1,14 @@
+#labels SWAP,development,steps
+*Steps for the development of new SWAP devices*
+
+= Introduction =
+
+The current page explains some basic steps to follow during the development of new SWAP devices.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
