@@ -5,7 +5,7 @@
  * [SerialProtocol#Modes_of_operation Modes of operation]
   * [SerialProtocol#Data_mode Data mode]
   * [SerialProtocol#Command_mode Command mode]
- * [SerialProtocol#Existing_computer_libraries Existing computer libraries]
+ * [SerialProtocol#Existing_software_libraries Existing software libraries]
 
 = Introduction =
 Serial gateways are crucial pieces of hardware in wireless networks. In order to communicate wirelessly from a computer, we need a modem, gateway or interface capable to translate wireless packets into a byte stream, readable by the host computer.
