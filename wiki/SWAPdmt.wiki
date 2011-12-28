@@ -94,7 +94,7 @@ The configuration procedure is quite straightforward. First click on Devices->Cu
 The magics behind this procedure resides in the existence of a XML definition file for each type of mote. Every XML file defines the position of each register within the device, bit length, data type and the way to filter the user input.
 
 <p align="center">
-https://lh6.googleusercontent.com/-c4IO8UkIlq4/TjLgQdu-4sI/AAAAAAAABDM/XBe6xi4ck60/dmtchronos.png
+https://lh5.googleusercontent.com/-yxH2mbU2lz4/TvuDhzJuIJI/AAAAAAAAADE/P61lT7F9WHU/s512/swapdmtgui_chronos4.png
 <p align="center">
 Figure 5: ez430-Chronos custom settings dialog
 </p>
