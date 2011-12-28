@@ -45,6 +45,10 @@ Under Linux:
  # Run this new command from the MSPDEBUG console: _prog build/eZChronos.txt_
  # Wait the necessary time until the flashing process completes (usually some minutes on my computer).
 
+= How to configure your SWAP Chronos =
+
+Once the new firmware installed, your SWAP Chronos watch can be wirelessly configured from SWAPdmt. Simply click on Devices->Custom settings and then select "SWAP Chronos watch" from the Device Selector window. SWAPdmt will then sequentially ask you to enter the configuration parameters.
+
 = Links =
 
  * [http://panstamp.blogspot.com/2011/06/openchronos-is-finally-swap-enabled.html Tour around the main features of the SWAP Chronos port].
