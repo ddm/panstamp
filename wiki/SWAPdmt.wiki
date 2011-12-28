@@ -26,7 +26,7 @@ Besides, SWAPdmt identifies any SWAP mote on the network (with the same frequenc
 In order to connect SWAPdmt to the network, a SWAP wireless gateway must be available on the computer. At the moment of writing this document only panStick or a usb/serial panStamp can be used as SWAP interfaces. The SWAP modem communicates with the computer via serial port (a real serial port or a virtual one) so before pressing the “Connect” button you should check the serial settings.
 
 <p align="center">
-https://picasaweb.google.com/lh/photo/Q7-wPQDLuUzOgafODemc0lCifZYTEv_knfXl7ZbwIwY?feat=directlink
+https://lh4.googleusercontent.com/-Hqu8dLcPgrM/TvuDix4tt-I/AAAAAAAAADk/KMM3f_iVxpY/s220/swapdmtgui_gateway_serial.png
 </p>
 <p align="center">
 Figure 1: Serial port settings
@@ -39,7 +39,7 @@ Once the serial port configured, you can connect SWAPdmt to the wireless network
 SWAPdmt can only be connected to a single SWAP network at the same time. This said, specific network parameter for the management tool can be configured from _Gateway->Network_. Frequency channel, network id, device address and security can be directly changed from this menu.
 
 <p align="center">
-https://picasaweb.google.com/lh/photo/j-Gt_qMrZ1abyTodoHGzLlCifZYTEv_knfXl7ZbwIwY?feat=directlink
+https://lh3.googleusercontent.com/-JxAQ4itFQfE/TvuDivuVA8I/AAAAAAAAAD0/Hacg4bzAdH8/s302/swapdmtgui_gateway_network.png
 </p>
 <p align="center">
 Figure 2: Serial gateway network settings
@@ -47,10 +47,10 @@ Figure 2: Serial gateway network settings
 
 
 = Identify SWAP devices =
-Once SWAPdmt is connected to the wireless network, it continuously listens to any SWAP packet being transmitted. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their respective I/O resources.
+Once SWAPdmt connected to the wireless network, it continuously listens to any SWAP packet being transmitted over the air. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their respective I/O resources.
 
 <p align="center">
-https://picasaweb.google.com/lh/photo/rXF8JVcoQRm6cILvTQKH1VCifZYTEv_knfXl7ZbwIwY?feat=directlink
+https://lh5.googleusercontent.com/-DFfl6rHvaY0/TvuDjl0rFlI/AAAAAAAAAEE/TY-PtffxrAw/s640/swapdmtgui_main.png
 </p>
 <p align="center">
 Figure 3: Main SWAPdmt window.
@@ -68,7 +68,7 @@ SWAP packets read by the serial gateway are displayed in this panel. Packet deta
 
 == Network events ==
 
-Any event occured in the SWAP network such as "New mote detected" or "Endpoint value changed" is displayed in this panel.
+Any event occurred in the SWAP network such as "New mote detected" or "Endpoint value changed" is displayed in this panel.
 
 
 = Device network settings =
