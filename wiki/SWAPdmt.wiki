@@ -62,7 +62,7 @@ SWAPdmt basically consists in three panels:
 
 This is a SWAP browsing tree containing every SWAP device detected in the network and its associated resources (registers, configuration parameters and endpoints). Parameters and motes can be edited from this tree by right-clicking on the corresponding branch.
 
-== Wireless packet sniffer ""
+== Wireless packet sniffer ==
 
 SWAP packets read by the serial gateway are displayed in this panel. Packet details can be  displayed too by rignt-clicking on any SWAP frame.
 
@@ -72,25 +72,26 @@ Any event occurred in the SWAP network such as "New mote detected" or "Endpoint 
 
 
 = Device network settings =
+
 _Devices->Network_ opens a configuration window that lets you configure the configuration registers that have to do with network connectivity on each wireless device (mote). Frequency channel, network id, device address, security and Tx interval are the most important network parameters when you need to add new motes to a SWAP network. Just remember that in order to connect to a given wireless device, SWAP gateway and wireless device must share the same network parameters, except address, that must be different.
 
 As a side note, SWAP devices, including serial gateways, can take any address from 1 to 255. 0 is reserved as broadcast address.
 
 <p align="center">
-https://lh3.googleusercontent.com/-N6ecsK5VQug/TjLgQcyXTVI/AAAAAAAABDQ/PCjzx3PaMgc/dmtdevnet.png
+https://lh6.googleusercontent.com/-36SDntXLGQE/TvuDiJPWWtI/AAAAAAAAADQ/Qw7MLir87O4/s361/swapdmtgui_device_network.png
 </p>
 <p align="center">
 Figure 4: Device network settings
 </p>
 
-After pressing _OK_ SWAPdmt checks the availability of the wireless device. If the device is supposed to be sleeping – mostly happening on battery-operated devices – the user will be prompted to manually put the device into _SYNC_ mode. This action will awake the wireless mote from its sleeping state and will let the mote receive the necessary wireless commands before leaving the _SYNC_ state again.
+After pressing _OK_ SWAPdmt checks the availability of the wireless device. If the device is supposed to be sleeping – mostly happening on battery-operated devices – the user will be asked to manually put the device into _SYNC_ mode. This action will awake the wireless mote from its sleeping state and will let the mote receive the necessary wireless commands before leaving the _SYNC_ state again.
 
 
 = Configuring custom settings =
 
 The configuration procedure is quite straightforward. First click on Devices->Custom Settings and then select "your wireless device from the list. This action will tell SWAPdmt which settings to edit. Then, the configuration tool will sequentially prompt the user for the required values. At the end, SWAPdmt will ask the user to put his device in SYNC mode, probably pressing a button.
 
-The magics behind this procedure resides in the creation of a XML definition file for each type of mote. Every XML file defines the position of each register within the device, bit length, data type and the way to filter the user input.
+The magics behind this procedure resides in the existence of a XML definition file for each type of mote. Every XML file defines the position of each register within the device, bit length, data type and the way to filter the user input.
 
 <p align="center">
 https://lh6.googleusercontent.com/-c4IO8UkIlq4/TjLgQdu-4sI/AAAAAAAABDM/XBe6xi4ck60/dmtchronos.png
