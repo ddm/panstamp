@@ -9,13 +9,26 @@
 
 We've seen that panStamps rely on a compact wireless protocol called [SWAP SWAP]. This protocol was designed to provide high flexibility without compromising the size of the stack. Wanting something really compact and flexible, we decided to define a register-based protocol, something really pointing to memory locations instead of having to deal with function profiles and complex resource discovery mechanisms. We also explained that, in order for gateways and software applications to understand what the wireless network is talking about, we need to define each wireless product by a XML file. This file will tell the application about the existing custom registers, how to configure them and how to modify their readings in order to make them understandable by the use.
 
-Thus, if you want your own SWAP devices to be compatible with existing software tools (SWAPdmt, HouseAgent) and future new applications, you'll need to create a XML file for each new device. Then, each new file will be placed in our central repositories in order for our applications to have access to them. Then, you or any user having flashed a panStamp with your firmware will be able to configure it wirelessly, make the necessary value conversions depending on units, write values, etc.
+Thus, if you want your own SWAP devices to be compatible with existing software tools ([SWAPdmt SWAPdmt], HouseAgent) and future new applications, you'll need to create a XML file for each new device. Then, each new file will be placed in central repositories in order for our applications to have access to them. Then, you or any user having flashed a panStamp with your firmware will be able to configure it wirelessly, make the necessary value conversions depending on units, write values, etc.
 
 = How XML files are organized =
 
-Before publishing your own panStamp firmware you need to get a unique developer name. This name will also be given to the directory containing your custom XML definition files. You'll also need a unique 4-byte developer ID. This ID will combine with each product ID to form the product code, as explained [SWAPregisters#Product_code here]. Product codes and developer/product names will be linked in devices.xml, a general file acting as a product directory. The following screenshot is an example of device repository, placed somewhere in a computer:
+Before publishing your own panStamp firmware you need to get a unique developer name. This name will also be given to the directory containing your custom XML definition files. You'll also need a unique 4-byte developer ID. This ID will combine with each product ID to form the product code, as explained [SWAPregisters#Product_code here]. Product codes and developer/product names will be linked in devices.xml, a general file acting as a product directory.
 
-And this is the contents of devices.xml in our example:
+Example of devices.xml file:
+
+    <?xml version="1.0"?>
+    <devices>
+      <developer id="1" name="panStamp">
+        <dev id="1" name="temphum" label="Dual Temperature/Humidity sensor"/>
+        <dev id="2" name="chronos" label="SWAP-enabled Chronos watch"/>
+        <dev id="3" name="rgbdriver" label="RGB driver board"/>
+        <dev id="4" name="temp" label="Temperature sensor"/>
+        <dev id="5" name="temphumpress" label="Temperature/Humidity/Barometric sensor"/>
+        <dev id="6" name="rfidtag" label="RFID tag"/>
+        <dev id="7" name="rfidreader" label="RFID reader"/>
+      </developer>
+    </devices>
 
 = Structure of XML definition files =
 
