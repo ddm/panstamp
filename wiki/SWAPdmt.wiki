@@ -32,7 +32,7 @@ https://lh4.googleusercontent.com/-Hqu8dLcPgrM/TvuDix4tt-I/AAAAAAAAADk/KMM3f_iVx
 Figure 1: Serial port settings
 </p>
 
-Once the serial port configured, you can connect SWAPdmt to the wireless network.
+Once the serial port configured, you can connect SWAPdmt to the wireless network by pressing _Gateway->Connect_.
 
 
 = Serial gateway network settings =
