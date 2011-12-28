@@ -47,7 +47,7 @@ Under Linux:
 
 = How to configure your SWAP Chronos =
 
-Once the new firmware installed, your SWAP Chronos watch can be wirelessly configured from SWAPdmt. Simply click on Devices->Custom settings and then select "SWAP Chronos watch" from the Device Selector window. SWAPdmt will then sequentially ask you to enter the configuration parameters.
+Once the new firmware installed, your SWAP Chronos watch can be wirelessly configured from [SWAPdmt SWAPdmt]. Simply click on Devices->Custom settings and then select "SWAP Chronos watch" from the Device Selector window. [SWAPdmt SWAPdmt] will then sequentially ask you to enter the configuration parameters.
 
 = Links =
 
