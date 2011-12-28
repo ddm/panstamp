@@ -7,6 +7,7 @@
  * [SWAPchronos#How_to_compile_the_code How to compile the code]
  * [SWAPchronos#How_to_install_the_new_firmware How to install the new firmware]
  * [SWAPchronos#Links Links]
+ * [SWAPchronos#How_to_configure_your_SWAP_Chronos How to configure your SWAP Chronos]
 
 = Introduction =
 
