@@ -19,7 +19,7 @@ Before publishing your own panStamp firmware you need to get a unique developer 
 
 Example of devices.xml file:
 
-"""
+{{{
 <?xml version="1.0"?>
 <devices>
   <developer id="1" name="panStamp">
@@ -32,13 +32,13 @@ Example of devices.xml file:
     <dev id="7" name="rfidreader" label="RFID reader"/>
   </developer>
 </devices>
-"""
+}}}
 
 = Structure of XML definition files =
 
 The following is an example of a SWAP device, a dual temperature-humidity sensor developed by panStamp:
 
-"""
+{{{
 <?xml version="1.0"?>
 <device>
   <developer>panStamp</developer>
@@ -73,7 +73,7 @@ The following is an example of a SWAP device, a dual temperature-humidity sensor
     </reg>
   </regular>
 </device>
-"""
+}}}
 
 The above device contains no configuration parameter. It simply provides two regular registers (voltage and temperature/humidity), with ID 11 and 12 respectively. Configuration registers are contained in the _<config>_ section, not in _<regular>_ as the rest of registers. Also note that basic parameters such us device address, network ID, or frequency channel are neither defined in this file (or any other definition file). This is simply because common configuration parameters are internally defined and managed by the panStamp firmware stack, as explained here.
 
