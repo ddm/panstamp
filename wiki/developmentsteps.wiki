@@ -1,10 +1,9 @@
 #labels SWAP,development,steps
-*Steps for the development of new SWAP devices*
+*Steps to be done during the development of a new SWAP device*
 
 = Introduction =
 
-The current page explains some basic steps to follow during the development of new SWAP devices.
-
+The current page explains some basic steps to follow during the development of new SWAP devices. If you base your development on a panStamp or any other Arduino-based platform and you follow this guide, you will surely find this process straightforward and rapid.
 
 = Details =
 
