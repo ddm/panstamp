@@ -75,20 +75,20 @@ The following is an example of a SWAP device, a dual temperature-humidity sensor
 </device>
 }}}
 
-The above device contains no configuration parameter. It simply provides two regular registers (voltage and temperature/humidity), with ID 11 and 12 respectively. Configuration registers are contained in the _<config>_ section, not in _<regular>_ as the rest of registers. Also note that basic parameters such us device address, network ID, or frequency channel are neither defined in this file (or any other definition file). This is simply because common configuration parameters are internally defined and managed by the panStamp firmware stack, as explained here.
+The above device contains no configuration parameter. It simply provides two regular registers (voltage and temperature/humidity), with ID 11 and 12 respectively. Configuration registers are contained in the *config* section, not in *regular* as the rest of registers. Also note that basic parameters such us device address, network ID, or frequency channel are neither defined in this file (or any other definition file). This is simply because common configuration parameters are internally defined and managed by the panStamp firmware stack, as explained here.
 
 But if you want to create a full-featured device definition file, with configuration parameters and regular endpoints, using [http://panstamp.googlecode.com/svn/trunk/devices/template.xml this template] is probably the best way to go. The [http://panstamp.googlecode.com/svn/trunk/devices/panStamp/chronos.xml Chronos watch definition file] is also a good example of mixing configuration with sensor readings.
 
 = Registers, endpoints and parameters =
 
-This has already been discussed in [SWAP#Registers_and_values this section] but it's maybe a good idea to check these concepts from one of the existing definition files. Note that each register can contain multiple endpoints or multiple configuration parameters and that each endpoint or parameter occupies a specific place within the container register. This particularity lets us transmit multiple values (endpoints) using a single SWAP status packet, thus minimizing bandwith consumption and reducing transmission times.
+This has already been discussed in [SWAP#Registers_and_values this section] but it's maybe a good idea to check these concepts from one of the existing definition files. Note that each register can contain multiple endpoints or multiple configuration parameters and that each endpoint or parameter occupies a specific place within the container register. This particularity lets us transmit multiple values (endpoints) using a single SWAP status packet, thus minimizing bandwidth consumption and reducing transmission times.
 
-When displaying endpoint data from web servers or computer applications, device definition files provide a way to tell the applciation what to do with received packets - how to extract endpoint values and configuration parameters from transmitted registers and how to transform values to make them readable by the end user -.
+When displaying endpoint data from web servers or computer applications, device definition files provide a way to tell the application what to do with received packets - how to extract endpoint values and configuration parameters from transmitted registers and how to transform values to make them readable by the end user -.
 
 == Units and modifiers ==
 
-For new devices, it's a good idea to provide multiple units for each endpoint whenever possible. This is simply done by adding a new _<unit>_ line in the _<units>_ section. The transforming formula is very straightforward:
+For new devices, it's a good idea to provide multiple units for each endpoint whenever possible. This is simply done by adding a new *unit* line in the *units* section. The transforming formula is very straightforward:
 
-_reading = factor * (endpoint value) + offset (unit name)_
+_reading = factor x (endpoint value) + offset (unit name)_
 
 Modifiers can take any real value. Default modifiers: factor = 1, offset = 0.
