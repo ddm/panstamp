@@ -3,11 +3,14 @@
 
 = Introduction =
 
-The current page explains some basic steps to follow during the development of new SWAP devices. If you base your development on a panStamp or any other Arduino-based platform and you follow this guide, you will surely find this process straightforward and rapid.
+This tutorial explains some basic steps to follow during the development of new SWAP devices. If you base your development on a panStamp or any other Arduino-based platform and you follow this guide, you will surely find this process quite straightforward.
 
-= Details =
+= Design process =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Step 1: Choose your hardware ==
+
+Choose your preferred sensors, power source and actuators that fit your design. Identify your endpoints and configuration parameters. Decide how you want to group these values in panStamp's register table.
+
+== Step 2: Create your Arduino sketch ==
+
+Create a new Arduino sketch based on [this template]. Then make the necessary modifications, as explained below:
