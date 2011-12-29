@@ -13,4 +13,34 @@ Choose your preferred sensors, power source and actuators that fit your design. 
 
 == Step 2: Create your Arduino sketch ==
 
-Create a new Arduino sketch based on [this template]. Then make the necessary modifications, as explained below:
+Create a new Arduino sketch based on any of the existing sketches. Try to choose the sketch that best suits your application. Then make the necessary modifications, as explained below:
+
+=== product.h: specify your product code ==
+
+*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products.
+
+{{{
+/**
+ * Hardware version
+ */
+#define HARDWARE_VERSION        0x00000000
+
+/**
+ * Firmware version
+ */
+#define FIRMWARE_VERSION        0x00000000
+
+/**
+ * Manufacturer SWAP ID
+ */
+#define SWAP_MANUFACT_ID        0x00000000
+
+/**
+ * Product SWAP ID
+ */
+#define SWAP_PRODUCT_ID         0x00000000
+}}}
+
+=== regtable.ino: create your custom registers ===
+
+*regtable.ino* is the place where to define your custom registers and their behaviour. 
