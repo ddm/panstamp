@@ -37,7 +37,7 @@ SWAP (Simple Wireless Abstract Protocol) is a compact and lightweight protocol d
 
 Registers are SWAP's unit of information. Measured values, I/O's, and configuration parameters are treated as registers by SWAP. Every register has its own 1-byte identifier. Combining register address and register ID, each register is uniquely identified within a SWAP network (see [SWAP#Packet_structure Packet structure section]).
 
-Register values have not a fixed length and must not be longer than 55 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
+Register values have not a fixed length but must not be longer than 55 bytes. Developers may decide whether to combine multiple endpoint values (I/O's) into a single register or allocate a register per endpoint. Both approaches are valid but, from a practical point of view, each of these options becomes more interesting depending on the use case:
 
  # Multi-sensor boards typically run all ADC conversions at the same interval. Thus, the developer may prefer to maintain a single register combining all ADC values so that only a single status packet is needed.
  # Multi-output boards are usually easier to control using one command packet per endpoint (or in other words, one register per endpoint). Otherwise, the sender risks to unintentionally alter any other output when trying to control one of them.
