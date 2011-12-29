@@ -129,4 +129,4 @@ Description of the CC1101 class, its public arguments and methods. Any developer
 
 == Example ==
 
-See [http://code.google.com/p/panstamp/source/browse/trunk/arduino/libraries/panstamp/panstamp.cpp panstamp.cpp] and [http://code.google.com/p/panstamp/source/browse/trunk/arduino/libraries/panstamp/swap.cpp swap.cpp] for a complete example about the use of the CC1101 class.
+See [http://code.google.com/p/panstamp/source/browse/trunk/arduino/libraries/panstamp/panstamp.cpp panstamp.cpp] for a complete example about the use of the CC1101 class.
