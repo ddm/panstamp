@@ -4,6 +4,8 @@
  * [devicexml#Introduction Introduction]
  * [devicexml#How_XML_files_are_organized How XML files are organized]
  * [devicexml#Structure_of_XML_definition_files Structure of XML definition files]
+ * [devicexml#Registers,_endpoints_and_parameters Registers, endpoints and parameters]
+  * [devicexml#Units_and_modifiers Units and modifiers]
 
 = Introduction =
 
@@ -17,19 +19,76 @@ Before publishing your own panStamp firmware you need to get a unique developer 
 
 Example of devices.xml file:
 
-    <?xml version="1.0"?>
-    <devices>
-      <developer id="1" name="panStamp">
-        <dev id="1" name="temphum" label="Dual Temperature/Humidity sensor"/>
-        <dev id="2" name="chronos" label="SWAP-enabled Chronos watch"/>
-        <dev id="3" name="rgbdriver" label="RGB driver board"/>
-        <dev id="4" name="temp" label="Temperature sensor"/>
-        <dev id="5" name="temphumpress" label="Temperature/Humidity/Barometric sensor"/>
-        <dev id="6" name="rfidtag" label="RFID tag"/>
-        <dev id="7" name="rfidreader" label="RFID reader"/>
-      </developer>
-    </devices>
+"""
+<?xml version="1.0"?>
+<devices>
+  <developer id="1" name="panStamp">
+    <dev id="1" name="temphum" label="Dual Temperature/Humidity sensor"/>
+    <dev id="2" name="chronos" label="SWAP-enabled Chronos watch"/>
+    <dev id="3" name="rgbdriver" label="RGB driver board"/>
+    <dev id="4" name="temp" label="Temperature sensor"/>
+    <dev id="5" name="temphumpress" label="Temperature/Humidity/Barometric sensor"/>
+    <dev id="6" name="rfidtag" label="RFID tag"/>
+    <dev id="7" name="rfidreader" label="RFID reader"/>
+  </developer>
+</devices>
+"""
 
 = Structure of XML definition files =
 
-The following is a template created to help during the creation of XML definition files:
+The following is an example of a SWAP device, a dual temperature-humidity sensor developed by panStamp:
+
+"""
+<?xml version="1.0"?>
+<device>
+  <developer>panStamp</developer>
+  <product>Dual Temperature-Humidity sensor</product>
+  <pwrdownmode>true</pwrdownmode>
+  <regular>
+    <reg name="Voltage supply" id="11">
+      <endpoint name="Voltage" type="num" dir="inp">
+        <size>2</size>
+        <units>
+          <unit name="V" factor="0.001" offset="0"/>
+        </units>
+      </endpoint>
+    </reg>
+    <reg name="Humidity and Temperature" id="12">
+      <endpoint name="Temperature" type="num" dir="inp">
+        <position>0</position>
+        <size>2</size>
+        <units>
+          <unit name="C" factor="0.01" offset="0"/>
+          <unit name="F" factor="0.018" offset="32"/>
+          <unit name="K" factor="0.01" offset="273.15"/>
+        </units>
+      </endpoint>
+      <endpoint name="Humidity" type="num" dir="inp">
+        <position>2</position>
+        <size>2</size>
+        <units>
+          <unit name="%" factor="0.01" offset="0"/>
+        </units>
+      </endpoint>
+    </reg>
+  </regular>
+</device>
+"""
+
+The above device contains no configuration parameter. It simply provides two regular registers (voltage and temperature/humidity), with ID 11 and 12 respectively. Configuration registers are contained in the _<config>_ section, not in _<regular>_ as the rest of registers. Also note that basic parameters such us device address, network ID, or frequency channel are neither defined in this file (or any other definition file). This is simply because common configuration parameters are internally defined and managed by the panStamp firmware stack, as explained here.
+
+But if you want to create a full-featured device definition file, with configuration parameters and regular endpoints, using [http://panstamp.googlecode.com/svn/trunk/devices/template.xml this template] is probably the best way to go. The [http://panstamp.googlecode.com/svn/trunk/devices/panStamp/chronos.xml Chronos watch definition file] is also a good example of mixing configuration with sensor readings.
+
+= Registers, endpoints and parameters =
+
+This has already been discussed in [SWAP#Registers_and_values this section] but it's maybe a good idea to check these concepts from one of the existing definition files. Note that each register can contain multiple endpoints or multiple configuration parameters and that each endpoint or parameter occupies a specific place within the container register. This particularity lets us transmit multiple values (endpoints) using a single SWAP status packet, thus minimizing bandwith consumption and reducing transmission times.
+
+When displaying endpoint data from web servers or computer applications, device definition files provide a way to tell the applciation what to do with received packets - how to extract endpoint values and configuration parameters from transmitted registers and how to transform values to make them readable by the end user -.
+
+== Units and modifiers ==
+
+For new devices, it's a good idea to provide multiple units for each endpoint whenever possible. This is simply done by adding a new _<unit>_ line in the _<units>_ section. The transforming formula is very straightforward:
+
+_reading = factor * (endpoint value) + offset (unit name)_
+
+Modifiers can take any real value. Default modifiers: factor = 1, offset = 0.
