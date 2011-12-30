@@ -8,7 +8,7 @@
    * [developmentsteps#product.h:_specify_your_product_code product.h: specify your product code]
    * [developmentsteps#regtable.ino:_create_your_custom_registers regtable.ino: create your custom registers]
    * [developmentsteps#regtable.ino:_define_updater_and_setter_functions_for_your_registers regtable.ino: define updater and setter functions for your registers]
-   * [developmentsteps#regtable.h:_define_indexes_for_our_custom_registers regtable.h: define indexes for our custom registers]
+   * [developmentsteps#regtable.h:_define_ID's_for_our_custom_registers regtable.h: define ID's for our custom registers]
    * [developmentsteps#Main.ino_file:_initialize_the_board Main.ino file: initialize the board]
    * [developmentsteps#Main.ino_file:_Run_periodic_tasks Main.ino file: Run periodic tasks]
   * [developmentsteps#Step_3:_Create_a_definition_file_for_our_new_device Step 3: Create a definition file for our new device]
@@ -166,9 +166,9 @@ const void setPWMoutputs(byte rId, byte *level)
 }
 }}}
 
-=== regtable.h: define indexes for our custom registers ===
+=== regtable.h: define ID's for our custom registers ===
 
-Finally, we have to define indexes for our new registers. Open _regtable.h_ and enter your indexes between _DEFINE_REGINDEX_START()_ and _DEFINE_REGINDEX_END()_ as follows:
+Finally, we have to define ID's for our new registers. Open _regtable.h_ and enter your ID's between _DEFINE_REGINDEX_START()_ and _DEFINE_REGINDEX_END()_ as follows:
 
 {{{
 /**
