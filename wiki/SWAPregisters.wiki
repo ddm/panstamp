@@ -15,6 +15,7 @@
   * [SWAPregisters#Security_nonce Security nonce]
   * [SWAPregisters#Network_ID Network ID]
   * [SWAPregisters#Device_address Device address]
+  * [SWAPregisters#Periodic_Tx_interval Periodic Tx Interval]
  * [SWAPregisters#Custom_registers Custom registers]
 
 = Introduction =
@@ -147,6 +148,16 @@ Length = 1 byte
 Access: read and write
 
 Description: 1-byte SWAP address
+
+== Periodic Tx interval ==
+
+Register ID = 10
+
+Length = 2 bytes
+
+Access: read and write
+
+Description: Interval (in seconds) between periodic transmissions. _panstamp.goToSleep()_ uses this interval to put the panStamp in power-down mode.
 
 = Custom registers =
 
