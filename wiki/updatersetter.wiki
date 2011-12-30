@@ -1,5 +1,5 @@
 #labels SWAP,updater,setter,stack,panstamp
-#Updater and setter functions: the intelligence behind the scene
+# Updater and setter functions: the intelligence behind the scene
 
 = Introduction =
 
