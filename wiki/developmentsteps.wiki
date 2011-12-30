@@ -1,5 +1,5 @@
 #labels SWAP,development,steps
-*Steps to be done during the development of a new SWAP device*
+*Steps to be done along the development of a new SWAP device*
 
 = Introduction =
 
@@ -17,7 +17,7 @@ Create a new Arduino sketch based on any of the existing sketches. Try to choose
 
 === product.h: specify your product code ==
 
-*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products.
+*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products.Once your developments completed, this Product ID and your new device definition file should be uploaded to our central repositories in order to make your devices identifiable by any application or device. 
 
 {{{
 /**
@@ -43,4 +43,255 @@ Create a new Arduino sketch based on any of the existing sketches. Try to choose
 
 === regtable.ino: create your custom registers ===
 
-*regtable.ino* is the place where to define your custom registers and their behaviour. 
+*regtable.ino* is the place where to define custom registers and their behaviour. To make this tutorial a bit easier, let's suppose we want to implement a sketch for a device that has two analog inputs and two PWM outputs. Thus, we can define two custom registers, each containing two endpoints:
+
+{{{
+/*
+ * Definition of custom registers
+ */
+// ADC inputs
+static byte dtADCinputs[4];                   // Data container: two 10-bit ADC values
+REGISTER regADCinputs(dtADCinputs,            // Pointer to the data container
+                      sizeof(dtADCinputs),    // Size of the data container
+                      &updtADCinputs,         // Pointer to the updater function
+                      NULL);                  // Pointer to the setter function
+
+// PWM outputs
+static byte dtPWMoutput0[1];                  // Data container: one 8-bit PWM value
+REGISTER regPWMoutput0(dtPWMoutput0,          // Pointer to the data container
+                      sizeof(dtPWMoutput0),   // Size of the data container
+                      NULL,                   // Pointer to the updater function
+                      &setPWMoutput);         // Pointer to the setter function
+
+static byte dtPWMoutput1[1];                  // Data container: one 8-bit PWM value
+REGISTER regPWMoutput1(dtPWMoutput1,          // Pointer to the data container
+                      sizeof(dtPWMoutput1),   // Size of the data container
+                      NULL,                   // Pointer to the updater function
+                      &setPWMoutput);         // Pointer to the setter function
+}}}
+
+And now we have to insert pointers to the above registers into the global table of registers:
+
+{{{
+/**
+ * Initialize table of registers
+ */
+DECLARE_REGISTERS_START()
+  &regADCinputs,    // Register ID = 11 (0x0B)
+  &regPWMoutput0,   // Register ID = 12 (0x0C)
+  &regPWMoutput1,   // Register ID = 13 (0x0D)
+DECLARE_REGISTERS_END()
+}}}
+
+The above declaration appends our custom registers after the first [SWAPregisters standard (mandatory) registers] (Register ID's 0 to 10) so that every register, custom or standard, can be accessed in the same way, via _getRegister_. Also note that whilst PWM output values are placed in two independent registers (regPWMoutput0 and regPWMoutput1), ADC inputs share a common register (regADCinputs). Doing this, only one SWAP status packet will be needed in order to inform about the value of both ADC readings. On the output side, each PWM output will be controllable through a different register command (Register ID 12 and 13). This could be done differently but we think that grouping inputs in common registers and maintaining outputs in independent registers is a good practice, a good compromise between low bandwidth consumption (input side) and logic isolation between outputs.
+
+=== regtable.ino: define updater and setter functions for your registers ===
+
+Let's now define every _updater_ and _setter_ function. _Updater_ functions are responsible of updating registers values before  transmitting _status_ packets. On the other hand, _setter_ functions are the only means to modify registers from the outside by sending _commands_ to our device. As result, regADCinputs, defines only an updater function since it contains only inputs (ADC inputs) and they are not modifiable from the outside. regPWMoutputs contains only outputs so we only need the _setter_ function in this case. [updatersetter This page] explains how _updater_ and _setter_ functions work  and how they interact with the SWAP network.
+
+In our example, we have to define an _updater_ function, called *updtADCinputs*, that will have to read both ADC inputs and then place the readings into the data container (*dtADCinputs*):
+
+{{{
+/**
+ * updtADCinputs
+ *
+ * Read ADC inputs and place the readings into the corresponding
+ * register bytes
+ *
+ * 'rId'  Register ID
+ */
+const void updtADCinputs(byte rId)
+{
+  int reading;
+
+  // Read ADC input 0 (panStamp pin 4)
+  reading = updtADCinputs(0);
+  // Pace reading into the first two bytes of the register. Big endian representation
+  updtADCinputs[0] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[0] = (reading >> 8) & 0xFF;
+  updtADCinputs[1] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[1] = reading & 0xFF;
+
+  // Read ADC input 1 (panStamp pin 5)
+  reading = updtADCinputs(1);
+  // Pace reading into the first two bytes of the register. Big endian representation
+  updtADCinputs[2] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[2] = (reading >> 8) & 0xFF;
+  updtADCinputs[3] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[3] = reading & 0xFF;
+}
+}}}
+
+And now we have to define *setPWMoutputs*, the setter function for both PWM output registers (regPWMoutput0 and regPWMoutput1):
+
+{{{
+/**
+ * setPWMoutput
+ *
+ * Set PWM levels
+ *
+ * 'rId'     Register ID
+ * 'level'    New PWM level
+ */
+const void setPWMoutputs(byte rId, byte *level)
+{
+  int pin;
+
+  // Update register
+  memcpy(regTable[rId]->value, level, sizeof(regTable[rId]->value));
+
+  // Set output pin
+  switch(rId):
+  {
+    case 12:
+      pin = 3;    // Arduino digital pin 3 - panStamp pin 18
+      break;
+    case 13:
+      pin = 5;    // Arduino digital pin 5 - panStamp pin 20
+      break;
+    default:
+      return;
+  }
+
+  // Control PWM output
+  analogWrite(pin, level[0]);
+}
+}}}
+
+=== regtable.h: define indexes for our custom registers ===
+
+Finally, we have to define indexes for our new registers. Open _regtable.h_ and enter your indexes between _DEFINE_REGINDEX_START()_ and _DEFINE_REGINDEX_END()_ as follows:
+
+{{{
+/**
+ * Register indexes
+ */
+DEFINE_REGINDEX_START()
+  REGI_ADCINPUTS,
+  REGI_PWMOUTPUT0,
+  REGI_PWMOUTPUT1
+DEFINE_REGINDEX_END()
+}}}
+
+Now our new registers can be accessed using _getRegister_ from our sketch:
+
+{{{
+// Update ADC values and transmit SWAP status packet
+getRegister(REGI_ADCINPUTS)->getData();
+
+// Set first PWM output level and transmit SWAP status packet
+getRegister(REGI_PWMOUTPUT0)->setData(85);
+
+// Read second PWM register value and transmit SWAP status packet
+getRegister(REGI_PWMOUTPUT1)->getData();
+}}}
+
+=== Main .ino file: initialize the board ===
+
+The rest of work is very simple. From our main INO file we first have to include these two files:
+
+{{{
+#include "regtable.h"
+#include "panstamp.h"
+}}}
+
+And then initialize the panStamp board:
+
+{{{
+**
+ * setup
+ *
+ * Arduino setup function
+ */
+void setup()
+{
+  // Initialize PWM outputs
+  pinMode(3, OUTPUT);
+  digitalWrite(3, LOW);
+  pinMode(5, OUTPUT);
+  digitalWrite(5, LOW);
+
+  // Initialize panStamp
+  panstamp.init();
+
+  // Transmit product code
+  getRegister(REGI_PRODUCTCODE)->getData();
+}
+}}}
+
+The above code is suitable for a device that is always listening to the SWAP network, that is the case of our ADC/PWM example. But, what if we need to write some registers onto a low-power device? What if this device sleeps most of the time? In this case, we recommend to setup an initial synchronization period within which the board will be ready to accept commands:
+
+{{{
+**
+ * setup
+ *
+ * Arduino setup function
+ */
+void setup()
+{
+  int i;
+
+  pinMode(LEDPIN, OUTPUT);
+  digitalWrite(LEDPIN, LOW);
+
+  // Init panStamp
+  panstamp.init();
+
+  // Transmit product code
+  getRegister(REGI_PRODUCTCODE)->getData();
+
+  // Enter SYNC state
+  panstamp.enterSystemState(SYSTATE_SYNC);
+
+  // During 3 seconds, listen the network for possible commands whilst the LED blinks
+  for(i=0 ; i<6 ; i++)
+  {
+    digitalWrite(LEDPIN, HIGH);
+    delay(100);
+    digitalWrite(LEDPIN, LOW);
+    delay(400);
+  }
+  // Transmit periodic Tx interval
+  getRegister(REGI_TXINTERVAL)->getData();
+  // Transmit power voltage
+  getRegister(REGI_VOLTSUPPLY)->getData();
+  // Switch to Rx OFF state
+  panstamp.enterSystemState(SYSTATE_RXOFF);
+}
+}}}
+
+The above is maybe the most simple way to put a low-power board in _SYNC_ mode. You just have to reset the board and it will enter the _SYNC_ mode for a given period.
+
+=== Main .ino file: Run periodic tasks ===
+
+Finally we have to write the necessary code in _loop()_. We'll usually write here the code that periodically reads the sensors and puts the board in power-down mode. For our example we need no power-down function so we'd just write the following:
+
+{{{
+/**
+ * loop
+ *
+ * Arduino main loop
+ */
+void loop()
+{
+  // Transmit ADC data
+  getRegister(REGI_ADCINPUTS)->getData();
+
+  // Wait 5 sec before sending ADC values again
+  delay(5000);
+}
+}}}
+
+If we'd want to put our panStamp in power-down mode we should do the following:
+
+{{{
+/**
+ * loop
+ *
+ * Arduino main loop
+ */
+void loop()
+{
+  // Transmit ADC data
+  getRegister(REGI_ADCINPUTS)->getData();
+
+  // Sleep for the amount of seconds specified in "Tx interval register" (standard register with ID = 10)
+  panstamp.goToSleep();
+}
+}}}
