@@ -196,7 +196,7 @@ getRegister(REGI_PWMOUTPUT1)->getData();
 
 === Main.ino file: initialize the board ===
 
-The rest of work is very simple. From our main INO file we first have to include these two files:
+The rest of the work is very simple. From our main INO file we first have to include these two files:
 
 {{{
 #include "regtable.h"
@@ -268,7 +268,7 @@ void setup()
 }
 }}}
 
-The above is maybe the most simple way to put a low-power board in _SYNC_ mode. You just have to reset the board and it will enter the _SYNC_ mode for a given period.
+The above is maybe the most simple way to put a low-power board in _SYNC_ mode. We just have to reset the board and it will enter the _SYNC_ mode for a given period.
 
 === Main.ino file: Run periodic tasks ===
 
@@ -290,7 +290,7 @@ void loop()
 }
 }}}
 
-If we'd want to put our panStamp in power-down mode we should do the following:
+If we want to put our panStamp in power-down mode we have to do the following:
 
 {{{
 /**
