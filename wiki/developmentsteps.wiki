@@ -310,7 +310,7 @@ void loop()
 
 == Step 3: Create a definition file for our new device ==
 
-Device definition files are explained in [devicexml this page]. They are basically xml files defining registers, parameters and endpoints for a given SWAP product. If you plan to configure your panStamps from [SWAPdmt SWAPdmt] or use any computer application based on our Python [pyswap pyswap library] then you definitely need a proper [devicexml Device Definition File]. Otherwise, you can skip this step.
+Device definition files are explained in [devicexml this page]. They are basically xml files defining registers, parameters and endpoints for a given SWAP product. If you plan to configure your panStamps from [SWAPdmt SWAPdmt] or use any computer application based on our [pyswap Python pyswap library] then you definitely need a proper [devicexml Device Definition File]. Otherwise, you can skip this step.
 
 In our example we should create a definition file similar to this one:
 
