@@ -25,7 +25,7 @@ Choose your preferred sensors, power source and actuators that fit your design. 
 
 == Step 2: Create your Arduino sketch ==
 
-Create a new Arduino sketch based on our template or any of the existing sketches. Try to choose the sketch that best suits your application. Then make the necessary modifications, as explained below:
+Create a new Arduino sketch based on our template or any of the existing sketches. Then make the necessary modifications, as explained below:
 
 === product.h: specify your product code ==
 
