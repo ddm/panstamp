@@ -29,7 +29,7 @@ Create a new Arduino sketch based on our template or any of the existing sketche
 
 === product.h: specify your product code ==
 
-*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products. Once your developments completed, this Product ID and your new device definition file should be uploaded to our central repositories in order to make your devices identifiable by any application or device. 
+*product.h* contains some fields that need to be filled in order to make our device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use the unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value and should be used only in devices of the same type (same product). Once our developments completed, this Product ID and our new device definition file should be uploaded to the central repositories in order to make our devices identifiable by any application or device. 
 
 {{{
 /**
@@ -55,7 +55,7 @@ Create a new Arduino sketch based on our template or any of the existing sketche
 
 === regtable.ino: create your custom registers ===
 
-*regtable.ino* is the place where to define custom registers and their behaviour. To make this tutorial a bit easier, let's suppose we want to implement a sketch for a device that has two analog inputs and two PWM outputs. Thus, we can define two custom registers, each containing two endpoints:
+*regtable.ino* is the place where to define custom registers and their behavior. To make this tutorial a bit easier, let's suppose we want to implement a sketch for a device that has two analog inputs and two PWM outputs. Thus, we can define two custom registers, each containing two endpoints:
 
 {{{
 /*
