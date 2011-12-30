@@ -29,7 +29,7 @@ Create a new Arduino sketch based on any of the existing sketches. Try to choose
 
 === product.h: specify your product code ==
 
-*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products.Once your developments completed, this Product ID and your new device definition file should be uploaded to our central repositories in order to make your devices identifiable by any application or device. 
+*product.h* contains some fields that need to be filled in order to make your device identifiable from the SWAP network. Manufacturer ID and Product ID are the most important ones. Remember to use your unique Manufacturer ID, provided during the member registration process. Product ID can take any 4-byte value but remember to never use the same ID for two different products. Once your developments completed, this Product ID and your new device definition file should be uploaded to our central repositories in order to make your devices identifiable by any application or device. 
 
 {{{
 /**
