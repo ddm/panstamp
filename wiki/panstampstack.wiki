@@ -1,4 +1,5 @@
-*Updater and setter functions: the intelligence behind the scenes*
+#labels panstamp,stack,swap,registers
+*panStamp stack: the intelligence behind the scenes*
 
 = Introduction =
 
