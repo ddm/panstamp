@@ -99,7 +99,7 @@ The above declaration appends our custom registers after the first [SWAPregister
 
 === regtable.ino: define updater and setter functions for your registers ===
 
-Let's now define every _updater_ and _setter_ function. _Updater_ functions are responsible of updating registers values before  transmitting _status_ packets. On the other hand, _setter_ functions are the only means to modify registers from the outside by sending _commands_ to our device. As result, regADCinputs, defines only an updater function since it contains only inputs (ADC inputs) and they are not modifiable from the outside. regPWMoutputs contains only outputs so we only need the _setter_ function in this case. [panstampstack#Updater_and_setter_functions This page] explains how _updater_ and _setter_ functions work  and how they interact with the SWAP network.
+Let's now define every _updater_ and _setter_ function. _Updater_ functions are responsible of updating registers values before  transmitting _status_ packets. On the other hand, _setter_ functions are the only means to modify registers from the outside by sending _commands_ to our device. As result, regADCinputs, defines only an updater function since it contains only inputs (ADC inputs) and they are not modifiable from the outside. regPWMoutputs contains only outputs so we only need the _setter_ function in this case. [panstampstack This page] explains how _updater_ and _setter_ functions work  and how they interact with the SWAP network.
 
 In our example, we have to define an _updater_ function, called *updtADCinputs*, that will have to read both ADC inputs and then place the readings into the data container (*dtADCinputs*):
 
