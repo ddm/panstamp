@@ -11,4 +11,4 @@ But, what is behind this magic? SWAP is a protocol that allows the creation of a
 
 https://lh5.googleusercontent.com/-9QFLyflo0ps/Tv8Jvt6PXHI/AAAAAAAAAE8/bEnWDiGKf9k/s610/registers.png
 
-Register objects
+Register objects are simple collections of pointers that help trigger actions and access data upon reception of SWAP packets. Registers consist of a pointer to a data container (an array of bytes) and a couple of optional pointers to an _updater_ and a _setter_ function.
