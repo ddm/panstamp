@@ -3,12 +3,8 @@
 
 = Introduction =
 
-Add your content here.
-
+The panStamp stack has been designed to simplify adoption by developers, reducing the need of custom code to the minimum and still occupy very low footprint (less than 6 Kb of Flash and less than 1 Kb of RAM). The stack also intends to isolate user code from SWAP communications so that developers can really focus on their applications without having to worry about incoming commands or queries or about having to send status packets.
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+But, what is behind this magic? SWAP is a protocol that allows the creation of a register-centered stack. The stack core is precisely a table of register objects. This table consists of a mix of [SWAPregisters#Standard_registers standard registers] and custom ones and the index of each register within the table matches the register ID. This fact lets the stack link SWAP packets and registers quicly and efficiently without having to use intermediary look-up tables.
