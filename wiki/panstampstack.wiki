@@ -12,3 +12,15 @@ But, what is behind this magic? SWAP is a protocol that allows the creation of a
 https://lh5.googleusercontent.com/-9QFLyflo0ps/Tv8Jvt6PXHI/AAAAAAAAAE8/bEnWDiGKf9k/s610/registers.png
 
 Register objects are simple collections of pointers that help trigger actions and access data upon reception of SWAP packets. Registers consist of a pointer to a data container (an array of bytes) and a couple of optional pointers to an _updater_ and a _setter_ function.
+
+https://lh6.googleusercontent.com/-NLw1J4iwLn8/Tv8RGoDk1uI/AAAAAAAAAFU/1sPtTc0vqD8/s339/regpointers.png
+
+== Data container ==
+
+Data containers can take any length so that, despite the limitation to 255 registers, panStamps' data limits actually reside in the amount of available RAM and not in the stack itself. When transmitting SWAP command and status packets, data is copied to/from these arrays, keeping the same format and length.
+
+https://lh5.googleusercontent.com/-TXXc-5cCiOA/Tv8V5UR0skI/AAAAAAAAAF8/gwFaGqXgr9w/s846/datacontainer_packet.png
+
+== Updater function ==
+
+== Setter function ==
