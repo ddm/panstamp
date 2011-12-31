@@ -29,4 +29,20 @@ https://lh5.googleusercontent.com/-TXXc-5cCiOA/Tv8V5UR0skI/AAAAAAAAAF8/gwFaGqXgr
 
 == Updater function ==
 
+_Updater_ functions take care of updating register values after the reception of a SWAP query or simply when calling _REGISTER::getData()_ These functions are usually implemented by developers to read sensors, switches or just for updating internal parameters. For example, if we define the following _updater_ function for one of our custom registers:
+
+{{{
+const void updtADCinput(byte rId)
+{
+  // Read ADC input 0 (panStamp pin 4)
+  int reading = updtADCinputs(0);
+  // Pace reading into the first two bytes of the register. Big endian representation
+  regTable[rId]->value[0] = (reading >> 8) & 0xFF;
+  regTable[rId]->value[1] = reading & 0xFF;
+}
+}}}
+
+whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the stack calls the above _updater_function. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is briadcasted.
+
+
 == Setter function ==
