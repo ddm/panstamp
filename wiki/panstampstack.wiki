@@ -1,6 +1,13 @@
 #labels panstamp,stack,swap,registers,updater,setter
 *panStamp stack: the intelligence behind the scenes*
 
+ * [panstampstack#Introduction Introduction]
+ * [panstampstack#Details Details]
+  * [panstampstack#Data_container Data container]
+  * [panstampstack#Updater_and_setter_functions Updater and setter functions]
+   * [panstampstack#Updater_function Updater function]
+   * [panstampstack#Setter_function Setter function]
+
 = Introduction =
 
 The panStamp stack has been designed to simplify adoption by developers, reducing the need of custom code to the minimum and still occupy very low footprint (less than 6 Kb of Flash and less than 1 Kb of RAM). The stack also intends to isolate user code from SWAP communications so that developers can really focus on their applications without having to worry about incoming commands or queries or about having to send status packets.
@@ -53,7 +60,7 @@ const void updtADCinput(byte rId)
 whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the above _updater_function is called by the stack. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is brodcasted.
 
 
-== Setter function ==
+=== Setter function ===
 
 Setter functions are responsible for modifying registers when calling _REGISTER::setData(byte* value)_. Although _setData_ may be used from the user sketch, it is mainly called by the panStamp stack whenever a SWAP command packet is received by our device. If a custom register is modifiable from the outside (relay, PWM output, LCD text, configuration parameter, etc.) then this register needs a _setter_ function.
 
