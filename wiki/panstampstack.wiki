@@ -1,10 +1,10 @@
 #labels panstamp,stack,swap,registers,updater,setter
-*panStamp stack: the intelligence behind the scenes*
+= panStamp stack: the intelligence behind the scenes =
 
  * [panstampstack#Introduction Introduction]
  * [panstampstack#Details Details]
   * [panstampstack#Data_container Data container]
-  * [panstampstack#Updater_and_setter_functions Updater and setter functions]
+  * [panstampstack#Updater_and_seter_functions Updater and setter functions]
    * [panstampstack#Updater_function Updater function]
    * [panstampstack#Setter_function Setter function]
 
