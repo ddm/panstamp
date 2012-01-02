@@ -10,7 +10,7 @@ The panStamp stack has been designed to simplify adoption by developers, reducin
 But, what is behind this magic? SWAP is a protocol that allows the creation of a register-centered stack. The stack core is precisely a table of register objects. This table consists of a mix of [SWAPregisters#Standard_registers standard registers] and custom ones and the index of each register within the table matches the register ID. This fact lets the stack link SWAP packets and registers quicly and efficiently without having to use intermediary look-up tables.
 
 <p align="center">
-https://lh5.googleusercontent.com/-9QFLyflo0ps/Tv8Jvt6PXHI/AAAAAAAAAE8/bEnWDiGKf9k/s610/registers.png
+https://lh5.googleusercontent.com/-EcOkH2OdTL0/TwHiU7N0kRI/AAAAAAAAAGg/yiTI0vm7EMg/s640/registers.png
 </p>
 
 Register objects are simple collections of pointers that help trigger actions and access data upon reception of SWAP packets. Registers consist of a pointer to a data container (an array of bytes) and a couple of optional pointers to an _updater_ and a _setter_ function.
@@ -27,7 +27,15 @@ Data containers can take any length so that, despite the limitation to 255 regis
 https://lh5.googleusercontent.com/-TXXc-5cCiOA/Tv8V5UR0skI/AAAAAAAAAF8/gwFaGqXgr9w/s846/datacontainer_packet.png
 </p>
 
-== Updater function ==
+== Updater and setter functions ==
+
+_Updater_ and _setter_ functions are user callback methods made to work with registers and to interface the SWAP network in a simple way.
+
+<p align="center">
+https://lh5.googleusercontent.com/-MD_M0RX6Ras/TwHiUwGEqkI/AAAAAAAAAGc/nzwbq5FWRds/s828/regpointers2.png
+</p>
+
+=== Updater function ===
 
 _Updater_ functions take care of updating register values after the reception of a SWAP query or simply when calling _REGISTER::getData()_ These functions are usually implemented by developers to read sensors, switches or just for updating internal parameters. For example, if we define the following _updater_ function for one of our custom registers:
 
@@ -42,7 +50,24 @@ const void updtADCinput(byte rId)
 }
 }}}
 
-whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the stack calls the above _updater_function. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is briadcasted.
+whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the stack calls the above _updater_function. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is brodcasted.
 
 
 == Setter function ==
+
+Setter functions are responsible of modifying registers when calling _REGISTER::setData(byte* value)_. Although _setData_ may be used from user sketch, it is mainly called by the panStamp stack whenever a SWAP command packet is received by our device. If a custom register is modifiable from the outside (relay, PWM output, LCD text, configuration parameter, etc.) then this register needs a _setter_ function.
+
+In summary, _updater_ functions, used by _REGISTER::getData_, are called  by the stack when a SWAP query is received. On the other hand, _setter_functions, used by _REGISTER::setData_, are called by the stack after receiving a SWAP command. In both cases, a SWAP status packet is returned to the network.
+
+Example of setter function:
+
+{{{
+const void setRGBlevel(byte rId, byte *levels)
+{
+  // Update register
+  memcpy(dtRGBlevel, levels, sizeof(dtRGBlevel));
+
+  // Control RGB LED
+  rgbLed.setColor(levels[0], levels[1], levels[2]);
+}
+}}}
