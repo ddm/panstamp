@@ -1,4 +1,4 @@
-#labels panstamp,stack,swap,registers
+#labels panstamp,stack,swap,registers,updater,setter
 *panStamp stack: the intelligence behind the scenes*
 
 = Introduction =
@@ -7,7 +7,7 @@ The panStamp stack has been designed to simplify adoption by developers, reducin
 
 = Details =
 
-But, what is behind this magic? SWAP is a protocol that allows the creation of a register-centered stack. The stack core is precisely a table of register objects. This table consists of a mix of [SWAPregisters#Standard_registers standard registers] and custom ones and the index of each register within the table matches the register ID. This fact lets the stack link SWAP packets and registers quicly and efficiently without having to use intermediary look-up tables.
+But, what is behind this magic? SWAP is a protocol that allows the creation of a register-centered stack. From a practical point of view, we can say that the core of the stack is a table of register objects. This table consists of a mix of [SWAPregisters#Standard_registers standard registers] and custom ones. Moreover, the index of each register within the table matches the register ID. This fact lets the stack link SWAP packets and registers quickly and efficiently without having to use intermediary look-up tables.
 
 <p align="center">
 https://lh5.googleusercontent.com/-EcOkH2OdTL0/TwHiU7N0kRI/AAAAAAAAAGg/yiTI0vm7EMg/s640/registers.png
@@ -50,12 +50,12 @@ const void updtADCinput(byte rId)
 }
 }}}
 
-whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the stack calls the above _updater_function. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is brodcasted.
+whenever our application or the stack itself calls _getReg(REGI_OURREG)->getData()_ the above _updater_function is called by the stack. As result, The reading of ADC0 is placed into our register and finally a SWAP status packet is brodcasted.
 
 
 == Setter function ==
 
-Setter functions are responsible of modifying registers when calling _REGISTER::setData(byte* value)_. Although _setData_ may be used from user sketch, it is mainly called by the panStamp stack whenever a SWAP command packet is received by our device. If a custom register is modifiable from the outside (relay, PWM output, LCD text, configuration parameter, etc.) then this register needs a _setter_ function.
+Setter functions are responsible for modifying registers when calling _REGISTER::setData(byte* value)_. Although _setData_ may be used from the user sketch, it is mainly called by the panStamp stack whenever a SWAP command packet is received by our device. If a custom register is modifiable from the outside (relay, PWM output, LCD text, configuration parameter, etc.) then this register needs a _setter_ function.
 
 In summary, _updater_ functions, used by _REGISTER::getData_, are called  by the stack when a SWAP query is received. On the other hand, _setter_functions, used by _REGISTER::setData_, are called by the stack after receiving a SWAP command. In both cases, a SWAP status packet is returned to the network.
 
