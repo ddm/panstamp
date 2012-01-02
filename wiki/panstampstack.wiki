@@ -10,7 +10,7 @@ The panStamp stack has been designed to simplify adoption by developers, reducin
 But, what is behind this magic? SWAP is a protocol that allows the creation of a register-centered stack. From a practical point of view, we can say that the core of the stack is a table of register objects. This table consists of a mix of [SWAPregisters#Standard_registers standard registers] and custom ones. Moreover, the index of each register within the table matches the register ID. This fact lets the stack link SWAP packets and registers quickly and efficiently without having to use intermediary look-up tables.
 
 <p align="center">
-https://lh5.googleusercontent.com/-EcOkH2OdTL0/TwHiU7N0kRI/AAAAAAAAAGg/yiTI0vm7EMg/s640/registers.png
+https://lh5.googleusercontent.com/-9XBVAn3Uj6o/TwHmi7NovtI/AAAAAAAAAG8/8_VSykFhI2w/s615/registers.png
 </p>
 
 Register objects are simple collections of pointers that help trigger actions and access data upon reception of SWAP packets. Registers consist of a pointer to a data container (an array of bytes) and a couple of optional pointers to an _updater_ and a _setter_ function.
