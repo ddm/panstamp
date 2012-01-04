@@ -50,7 +50,7 @@ _Updater_ functions take care of updating register values after the reception of
 const void updtADCinput(byte rId)
 {
   // Read ADC input 0 (panStamp pin 4)
-  int reading = updtADCinputs(0);
+  int reading = analogRead(0);
   // Pace reading into the first two bytes of the register. Big endian representation
   regTable[rId]->value[0] = (reading >> 8) & 0xFF;
   regTable[rId]->value[1] = reading & 0xFF;
