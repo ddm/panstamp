@@ -54,8 +54,6 @@ Once in _command mode_, the _modem_ application accepts the following set of AT 
 || ATHV=x || Set hardware version to x (HEX) ||
 || ATFV? || Return firmware version ||
 || ATFV=x || Set firmware version to x (HEX) ||
-|| ATCF? || Return carrier frequency ||
-|| ATCF=x || Set carrier frequency to x (HEX) ||
 || ATCH? || Return frequency channel ||
 || ATCH=x || Set frequency channel to x (HEX) ||
 || ATSW? || Return synchronization word ||
@@ -67,4 +65,5 @@ Once in _command mode_, the _modem_ application accepts the following set of AT 
 
 
 = Existing software libraries =
-At the moment of writing this tutorial, only [jswap jswap] and [jcc11xx jcc11xx] have been developed for the _modem_ application. [jswap jswap] has entirely been developed under Java SE and lets you interface any SWAP network through a serial panStamp (ex: USB panStick). [jcc11xx jcc11xx] is a lower lever library, designed to work with raw CC11XX-based packets. jswap is based on jcc11xx.
+pyswap is the official library created to interface the modem application. Written using Python, this library is the basis of [SWAPdmt SWAPdmt] and other plugins currently being developed.
+ 
