@@ -10,4 +10,5 @@ void setup()
 
   // Set carrier frequency to 915 MHz
   panstamp.cc1101.setCarrierFreq(CFREQ_915);
+}
 }}}
