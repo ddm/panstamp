@@ -1,7 +1,8 @@
-#labels swapdmt,swap
+#labels swapdmt,swap,python,configuration,tool
 *SWAPdmt, Device Management Tool for SWAP networks.*
 
  * [SWAPdmt#Introduction Introduction]
+ * [SWAPdmt#Installation Installation]
  * [SWAPdmt#Serial_port Serial port]
  * [SWAPdmt#Serial_gateway_network_settings Serial gateway network settings]
  * [SWAPdmt#Identify_SWAP_devices Identify SWAP devices]
