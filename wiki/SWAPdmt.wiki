@@ -19,8 +19,24 @@ SWAPdmt lets us configure the following parameters:
  * Network settings on any mote: frequency channel, network ID, address, security options and periodic Tx interval.
  * Custom registers on any mote
 
-Besides, SWAPdmt identifies any SWAP mote on the network (with the same frequency channel and network id as the modem) and monitors the network, providing feedback for register values and device addresses.
+Besides, SWAPdmt can identify every SWAP mote in the network (with the same frequency channel and network id as the modem) and monitors the network, providing feedback for register values and device addresses.
 
+= Installation =
+
+ # Install Python 2.6 or 2.7 in your computer
+ # Download the latest test version of [pyswap pyswap] from subversion:
+{{{
+svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/your/computer
+}}}
+ # Add [pyswap pyswap] to your PYTHONPATH variable.
+ # Download the latest test version of SWAPdmt from subversion:
+{{{
+svn checkout http://panstamp.googlecode.com/svn/trunk/python/swapdmt /path/in/your/computer
+}}} 
+ # Run SWAPdmt as follows:
+{{{
+python pyswapdmtgui
+}}}
 
 = Serial port =
 In order to connect SWAPdmt to the network, a SWAP wireless gateway must be available on the computer. At the moment of writing this document only panStick or a usb/serial panStamp can be used as SWAP interfaces. The SWAP modem communicates with the computer via serial port (a real serial port or a virtual one) so before pressing the “Connect” button you should check the serial settings.
