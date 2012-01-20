@@ -1,5 +1,5 @@
 #labels SWAP,development,steps
-*Steps to be done along the development of a new SWAP device*
+= Steps to be done along the development of a new SWAP device =
 
  * [developmentsteps#Introduction Introduction]
  * [developmentsteps#Design_process Design process]
