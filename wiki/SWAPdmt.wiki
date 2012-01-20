@@ -1,5 +1,5 @@
 #labels swapdmt,swap,python,configuration,tool
-*SWAPdmt, Device Management Tool for SWAP networks.*
+= SWAPdmt, Device Management Tool for SWAP networks =
 
  * [SWAPdmt#Introduction Introduction]
  * [SWAPdmt#Installation Installation]
