@@ -30,10 +30,15 @@ Besides, SWAPdmt can identify every SWAP mote in the network (with the same freq
 svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/your/computer
 }}}
  # Add [pyswap pyswap] to your PYTHONPATH variable.
+ # Download the [devicexml Device Definition Folder] from SVN:
+{{{
+svn checkout http://panstamp.googlecode.com/svn/trunk/devices /path/in/your/computer
+}}}
  # Download the latest test version of SWAPdmt from subversion:
 {{{
 svn checkout http://panstamp.googlecode.com/svn/trunk/python/swapdmt /path/in/your/computer
-}}} 
+}}}
+ # Edit _swapdmtgui/src/settings.xml manually_ and set the actual path to the [devicexml Device Definition Folder] in your computer. This will let SWAPdmt look at the correct location each time a new device is detected in the network.
  # Run SWAPdmt as follows:
 {{{
 python pyswapdmtgui
