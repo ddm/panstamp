@@ -1,4 +1,6 @@
 #labels pin,mapping,panstamp,arduino,atmega,pinmapping
 = panStamp pin mapping =
 
+Vcc: from 2.5 VDC to 3.6VDC
+
 https://lh5.googleusercontent.com/-a2Y-E01uDWw/Tv7zuIaiKxI/AAAAAAAAAEk/20PlzzBbqk8/s597/pinmap.png
