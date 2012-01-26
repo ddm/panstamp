@@ -5,7 +5,7 @@ This page lists the available SWAP devices and their associated resources. If yo
 
 == Developer: panStamp (ID: 1) ==
 
-|| *Device* || *Description* || *Source code* || *Device Definition file* || ID ||
+|| *Device* || *Description* || *Source code* || *Device Definition file* || *ID* ||
 || temp || Temperature sensor || temphumpress || temp.xml || 4 ||
 || temphum || Dual Temperature/Humidity sensor || temphumpress || temphum.xml || 1 ||
 || temppress || Dual Temperature/Barometric sensor || temphumpress || temppress.xml || 5 ||
