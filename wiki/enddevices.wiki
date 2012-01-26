@@ -1,8 +1,3 @@
-= List of SWAP devices =
-
-= Introduction =
-
-This page lists the available SWAP devices and their associated resources. If you are currently developing a SWAP module, based on panStamp or not, you will find these informations very useful.
-
 = Existing SWAP devices =
 
+This page lists the available SWAP devices and their associated resources. If you are looking for an existing device that may cover your needs, take a look at the following table. On the other hand, if you need a reference project to base your developments the following information ,ay be very useful too.
