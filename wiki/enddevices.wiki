@@ -1,3 +1,4 @@
+#labels swap,device,module,arduino,sketch,panstamp
 = Existing SWAP devices =
 
-This page lists the available SWAP devices and their associated resources. If you are looking for an existing device that may cover your needs, take a look at the following table. On the other hand, if you need a reference project to base your developments the following information ,ay be very useful too.
+This page lists the available SWAP devices and their associated resources. If you are looking for an existing device that may cover your needs, take a look at the following table. On the other hand, if you need a reference project to base your developments on, then the following informations may be very useful too.
