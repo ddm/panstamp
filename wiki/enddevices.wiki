@@ -9,6 +9,6 @@ This page lists all the available SWAP devices and their associated resources. I
 || temp || Temperature sensor || temphumpress || temp.xml || 4 ||
 || temphum || Dual Temperature/Humidity sensor || temphumpress || temphum.xml || 1 ||
 || temppress || Dual Temperature/Barometric sensor || temphumpress || temppress.xml || 5 ||
-|| chronos || SWAP-enabled Chronos watch || chronos || chronos.xml || 2 ||
+|| chronos || SWAP-enabled Chronos watch || [ https://github.com/dberenguer/OpenChronos OpenChronos] || chronos.xml || 2 ||
 || rgbdriver || RGB driver board || rgbdriver || rgbdriver.xml || 3 ||
 || bininps || Binary input module || bininps || bininps.xml || 6 ||
