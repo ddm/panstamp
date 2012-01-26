@@ -13,4 +13,4 @@ This page lists all the available SWAP devices and their associated resources. I
 || rgbdriver || RGB driver board || rgbdriver || rgbdriver.xml || 3 ||
 || bininps || Binary input module || bininps || bininps.xml || 6 ||
 
-Except the [https://github.com/dberenguer/OpenChronos OpenChronos] image, all the above Arduino sketches are downloadable from our [http://code.google.com/p/panstamp/source/checkout SVN repository]
+Except the [https://github.com/dberenguer/OpenChronos OpenChronos] image, all the above Arduino sketches are downloadable from our [http://code.google.com/p/panstamp/source/checkout SVN repository].
