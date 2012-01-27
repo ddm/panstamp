@@ -21,7 +21,7 @@ Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.googl
 
 5. Load one of the sample sketches into your panStamp.
 
-6. panStamps can work in both 868/915 MHz ISM bands without any hardware modification. However, the panStamp library always sets the carrier frequency to 868 MHz by default. If you wish to work in the 915 MHz band then you simply have to add a line of code, just after initializing the panStamp in your Arduino sketch:
+6. panStamps can work in both 868 MHz and 915 MHz ISM bands without any hardware modification. However, the panStamp library always sets the carrier frequency to 868 MHz by default. If you wish to work in the 915 MHz band then you simply have to add a line of code, just after initializing the panStamp in your Arduino sketch:
 
 {{{
 void setup()
