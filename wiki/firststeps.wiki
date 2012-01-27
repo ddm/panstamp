@@ -5,18 +5,14 @@ The following are some important steps to follow before you start playing with
 panStamps:
 
  #. Download the panstamp library forArduino from the SVN repository:
-{{{
-svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
-}}}
+ svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
 
  #. Download [http://arduino.cc/playground/Code/Timer1 TimerOne] for Arduino. This library is only needed by the
 modem application.
 http://code.google.com/p/arduino-timerone/downloads/list
 
  #. Dowload the sample Arduino sketches from SVN:
-{{{
-svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/sketches
-}}}
+ svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/sketches
 
  #. Select "Arduino Pro or Pro Mini (3.3V, 8MHz) w/ Atmega328" from
 Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.google.com/p/panstamp/downloads/detail?name=boards.txt&can=2&q= boards.txt] from our [code.google.com/p/panstamp/downloads Download section].
