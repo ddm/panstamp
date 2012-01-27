@@ -1,0 +1,45 @@
+#labels basic,steps,panstamp,arduino
+= Working with panStamps: first steps =
+
+The following are some important steps to follow before you start playing with
+panStamps:
+
+ #. Download the panstamp library forArduino from the SVN repository:
+{{{
+svn vheckout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
+}}}
+
+ #. Download TimerOne for Aruino. This library is only needed by the
+modem application.
+http://code.google.com/p/arduino-timerone/downloads/list
+
+ #. Dowload the sample Arduino sketches from SVN:
+{{{
+svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/sketches
+}}}
+
+ #. Select "Arduino Pro or Pro Mini (3.3V, 8MHz) w/ Atmega328" from
+Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.google.com/p/panstamp/downloads/detail?name=boards.txt&can=2&q= boards.txt] from our [code.google.com/p/panstamp/downloads Download section].
+
+ #. Load one of the sample sketches into your panStamp.
+
+ #. panStamps can work in both 868/915 MHz ISM bands without any hardware modification. However, the panStamp library always sets the carrier frequency to 868 MHz by default. If you wish to work in the 915 MHz band then you simply have to add a line of code, just after initializing the panStamp in your Arduino sketch:
+
+{{{
+void setup()
+{
+  // Init panStamp
+  panstamp.init();
+
+  // Set carrier frequency to 915 MHz
+  panstamp.cc1101.setCarrierFreq(CFREQ_915);
+}
+}}}
+
+#. Place an antenna according to your carrier frequency. A wire stub
+works just fine:
+http://code.google.com/p/panstamp/wiki/antennalengths
+
+#. panStamps come programmed with the modem application (at 868 MHz). If
+you use one of your panStamps as a serial gateway, program your serial
+terminal for 38400 bps, 8n1 and no handshake. 
