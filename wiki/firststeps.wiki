@@ -1,7 +1,7 @@
 #labels basic,steps,panstamp,arduino
 = Working with panStamps: first steps =
 
-The following are some important steps to follow before you start playing with
+These are some important steps to follow before you start playing with
 panStamps:
 
 1. Download the panstamp library forArduino from the SVN repository:
