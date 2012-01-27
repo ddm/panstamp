@@ -6,7 +6,7 @@ panStamps:
 
  #. Download the panstamp library forArduino from the SVN repository:
 {{{
-svn vheckout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
+svn checkout [https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp]
 }}}
 
  #. Download TimerOne for Aruino. This library is only needed by the
