@@ -9,7 +9,7 @@ panStamps:
 svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
 }}}
 
- #. Download TimerOne for Aruino. This library is only needed by the
+ #. Download [http://arduino.cc/playground/Code/Timer1 TimerOne] for Arduino. This library is only needed by the
 modem application.
 http://code.google.com/p/arduino-timerone/downloads/list
 
