@@ -8,6 +8,8 @@ panStamps:
 
  svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
 
+and place it under arduino/libraries/ or wherever your libraries are located in your Arduino environment. This library can be used with Arduino IDE 1.0 and newer versions.
+
 2. Download [http://arduino.cc/playground/Code/Timer1 TimerOne] for Arduino. This library is only needed by the
 modem application.
 http://code.google.com/p/arduino-timerone/downloads/list
