@@ -14,7 +14,7 @@ and place it under arduino/libraries/ or wherever your libraries are located in 
 modem application.
 http://code.google.com/p/arduino-timerone/downloads/list
 
-3. Dowload the sample Arduino sketches from SVN:
+3. Download any of [enddevices the sample Arduino sketches] from SVN:
 
  svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/sketches
 
