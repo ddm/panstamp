@@ -4,26 +4,33 @@
 These are some important steps to follow before you start playing with
 panStamps:
 
-1. Download the panstamp library forArduino from the SVN repository:
+1. Install Arduino IDE 1.0 or newer.
+
+2. Download the panstamp library forArduino from the SVN repository:
 
  svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/libraries/panstamp
 
-and place it under arduino/libraries/ or wherever your libraries are located in your Arduino environment. This library can be used with Arduino IDE 1.0 and newer versions.
+and place it under arduino/libraries/ or wherever your libraries are located in your Arduino environment.
 
-2. Download [http://arduino.cc/playground/Code/Timer1 TimerOne] for Arduino. This library is only needed by the
+3. Download [http://arduino.cc/playground/Code/Timer1 TimerOne] for Arduino. This library is only needed by the
 modem application.
 http://code.google.com/p/arduino-timerone/downloads/list
 
-3. Download any of [enddevices the sample Arduino sketches] from SVN:
+4. Download any of [enddevices the sample Arduino sketches] from SVN:
 
  svn checkout https://panstamp.googlecode.com/svn/trunk/arduino/sketches
 
-4. Select "Arduino Pro or Pro Mini (3.3V, 8MHz) w/ Atmega328" from
-Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.google.com/p/panstamp/downloads/detail?name=boards.txt&can=2&q= boards.txt] from our [code.google.com/p/panstamp/downloads Download section].
+Once the sketches downloaded, you have two possibilities:
 
-5. Load one of the sample sketches into your panStamp.
+ 4.1. Add the sketches into your "Sketchbook location" (File->Preferebces). Then these applications will appear under the File->Sketchbook menu.
+ 4.2 Create an "example" subdirectory in arduino/libraries/panstamp/ and add the sketches into that folder. Then you will be able to find them under File->Examples->panstamp
 
-6. panStamps can work in both 868 MHz and 915 MHz ISM bands without any hardware modification. However, the panStamp library always sets the carrier frequency to 868 MHz by default. If you wish to work in the 915 MHz band then you simply have to add a line of code, just after initializing the panStamp in your Arduino sketch:
+5. Select "Arduino Pro or Pro Mini (3.3V, 8MHz) w/ Atmega328" from
+Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.google.com/p/panstamp/downloads/detail?name=boards.txt&can=2&q= boards.txt] from our [code.google.com/p/panstamp/downloads Download section]. The latter option will add "panStamps" to the list under Tools->Boards.
+
+6. Load one of the sample sketches into your panStamp.
+
+7. panStamps can work in both 868 MHz and 915 MHz ISM bands without any hardware modification. However, the panStamp library always sets the carrier frequency to 868 MHz by default. If you wish to work in the 915 MHz band then you simply have to add a line of code, just after initializing the panStamp in your Arduino sketch:
 
 {{{
 void setup()
@@ -36,10 +43,12 @@ void setup()
 }
 }}}
 
-7. Place an antenna according to your carrier frequency. A wire stub
+8. Place an antenna according to your carrier frequency. A wire stub
 works just fine:
 http://code.google.com/p/panstamp/wiki/antennalengths
 
-8. panStamps come programmed with the modem application (at 868 MHz). If
+9. panStamps come with the modem application (at 868 MHz) preinstalled. If
 you use one of your panStamps as a serial gateway, program your serial
-terminal for 38400 bps, 8n1 and no handshake.
+terminal for 38400 bps, 8n1 and no handshake. Then you will be able to monitor the SWAP traffic on your network and also send commands to your wireless motes.
+
+10. Eventually install SWAPdmt on your computer and configure your motes using your custom settings.
