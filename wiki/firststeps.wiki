@@ -24,7 +24,7 @@ Once the sketches downloaded, you have two possibilities:
 
  4.1. Add the sketches into your "Sketchbook location" (File->Preferebces). Then these applications will appear under the File->Sketchbook menu.
 
- 4.2 Create an "example" subdirectory in arduino/libraries/panstamp/ and add the sketches into that folder. Then you will be able to find them under File->Examples->panstamp
+ 4.2 Create an "examples" subdirectory in arduino/libraries/panstamp/ and add the sketches into that folder. Then you will be able to find them under File->Examples->panstamp
 
 5. Select "Arduino Pro or Pro Mini (3.3V, 8MHz) w/ Atmega328" from
 Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.google.com/p/panstamp/downloads/detail?name=boards.txt&can=2&q= boards.txt] from our [code.google.com/p/panstamp/downloads Download section]. The latter option will add "panStamps" to the list under Tools->Boards.
