@@ -24,7 +24,8 @@ Besides, SWAPdmt can identify every SWAP mote in the network (with the same freq
 
 = Installation =
 
- # Install Python 2.6 or 2.7 in your computer
+ # Install Python 2.6 or 2.7 on your computer
+ # Install [http://wxpython.org/ wxPython] and [http://pyserial.sourceforge.net/ pyserial]
  # Download the latest test version of [pyswap pyswap] from subversion:
 {{{
 svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/your/computer
