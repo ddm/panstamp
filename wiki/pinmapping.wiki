@@ -1,4 +1,4 @@
-#labels pin,mapping,panstamp,arduino,atmega,pinmapping
+#labels pin,mapping,panstamp,arduino,atmega,pinmapping,pinout
 = panStamp pin mapping =
 
 *Vcc: from 2.5 VDC to 3.6VDC*
