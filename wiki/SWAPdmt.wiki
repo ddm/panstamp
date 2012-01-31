@@ -28,7 +28,7 @@ Before installing SWAPdmt, you should check that your computer meets the followi
 
  * Python 2.6 or 2.7
  * [http://wxpython.org/ wxPython] and [http://pyserial.sourceforge.net/ pyserial] installed
- * Subversion client
+ * Subversion (SVN) client
 
 Once the above requirements met, you can start installing SWAPdmt as follows:
 
