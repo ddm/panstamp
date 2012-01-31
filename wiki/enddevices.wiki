@@ -13,5 +13,6 @@ This page lists all the available SWAP devices and their associated resources. I
 || rgbdriver || RGB driver board || rgbdriver || rgbdriver.xml || 3 ||
 || bininps || Binary/Counter input module || bininps || bininps.xml || 6 ||
 || binouts || Binary/PWM output module || binouts || binouts.xml || 7 ||
+|| lcddriver || Alphanumeric LCD driver || lcddriver || lcddriver.xml || 8 ||
 
 Except the [https://github.com/dberenguer/OpenChronos OpenChronos] image, all the above Arduino sketches are downloadable from our [http://code.google.com/p/panstamp/source/checkout SVN repository].
