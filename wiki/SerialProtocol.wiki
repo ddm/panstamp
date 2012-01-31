@@ -44,7 +44,7 @@ _Command mode_ is entered from _data mode_  following a simple process:
  # At least 1 second of silence
  # Command mode entered
 
-Once in _command mode_, the _modem_ application accepts the following set of AT commands:
+Once in _command mode_, the _modem_ application accepts the following set of AT commands (followed by carriage return):
 
 || *AT Command* || *Description* ||
 || AT || Basic Attention command ||
