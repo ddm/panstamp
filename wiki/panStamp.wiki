@@ -1,0 +1,9 @@
+= panStamp: technical details =
+
+= Bootloader =
+
+panStamps come with the Arduino bootloader preinstalled. Fuse values are listed here:
+
+ * Extended = 0x05
+ * High = 0xD8
+ * Low = 0xE2
