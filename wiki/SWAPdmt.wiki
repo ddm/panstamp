@@ -81,7 +81,7 @@ Figure 2: Serial gateway network settings
 
 
 = Identify SWAP devices =
-Once SWAPdmt connected to the wireless network, it continuously listens to any SWAP packet being transmitted over the air. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of device description files (xml). This procedure lets SWAPdmt automatically discover devices, identifying them and their respective I/O resources.
+Once SWAPdmt connected to the wireless network, it continuously listens to any SWAP packet being transmitted over the air. SWAPdmt sends queries in order to get the product code from the existing motes and checks these codes against the database of [devicexml device description files (xml)]. This procedure lets SWAPdmt automatically discover devices, identifying them and their respective I/O resources.
 
 <p align="center">
 https://lh5.googleusercontent.com/-DFfl6rHvaY0/TvuDjl0rFlI/AAAAAAAAAEE/TY-PtffxrAw/s640/swapdmtgui_main.png
