@@ -34,7 +34,7 @@ Once the above requirements met, you can start installing SWAPdmt as follows:
 
  # Download the latest test version of [pyswap pyswap] from subversion:
 {{{
-svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/your/computer
+# svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/your/computer
 }}}
  # Add [pyswap pyswap] to your PYTHONPATH variable. On Linux systems you will probably need to run the following command or add it to a start-up script:
 {{{
@@ -44,16 +44,16 @@ svn checkout http://panstamp.googlecode.com/svn/trunk/python/pyswap /path/in/you
 Windows users will have to modify the PYTHONPATH from _System->Advanced->Environment Variables_
  # Download the [devicexml Device Definition Folder] from SVN:
 {{{
-svn checkout http://panstamp.googlecode.com/svn/trunk/devices /path/in/your/computer
+# svn checkout http://panstamp.googlecode.com/svn/trunk/devices /path/in/your/computer
 }}}
  # Download the latest test version of SWAPdmt from subversion:
 {{{
-svn checkout http://panstamp.googlecode.com/svn/trunk/python/swapdmt /path/in/your/computer
+# svn checkout http://panstamp.googlecode.com/svn/trunk/python/swapdmt /path/in/your/computer
 }}}
  # Edit _pyswapdmtgui/src/settings.xml manually_ and set the actual path to the [devicexml Device Definition Folder] in your computer. This will let SWAPdmt look at the correct location each time a new device is detected in the network.
  # Enter the folder where pyswapdmtgui.py is and run SWAPdmt as follows:
 {{{
-python pyswapdmtgui
+# python pyswapdmtgui
 }}}
 
 = Serial port =
