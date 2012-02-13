@@ -62,7 +62,7 @@ There are only three function codes:
  * 0x01 - Query packet
  * 0x02 - Command packet
 
-All SWAP packets share the same structure except query packets (function code = 0x02) that don't contain a data field. This makes parsing wireless packets a simple task.
+All SWAP packets share the same structure except query packets (function code = 0x01) that don't contain a data field. This makes parsing wireless packets a simple task.
 
 === Status packets (function code = 0x00) ===
 
