@@ -88,18 +88,18 @@ Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment 
 
  1 Download pyswap from Subversion:
 {{{
-svn checkout https://panstamp.googlecode.com/svn/trunk/python/pyswap/src
+# svn checkout https://panstamp.googlecode.com/svn/trunk/python/pyswap/src
 }}}
  2 Include your pyswap/src directory in the PYTHONPATH.
 
 Finally, download Lagarto from SVN:
 {{{
-svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
+# svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
 }}}
 
 And run the necessary Lagarto processes. For Laagrto-SWAP, enter _lagarto/lagarto-swap/_ and run this command:
 {{{
-python lagarto-swap.py
+# python lagarto-swap.py
 }}}
 = Screenshots =
 
