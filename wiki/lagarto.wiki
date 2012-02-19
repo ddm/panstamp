@@ -1,3 +1,4 @@
+#labels lagarto,pyswap,swap,http,zeromq
 = Lagarto: open automation platform =
 
 Lagarto is an open platform designed to automate physical tasks in homes, buildings and industrial plants. Lagarto provides the necessary communication tools and computing infrastructure to build complex networking applications, capable to integrate resources from very different technologies and present them in an homogeneous way.
@@ -6,12 +7,14 @@ Lagarto is the process "behind the scene". It provides the ability to access het
 
 = Architecture =
 
-Lagarto is a networked application written in Python. It consisting of two different types of components:
+Lagarto is a networked application written in Python. It consisting of two different types of processes:
 
  * Lagarto servers: servers connect the Lagarto infrastructure with external physical networks. Lagarto-SWAP is the reference implementation for this kind of component. Integrating Lagarto with other physical networks requires developing a custom Lagarto server.
  * Lagarto clients: clients are data consumers. They receive events from servers and send commands to them in a bi-directional way. Lagarto clients are typically implemented by computing services, scripting engines and graphical interfaces.
 
 Communication between servers and clients are simple but efficient. Every Lagarto server provides a HTTP GET/POST interface used to control values from clients or any other application providing HTTP client capabilities (Web browser, javascript, Flash). Thus, Lagarto servers are very easily integrated into any Web-based platform through local network or the Internet. Besides, Lagarto servers use a comon ZeroMQ Publishing socket to notify events to clients so that clients have not to continuously poll for changes in the physical networks. This dual communication mechanism (ZeroMQ + HTTP) results in a powerful bi-directional solution whilst covering two major requirements: cross-platform and cross.network.
+
+Compared to other automation solutions, Lagarto introduces a small but important difference: it does not require a controller or central piece of software. Lagarto servers are autonomous processes whilst clients can access them in a direct way. No need for a main daemon to be running all the time. Thus, we may say that Lagarto's architecture is totally distributed. Another important feature is that Lagarto processes can run in a common platform or be distributed across multiple computers, locally (LAN) or globally (Internet).
 
 = Protocol =
 
@@ -21,31 +24,48 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
 {
   "lagarto":
   {
+    "procname": "SWAP network",
+    "httpserver": "192.168.1.34:8001"
     "status":
     [
       {
-        "direction": "inp",
-        "name": "Temperature",
-        "timestamp": "19 Feb 2012 16:15:17",
-        "value": 15.0,
-        "location": "SWAP",
-        "type": "num",
         "id": "10.12.0",
-        "unit": "C"
+        "location": "SWAP",
+        "name": "Temperature",
+        "value": 15.0,
+        "unit": "C",
+        "type": "num",
+        "direction": "inp",
+        "timestamp": "19 Feb 2012 16:15:17"
       },
       {
-        "direction": "inp",
-        "name": "Humidity",
-        "timestamp": "19 Feb 2012 16:15:17",
-        "value": 20.0,
-        "location": "SWAP",
-        "type": "num",
         "id": "10.12.1",
-        "unit": "%"
+        "location": "SWAP",
+        "value": 20.0,
+        "unit": "%",
+        "name": "Humidity",
+        "type": "num",
+        "direction": "inp",
+        "timestamp": "19 Feb 2012 16:15:17",
       }
     ],
-    "procname": "SWAP network",
-    "httpserver": "192.168.1.34:8001"
   }
 }
 }}}
+
+= Installation =
+
+== Install Lagarto from Subversion ==
+
+Before installing Lagarto you need to install ZeroMQ with the Python bindings and Barrel.
+
+ * To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
+ * Barrel is the middleware used to provide HTTP Basic Authentication for the HTTP services. Download teh latest version from [http://pypi.python.org/pypi/barrel/0.1.3 here], untar the package, enter the uncompressed directory and run the following command:
+{{{
+# python setup.py install
+}}}
+
+Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
+
+ # Download pyswap from Subversion.
+ # Include your pyswap directory in the PYTHONPATH.
