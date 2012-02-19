@@ -1,6 +1,15 @@
 #labels lagarto,pyswap,swap,http,zeromq
 = Lagarto: open automation platform =
 
+ * [lagarto#Introduction Introduction]
+ * [lagarto#Architecture Architecture]
+ * [lagarto#Protocol Protocol]
+ * [lagarto#Installation Installation]
+  * [lagarto#Install_Lagarto_from_Subversion Install Lagarto from Subversion]
+ * [lagarto#Screenshots Screenshots]
+
+= Introduction =
+
 Lagarto is an open platform designed to automate physical tasks in homes, buildings and industrial plants. Lagarto provides the necessary communication tools and computing infrastructure to build complex networking applications, capable to integrate resources from very different technologies and present them in an homogeneous way.
 
 <p align="center">
