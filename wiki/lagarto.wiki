@@ -15,7 +15,7 @@ Communication between servers and clients are simple but efficient. Every Lagart
 
 = Protocol =
 
-Lagarto uses a custom JSON-based communication protocol. The following is an example:
+Lagarto uses a custom JSON-based communication protocol between servers and clients. The following is an example:
 
 {{{
 {
@@ -24,5 +24,28 @@ Lagarto uses a custom JSON-based communication protocol. The following is an exa
     "status":
     [
       {
-        "direction": "inp", "name": "Temperature", "timestamp": "19 Feb 2012 16:15:17", "value": 15.0, "location": "SWAP", "type": "num", "id": "10.12.0", "unit": "C"}, {"direction": "inp", "name": "Humidity", "timestamp": "19 Feb 2012 16:15:17", "value": 20.0, "location": "SWAP", "type": "num", "id": "10.12.1", "unit": "%"}], "procname": "SWAP network", "httpserver": "192.168.1.34:8001"}}
+        "direction": "inp",
+        "name": "Temperature",
+        "timestamp": "19 Feb 2012 16:15:17",
+        "value": 15.0,
+        "location": "SWAP",
+        "type": "num",
+        "id": "10.12.0",
+        "unit": "C"
+      },
+      {
+        "direction": "inp",
+        "name": "Humidity",
+        "timestamp": "19 Feb 2012 16:15:17",
+        "value": 20.0,
+        "location": "SWAP",
+        "type": "num",
+        "id": "10.12.1",
+        "unit": "%"
+      }
+    ],
+    "procname": "SWAP network",
+    "httpserver": "192.168.1.34:8001"
+  }
+}
 }}}
