@@ -16,7 +16,7 @@ Lagarto is an open platform designed to automate physical tasks in homes, buildi
 [https://lh4.googleusercontent.com/-8P1_7FhVg-M/T0EkElm04XI/AAAAAAAAAKA/JB-ytn3w4Pg/s211/lagarto.png]
 </p>
 
-Lagarto is the process "behind the scene". It provides the ability to access heterogeneous automation networks in a common way whilst doing the necessary computing tasks and routing data to third-party applications.
+Lagarto is the process "behind the scene". It provides the ability to access heterogeneous automation networks in a common way whilst doing the necessary computing tasks and routing data to/from third-party applications.
 
 = Architecture =
 
@@ -24,6 +24,10 @@ Lagarto is a networked application written in Python. It consisting of two diffe
 
  * Lagarto servers: servers connect the Lagarto infrastructure with external physical networks. Lagarto-SWAP is the reference implementation for this kind of component. Integrating Lagarto with other physical networks requires developing a custom Lagarto server.
  * Lagarto clients: clients are data consumers. They receive events from servers and send commands to them in a bi-directional way. Lagarto clients are typically implemented by computing services, scripting engines and graphical interfaces.
+
+<p align="center">
+[https://lh3.googleusercontent.com/-qqvlaJqjOJw/T0F9OJOZZuI/AAAAAAAAAMA/g3mNrfDfFO8/s512/Lagarto_arch.png]
+</p>
 
 Communication between servers and clients are simple but efficient. Every Lagarto server provides a HTTP GET/POST interface used to control values from clients or any other application providing HTTP client capabilities (Web browser, javascript, Flash). Thus, Lagarto servers are very easily integrated into any Web-based platform through local network or the Internet. Besides, Lagarto servers use a comon ZeroMQ Publishing socket to notify events to clients so that clients have not to continuously poll for changes in the physical networks. This dual communication mechanism (ZeroMQ + HTTP) results in a powerful bi-directional solution whilst covering two major requirements: cross-platform and cross.network.
 
