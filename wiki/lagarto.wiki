@@ -29,7 +29,7 @@ Lagarto is a networked application written in Python. It consisting of two diffe
 [https://lh3.googleusercontent.com/-qqvlaJqjOJw/T0F9OJOZZuI/AAAAAAAAAMA/g3mNrfDfFO8/s512/Lagarto_arch.png]
 </p>
 
-Communication between servers and clients are simple but efficient. Every Lagarto server provides a HTTP GET/POST interface used to control values from clients or any other application providing HTTP client capabilities (Web browser, javascript, Flash). Thus, Lagarto servers are very easily integrated into any Web-based platform through local network or the Internet. Besides, Lagarto servers use a comon ZeroMQ Publishing socket to notify events to clients so that clients have not to continuously poll for changes in the physical networks. This dual communication mechanism (ZeroMQ + HTTP) results in a powerful bi-directional solution whilst covering two major requirements: cross-platform and cross.network.
+Communication between servers and clients are simple but efficient. Every Lagarto server provides a HTTP GET/POST interface used to control values from clients or any other application providing HTTP client capabilities (Web browser, javascript, Flash). Thus, Lagarto servers are very easily integrated into any Web-based platform through local network or the Internet. Besides, Lagarto servers use a common ZeroMQ Publishing socket used to notify events to clients so that clients have not to continuously poll for changes from the physical networks. This dual communication mechanism (ZeroMQ + HTTP) results in a powerful bi-directional solution whilst covering two major requirements: cross-platform and cross.network.
 
 Compared to other automation solutions, Lagarto introduces a small but important difference: it does not require a controller or central piece of software. Lagarto servers are autonomous processes whilst clients can access them in a direct way. No need for a main daemon to be running all the time. Thus, we may say that Lagarto's architecture is totally distributed. Another important feature is that Lagarto processes can run in a common platform or be distributed across multiple computers, locally (LAN) or globally (Internet).
 
@@ -37,7 +37,7 @@ In order to make Lagarto servers really autonomous, they provide their own embed
 
 = Protocol =
 
-Lagarto uses a custom JSON-based communication protocol between servers and clients. The following is an example:
+Lagarto uses a custom JSON-based communication protocol between servers and clients. The following message is an example:
 
 {{{
 {
