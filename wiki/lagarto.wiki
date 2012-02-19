@@ -29,6 +29,8 @@ Communication between servers and clients are simple but efficient. Every Lagart
 
 Compared to other automation solutions, Lagarto introduces a small but important difference: it does not require a controller or central piece of software. Lagarto servers are autonomous processes whilst clients can access them in a direct way. No need for a main daemon to be running all the time. Thus, we may say that Lagarto's architecture is totally distributed. Another important feature is that Lagarto processes can run in a common platform or be distributed across multiple computers, locally (LAN) or globally (Internet).
 
+In order to make Lagarto servers really autonomous, they provide their own embedded Web server for the configuration tasks and also for basic monitoring purposes.
+
 = Protocol =
 
 Lagarto uses a custom JSON-based communication protocol between servers and clients. The following is an example:
