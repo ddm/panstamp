@@ -1,0 +1,12 @@
+= Lagarto: open automation platform =
+
+Lagarto is an open platform designed to automate physical tasks in homes, buildings and industrial plants. Lagarto provides the necessary communication tools and computing infrastructure to build complex networking applications, capable to integrate resources from very different technologies and present them in an homogeneous way.
+
+Lagarto is the process "behind the scene". It provides the ability to access heterogeneous automation networks in a common way whilst doing the necessary computing tasks and routing data to third-party applications.
+
+= Architecture =
+
+Lagarto is a networked application written in Python. It consisting of two different types of components:
+
+ * Lagarto servers: servers connect the Lagarto infrastructure with external physical networks. Lagarto-SWAP is the reference implementation for this kind of component. Integrating Lagarto with other physical networks requires developing a custom Lagarto server.
+ * Lagarto clients: clients are data consumers. They receive events from servers and send commands to them in a bi-directional way. Lagarto clients are typically implemented by computing services, scripting engines, graphical interfaces and
