@@ -22,8 +22,8 @@ Lagarto is the process "behind the scene". It provides the ability to access het
 
 Lagarto is a networked application written in Python. It consisting of two different types of processes:
 
- * Lagarto servers: servers connect the Lagarto infrastructure with external physical networks. Lagarto-SWAP is the reference implementation for this kind of component. Integrating Lagarto with other physical networks requires developing a custom Lagarto server.
- * Lagarto clients: clients are data consumers. They receive events from servers and send commands to them in a bi-directional way. Lagarto clients are typically implemented by computing services, scripting engines and graphical interfaces.
+ * *Lagarto servers*: servers connect the Lagarto infrastructure with external physical networks. Lagarto-SWAP is the reference implementation for this kind of component. Integrating Lagarto with other physical networks requires developing a custom Lagarto server.
+ * *Lagarto clients*: clients are data consumers. They receive events from servers and send commands to them in a bi-directional way. Lagarto clients are typically implemented by computing services, scripting engines and graphical interfaces.
 
 <p align="center">
 [https://lh3.googleusercontent.com/-qqvlaJqjOJw/T0F9OJOZZuI/AAAAAAAAAMA/g3mNrfDfFO8/s512/Lagarto_arch.png]
