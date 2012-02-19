@@ -3,7 +3,6 @@
 
 Lagarto is an open platform designed to automate physical tasks in homes, buildings and industrial plants. Lagarto provides the necessary communication tools and computing infrastructure to build complex networking applications, capable to integrate resources from very different technologies and present them in an homogeneous way.
 
-
 <p align="center">
 [https://lh4.googleusercontent.com/-8P1_7FhVg-M/T0EkElm04XI/AAAAAAAAAKA/JB-ytn3w4Pg/s211/lagarto.png]
 </p>
@@ -74,3 +73,13 @@ Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment 
 
  # Download pyswap from Subversion.
  # Include your pyswap directory in the PYTHONPATH.
+
+= Screenshots =
+
+<p align="center">
+[https://lh3.googleusercontent.com/-RuXgt1GFqQc/T0EnK7uOLHI/AAAAAAAAALM/khH86oZHl08/s591/lagarto_web_2.png]
+</p>
+
+<p align="center">
+[https://lh4.googleusercontent.com/-gbXrbZaYKuE/T0Elh3N7VPI/AAAAAAAAAKU/FswIVwaZJ_w/s571/lagarto_web_1.png]
+</p>
