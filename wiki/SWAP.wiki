@@ -1,6 +1,8 @@
 #labels SWAP,protocol,wireless
 <p align="center">
 [https://lh3.googleusercontent.com/-KZ9Zlvb-eOg/T0EostQvb5I/AAAAAAAAAL4/AP4LPEC3tfQ/s159/custom_logo.jpg]
+</p>
+<p align="center">
 *SWAP, a very tiny protocol for constrained wireless M2M networks*
 </p>
 
