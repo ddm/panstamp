@@ -78,17 +78,29 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
 
 Before installing Lagarto you need to install ZeroMQ with the Python bindings and Barrel.
 
- * To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
- * Barrel is the middleware used to provide HTTP Basic Authentication for the HTTP services. Download teh latest version from [http://pypi.python.org/pypi/barrel/0.1.3 here], untar the package, enter the uncompressed directory and run the following command:
+ # To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
+ # Barrel is the middleware used to provide HTTP Basic Authentication for the HTTP services. Download teh latest version from [http://pypi.python.org/pypi/barrel/0.1.3 here], untar the package, enter the uncompressed directory and run the following command:
 {{{
 # python setup.py install
 }}}
 
 Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
 
- # Download pyswap from Subversion.
- # Include your pyswap directory in the PYTHONPATH.
+ 1 Download pyswap from Subversion:
+{{{
+svn checkout https://panstamp.googlecode.com/svn/trunk/python/pyswap/src
+}}}
+ 2 Include your pyswap/src directory in the PYTHONPATH.
 
+Finally, download Lagarto from SVN:
+{{{
+svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
+}}}
+
+And run the necessary Lagarto processes. For Laagrto-SWAP, enter _lagarto/lagarto-swap/_ and run this command:
+{{{
+python lagarto-swap.py
+}}}
 = Screenshots =
 
 <p align="center">
