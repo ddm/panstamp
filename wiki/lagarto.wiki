@@ -4,9 +4,12 @@
  * [lagarto#Introduction Introduction]
  * [lagarto#Architecture Architecture]
  * [lagarto#Protocol Protocol]
+ * [lagarto#HTTP_GET/POST_interface HTTP GET/POST interface]
  * [lagarto#Installation Installation]
   * [lagarto#Install_Lagarto_from_Subversion Install Lagarto from Subversion]
  * [lagarto#Screenshots Screenshots]
+  * [lagarto#Raw_format Raw format]
+  * [lagarto#JSON_format JSON format]
 
 = Introduction =
 
