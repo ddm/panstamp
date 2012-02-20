@@ -60,9 +60,9 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
       {
         "id": "10.12.1",
         "location": "SWAP",
+        "name": "Humidity",
         "value": 20.0,
         "unit": "%",
-        "name": "Humidity",
         "type": "num",
         "direction": "inp",
         "timestamp": "19 Feb 2012 16:15:17",
@@ -87,8 +87,10 @@ Response -> 25.6 C
 
 Now if we want to control an output:
 
+{{{
 Request -> http://localhost:8001/values/SWAP/relay5/?value=on
 Response -> on
+}}}
 
 == JSON format ==
 The raw format is good for basic applications since data returned may be directly used by the consumer without much work. However, in some other situations we may want to retrieve or control multiple endpoints at the same time. In this case, we need to use the JSON method:
@@ -109,7 +111,7 @@ Response ->
     [
       {
         "id": "10.12.0",
-        "location": "Garden",
+        "location": "garden",
         "name": "temperature5",
         "value": 15.0,
         "unit": "C",
@@ -120,9 +122,9 @@ Response ->
       {
         "id": "10.12.1",
         "location": "bathroom",
+        "name": "humidity1",
         "value": 20.0,
         "unit": "%",
-        "name": "humidity1",
         "type": "num",
         "direction": "inp",
         "timestamp": "19 Feb 2012 16:15:17",
@@ -130,7 +132,48 @@ Response ->
     ]
   }
 }
+}}}
 
+If we want to read the whole SWAP network from a single HTTP GET request then we just run:
+
+_http://localhost:8001/values_
+
+and a complete list of values will be returned, following the same format as the above example.
+
+And now we are going to control a couple of relays:
+
+{{{
+Request -> http://localhost:8001/values/?location=garden&name=relay1&value=on&location=garden&name=relay2&value=off
+Response ->
+{
+  "lagarto":
+  {
+    "procname": "SWAP network",
+    "httpserver": "192.168.1.34:8001",
+    "status":
+    [
+      {
+        "id": "10.12.0",
+        "location": "garden",
+        "name": "relay1",
+        "value": "ON",
+        "type": "bin",
+        "direction": "out",
+        "timestamp": "19 Feb 2012 16:15:17"
+      },
+      {
+        "id": "10.12.1",
+        "location": "garden",
+        "name": "relay2",
+        "value": "OFF",
+        "type": "bin",
+        "direction": "out",
+        "timestamp": "19 Feb 2012 16:15:17",
+      }
+    ]
+  }
+}
+}}}
 
 = Installation =
 
