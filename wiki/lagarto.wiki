@@ -199,11 +199,11 @@ Before installing Lagarto you need to install ZeroMQ with the Python bindings an
 
 Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
 
- 1 Download pyswap from Subversion:
+ # Download pyswap from Subversion:
 {{{
 # svn checkout https://panstamp.googlecode.com/svn/trunk/python/pyswap/src
 }}}
- 2 Include your pyswap/src directory in the PYTHONPATH.
+ # Include your pyswap/src directory in the PYTHONPATH.
 
 Finally, download Lagarto from SVN:
 {{{
