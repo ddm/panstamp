@@ -72,6 +72,66 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
 }
 }}}
 
+= HTTP GET/POST interface =
+SWAP values can be queried and controlled through Lagarto-SWAP using simple HTTP commands. Lagarto servers accept both GET and POST methods for retrieving and setting values. Depending on the syntax of the HTTP request, values returned will present one of the following formats:
+
+== Raw format ==
+Raw format is a simple string containing the the endpoint value and unit. In order to get this format, the following syntax must be used:
+
+*http://ip_address:port/values/endpoint_location/endpoint_name/?value=endpoint_value*
+
+For a SWAP endpoint containing temperature data, with location = "SWAP" and name = "temperature" we should use this url in the HTTP GET request:
+
+Request -> http://localhost:8001/values/SWAP/temperature
+Response -> 25.6 C
+
+Now if we want to control an output:
+
+Request -> http://localhost:8001/values/SWAP/relay5/?value=on
+Response -> on
+
+== JSON format ==
+The raw format is good for basic applications since data returned may be directly used by the consumer without much work. However, in some other situations we may want to retrieve or control multiple endpoints at the same time. In this case, we need to use the JSON method:
+
+*http://ip_address:port/values/?location=endpoint_location&name=name_location&...*
+
+Not let's assume that we want to read a couple fo temperature and humidity values:
+
+{{{
+Request -> http://localhost:8001/values/?location=garden&name=temperature5&location=bathroom&name=humidity1
+Response ->
+{
+  "lagarto":
+  {
+    "procname": "SWAP network",
+    "httpserver": "192.168.1.34:8001",
+    "status":
+    [
+      {
+        "id": "10.12.0",
+        "location": "Garden",
+        "name": "temperature5",
+        "value": 15.0,
+        "unit": "C",
+        "type": "num",
+        "direction": "inp",
+        "timestamp": "19 Feb 2012 16:15:17"
+      },
+      {
+        "id": "10.12.1",
+        "location": "bathroom",
+        "value": 20.0,
+        "unit": "%",
+        "name": "humidity1",
+        "type": "num",
+        "direction": "inp",
+        "timestamp": "19 Feb 2012 16:15:17",
+      }
+    ]
+  }
+}
+
+
 = Installation =
 
 == Install Lagarto from Subversion ==
