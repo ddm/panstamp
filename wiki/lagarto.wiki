@@ -4,6 +4,7 @@
  * [lagarto#Introduction Introduction]
  * [lagarto#Architecture Architecture]
  * [lagarto#Protocol Protocol]
+ * [lagarto#Web_interface Web interface]
  * [lagarto#HTTP_GET/POST_interface HTTP GET/POST interface]
   * [lagarto#Raw_format Raw format]
   * [lagarto#JSON_format JSON format]
@@ -74,6 +75,12 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
   }
 }
 }}}
+
+
+= Web interface =
+Lagarto servers provide a web interface for configuration and basic monitoring purposes. Every server binds to a different port number, allowing the existence of multiple servers on the same computer.
+
+The HTTP port number is set from lagarto/Lagarto-Server/config/lagarto.xml.In the case of Lagarto-SWAP, the default HTTP port is 8001.
 
 = HTTP GET/POST interface =
 SWAP values can be queried and controlled through Lagarto-SWAP using simple HTTP commands. Lagarto servers accept both GET and POST methods for retrieving and setting values. Depending on the syntax of the HTTP request, values returned will present one of the following formats:
