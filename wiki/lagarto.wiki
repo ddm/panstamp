@@ -1,4 +1,4 @@
-#labels lagarto,pyswap,swap,http,zeromq
+#labels lagarto,pyswap,swap,http,zeromq,get,post,web
 = Lagarto: open automation platform =
 
  * [lagarto#Introduction Introduction]
@@ -203,8 +203,10 @@ Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment 
 {{{
 # svn checkout https://panstamp.googlecode.com/svn/trunk/python/pyswap/src
 }}}
- # Include your pyswap/src directory in the PYTHONPATH.
-
+ # Enter the new pyswap directory and install the package using this command:
+{{{
+# python setup.py install
+}}}
 Finally, download Lagarto from SVN:
 {{{
 # svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
