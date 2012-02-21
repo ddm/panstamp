@@ -118,7 +118,7 @@ The above macro automatically adds the main [SWAPregisters#Standard_registers st
 
 Reviewing some real code is maybe the best way to understand these concepts. Any _regtable.pde_ file from any of the available sample sketches will show you how to define custom registers and create your own _getter_/_setter_ callback functions.
 
-For example, from the temphum sample code: [http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/regtable.pde regtable.pde]
+For example, from the temphum sample code: [http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphumpress/regtable.pde regtable.pde]
 
 = More details =
 
