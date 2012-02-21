@@ -1,6 +1,11 @@
 #labels panstamp,pin,mapping,pinout,voltage,bootloader,fuses
 = panStamp: technical details =
 
+ * [panstamp#Pin_mapping Pin mapping]
+ * [panstamp#Voltage_range Voltage range]
+ * [panstamp#pgramming_panStamps Programming panStamps]
+ * [panstamp#Bootloader Bootloader]
+
 = Pin mapping =
 Sample sketches and libraries use either the Arduino pin naming, panStamp pin numbers or Atmega's port register/masks. Depending on the library being used and the degree of control to be achieved over the microcontroller I/O's, you'll find any of the mentioned conventions.
 
@@ -8,6 +13,13 @@ https://lh3.googleusercontent.com/-gMxv5gU4yVw/Tyf7p46gP_I/AAAAAAAAAHc/sqTlwApIc
 
 = Voltage range =
 panStamps have to be powered between 2.5 VDC and 3.6VDC
+
+= Programming panStamps =
+panStamps can be programmed in two ways:
+ # Serial programming. This is the recommended way to program a panStamp, Like Arduinos, panStamps can be programmed serially, through the UART. In order to interface the panStamp UART from your computer, a panStick or any other USB-TTL or RS232-TTL adapter has to be used.
+ # In-Circuit programming (ICP): programming is done through the SPI port. This kind of programming requires you to use an ICP programmer for Atmega's (STK500 or similar). This programming method is not recommended since it erases the pre-installed bootloader.
+
+[https://lh6.googleusercontent.com/-p5yT4u48UWI/T0QZpNQNFzI/AAAAAAAAAMY/Meq15WEX88k/s912/programports.png]
 
 = Bootloader =
 
