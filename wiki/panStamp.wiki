@@ -1,10 +1,10 @@
 #labels panstamp,pin,mapping,pinout,voltage,bootloader,fuses
 = panStamp: technical details =
 
- * [panstamp#Pin_mapping Pin mapping]
- * [panstamp#Voltage_range Voltage range]
- * [panstamp#pgramming_panStamps Programming panStamps]
- * [panstamp#Bootloader Bootloader]
+ * [panStamp#Pin_mapping Pin mapping]
+ * [panStamp#Voltage_range Voltage range]
+ * [panStamp#pgramming_panStamps Programming panStamps]
+ * [panStamp#Bootloader Bootloader]
 
 = Pin mapping =
 Sample sketches and libraries use either the Arduino pin naming, panStamp pin numbers or Atmega's port register/masks. Depending on the library being used and the degree of control to be achieved over the microcontroller I/O's, you'll find any of the mentioned conventions.
