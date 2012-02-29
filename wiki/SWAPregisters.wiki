@@ -161,4 +161,6 @@ Description: Interval (in seconds) between periodic transmissions. _panstamp.goT
 
 = Custom registers =
 
-Custom registers may be of any type and any length. They must have unique register ID's and process commands and queries in the same way than the standard registers, as explained in this section of the SWAP description page. However, a question arises: how can other wireless devices know about the nature of these custom registers? What if a visual application wants to display information about a given register or value? Abstract protocols like SWAP rarely solve this kind of limitation. Instead, we suggest the use of static resources, accessible from local or on-line repositories, that identify and describe wireless devices from a basic starting point: the product code.
+Custom registers may be of any type and any length. They must have unique register ID's and process commands and queries in the same way standard registers do, as explained in this section of the SWAP description page. However, a question arises: how can other wireless devices know about the nature of these custom registers? What if a visual application wants to display information about a given register or value? Abstract protocols like SWAP rarely solve this kind of limitation. Instead, we suggest the use of static resources, accessible from local or on-line repositories, that identify and describe wireless devices from a basic starting point: the product code.
+
+The first custom register always takes ID = 11. The second one will take ID = 12 and so on...
