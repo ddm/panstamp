@@ -119,14 +119,14 @@ const void updtADCinputs(byte rId)
   // Read ADC input 0 (panStamp pin 4)
   reading = updtADCinputs(0);
   // Pace reading into the first two bytes of the register. Big endian representation
-  updtADCinputs[0] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[0] = (reading >> 8) & 0xFF;
-  updtADCinputs[1] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[1] = reading & 0xFF;
+  dtADCinputs[0] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[0] = (reading >> 8) & 0xFF;
+  dtADCinputs[1] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[1] = reading & 0xFF;
 
   // Read ADC input 1 (panStamp pin 5)
   reading = updtADCinputs(1);
   // Pace reading into the first two bytes of the register. Big endian representation
-  updtADCinputs[2] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[2] = (reading >> 8) & 0xFF;
-  updtADCinputs[3] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[3] = reading & 0xFF;
+  dtADCinputs[2] = (reading >> 8) & 0xFF;   // Replaceable by: regTable[rId]->value[2] = (reading >> 8) & 0xFF;
+  dtADCinputs[3] = reading & 0xFF;          // Replaceable by: regTable[rId]->value[3] = reading & 0xFF;
 }
 }}}
 
