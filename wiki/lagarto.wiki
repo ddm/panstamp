@@ -78,7 +78,7 @@ Lagarto uses a custom JSON-based communication protocol between servers and clie
 
 
 = Web interface =
-Lagarto servers provide a web interface for configuration and basic monitoring purposes. Every server binds to a different port number, allowing the existence of multiple servers on the same computer.
+Lagarto processes provide a web interface for configuration and basic monitoring purposes. Every process binds to a different port number, allowing the existence of multiple servers on the same computer.
 
 The HTTP port number is set from lagarto/Lagarto-Server/config/lagarto.xml. In the case of Lagarto-SWAP, the default HTTP port is 8001.
 
@@ -107,7 +107,7 @@ The raw format is good for basic applications since data returned may be directl
 
 *http://ip_address:port/values/?location=endpoint_location&name=name_location&...*
 
-Not let's assume that we want to read a couple fo temperature and humidity values:
+Not let's assume that we want to read a couple of temperature and humidity values:
 
 {{{
 Request -> http://localhost:8001/values/?location=garden&name=temperature5&location=bathroom&name=humidity1
