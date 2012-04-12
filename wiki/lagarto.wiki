@@ -222,8 +222,8 @@ And run the necessary Lagarto processes. For Laagrto-SWAP, enter _lagarto/lagart
 
 = Available processes =
 
-[LagartoSWAP Lagarto-SWAP]: lagarto server for SWAP networks and panStamps
-[LagartoMAX Lagarto-MAX]: lagarto client providing event management and connectivity to cloud data services
+ * [LagartoSWAP Lagarto-SWAP]: lagarto server for SWAP networks and panStamps
+ * [LagartoMAX Lagarto-MAX]: lagarto client providing event management and connectivity to cloud data services
 
 = Screenshots =
 
