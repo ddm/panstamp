@@ -1,0 +1,20 @@
+#labels lagarto,swap,python
+= Lagarto-SWAP: lagarto server for SWAP networks =
+
+= Introduction =
+
+Lagarto-SWAP is the server that talks to panStamps. This process relies on [pyswap pyswap] and takes advantage of the whole functionality provided by the python library.
+
+= Configuration =
+
+Lagarto-SWAP is entirely configured from the web interface. Default http port is 8001 so in order to access the web interface we should open the following URL:
+
+http:\\ip_address:8001
+
+https://lh3.googleusercontent.com/-RuXgt1GFqQc/T0EnK7uOLHI/AAAAAAAAALM/khH86oZHl08/s591/lagarto_web_2.png
+
+https://lh3.googleusercontent.com/-pQzfFhX1pfY/T4dMMifBnnI/AAAAAAAAAOw/xCCxaBkEA_o/s590/lagarto_swap_lagarto_settings.png
+
+https://lh3.googleusercontent.com/-92yeMqIL6H4/T4dMMgPB6FI/AAAAAAAAAO0/ExEqgih7lEc/s582/lagarto_swap_modem_network.png
+
+https://lh6.googleusercontent.com/-PMDPQdmLzsA/T4dMNQx5gpI/AAAAAAAAAPI/5_5uby9BhEY/s578/lagarto_swap_modem_serial.png
