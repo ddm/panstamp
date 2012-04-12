@@ -1,6 +1,13 @@
 #labels lagarto,swap,python
 = Lagarto-SWAP: lagarto server for SWAP networks =
 
+ * [LagartoSWAP#Introduction Introduction]
+ * [LagartoSWAP#Configuration Configuration]
+  * [LagartoSWAP#General_Settings General Settings]
+  * [LagartoSWAP#Lagarto_Settings Lagarto Settings]
+  * [LagartoSWAP#Serial_port_settings Serial port settings]
+  * [LagartoSWAP#Wireless_network_settings Wireless network settings]
+
 = Introduction =
 
 Lagarto-SWAP is the server that talks to panStamps. This process relies on [pyswap pyswap] and takes advantage of the whole functionality provided by the python library.
