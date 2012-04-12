@@ -15,8 +15,9 @@ http:\\ip_address:8001
 
 This page lets us define the location for the different configuration files and remote repositories. Debug level can be configured from this page as well. You can leave the default parameters.
 
+<p align="center">
 https://lh3.googleusercontent.com/-RuXgt1GFqQc/T0EnK7uOLHI/AAAAAAAAALM/khH86oZHl08/s591/lagarto_web_2.png
-
+</p>
 == Lagarto settings ==
 
 Every lagarto process needs some configuration parameters to be edited from this page:
