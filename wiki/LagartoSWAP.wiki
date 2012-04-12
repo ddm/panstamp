@@ -26,16 +26,22 @@ Every lagarto process needs some configuration parameters to be edited from this
  * Broadcast channel: TCP/IP address and port to be used for notifications. This channel must be the same for all lagarto processes.
  * HTTP server port: unique for each lagarto process running in the same machine.Default value is 8001.
 
+<p align="center">
 https://lh3.googleusercontent.com/-pQzfFhX1pfY/T4dMMifBnnI/AAAAAAAAAOw/xCCxaBkEA_o/s590/lagarto_swap_lagarto_settings.png
+</p>
 
 == Serial port settings ==
 
 Serial port and speed of the SWAP modem connected to the Lagarto-SWAP computer. panStamps running the modem application use 38400 bps as the default serial speed.
 
+<p align="center">
 https://lh6.googleusercontent.com/-PMDPQdmLzsA/T4dMNQx5gpI/AAAAAAAAAPI/5_5uby9BhEY/s578/lagarto_swap_modem_serial.png
+</p>
 
 == Wireless network settings ==
 
 Configuration of the wireless network settings.
 
+<p align="center">
 https://lh3.googleusercontent.com/-92yeMqIL6H4/T4dMMgPB6FI/AAAAAAAAAO0/ExEqgih7lEc/s582/lagarto_swap_modem_network.png
+</p>
