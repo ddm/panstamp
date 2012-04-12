@@ -92,8 +92,10 @@ Raw format is a simple string containing the the endpoint value and unit. In ord
 
 For a SWAP endpoint containing temperature data, with location = "SWAP" and name = "temperature" we should use this url in the HTTP GET request:
 
+{{{
 Request -> http://localhost:8001/values/SWAP/temperature
 Response -> 25.6 C
+}}}
 
 Now if we want to control an output:
 
