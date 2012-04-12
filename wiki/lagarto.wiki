@@ -10,6 +10,7 @@
   * [lagarto#JSON_format JSON format]
  * [lagarto#Installation Installation]
   * [lagarto#Install_Lagarto_from_Subversion Install Lagarto from Subversion]
+ * [lagarto#Available_processes Available lagarto processes]
  * [lagarto#Screenshots Screenshots]
 
 = Introduction =
@@ -218,6 +219,12 @@ And run the necessary Lagarto processes. For Laagrto-SWAP, enter _lagarto/lagart
 {{{
 # python lagarto-swap.py
 }}}
+
+= Available processes =
+
+[LagartoSWAP Lagarto-SWAP]: lagarto server for SWAP networks and panStamps
+[LagartoMAX Lagarto-MAX]: lagarto client providing event management and connectivity to cloud data services
+
 = Screenshots =
 
 <p align="center">
