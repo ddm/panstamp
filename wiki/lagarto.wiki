@@ -200,7 +200,7 @@ Before installing Lagarto you need to install ZeroMQ with the Python bindings an
 # python setup.py install
 }}}
 
-Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
+Now, if you want to run [LagartoMAX Lagarto-SWAP], you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
 
  # Download pyswap from Subversion:
 {{{
@@ -210,14 +210,24 @@ Now, if you want to run Lagarto-SWAP, you need to install pyswap. At the moment 
 {{{
 # python setup.py install
 }}}
+
+If you want to run [LagartoMAX Lagarto-MAX], you need to install [http://rhodesmill.org/pyephem/ PyEphem] first. Download the PyEphem package and run this command:
+{{{
+# python setup.py install
+}}}
+
 Finally, download Lagarto from SVN:
 {{{
 # svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
 }}}
 
-And run the necessary Lagarto processes. For Laagrto-SWAP, enter _lagarto/lagarto-swap/_ and run this command:
+And run the necessary Lagarto processes. For Lagarto-SWAP:
 {{{
-# python lagarto-swap.py
+# python lagarto/lagarto-swap/lagarto-swap.py
+}}}
+For Lagarto-MAX:
+{{{
+# python lagarto/lagarto-max/lagarto-max.py
 }}}
 
 = Available processes =
