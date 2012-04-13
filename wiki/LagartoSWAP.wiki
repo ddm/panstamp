@@ -7,6 +7,7 @@
   * [LagartoSWAP#Lagarto_Settings Lagarto Settings]
   * [LagartoSWAP#Serial_port_settings Serial port settings]
   * [LagartoSWAP#Wireless_network_settings Wireless network settings]
+ * [LagartoSWAP#Control_and_monitoring page Control and monitoring page]
 
 = Introduction =
 
@@ -51,4 +52,12 @@ Configuration of the wireless network settings.
 
 <p align="center">
 https://lh3.googleusercontent.com/-92yeMqIL6H4/T4dMMgPB6FI/AAAAAAAAAO0/ExEqgih7lEc/s582/lagarto_swap_modem_network.png
+</p>
+
+= Control and monitoring page =
+
+This web page provides a simple interface for viewing and controlling SWAP values. It also lets us configure some cosmetic parameters related to the values such as units, name and location of the endpoint.
+
+<p align="center">
+https://lh4.googleusercontent.com/-gbXrbZaYKuE/T0Elh3N7VPI/AAAAAAAAAKU/FswIVwaZJ_w/s571/lagarto_web_1.png
 </p>
