@@ -37,7 +37,7 @@ https://lh5.googleusercontent.com/-ggjb-vUbvHg/T4gFdwyN5MI/AAAAAAAAAPg/q8OgILFoA
 
 = Event programming =
 
-Programming events from the web interface is simple and intuitive. The _Event Panel_ lists all the programmed events and lets us create new ones:
+Programming events from the web interface is simple and intuitive. The _Event Panel_ lists all the programmed events and lets us create new ones by pressing the "New Event" button:
 
 <p align="center">
 https://lh4.googleusercontent.com/-FnuRQ81mkDE/T4gX5SYe1CI/AAAAAAAAAP0/H69VaO0MUcc/s593/lagarto_max_event_panel.png
