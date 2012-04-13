@@ -89,7 +89,7 @@ def event_handler(evnsrc, evnobj):
     @param evnsrc: event source ("network", "clock")
     @param evnobj: event object
     
-    evnsrc = "network" -> evnobj = lagarto message
+    evnsrc = "network" -> evnobj = lagarto endpoint
     evnsrc = "clock" -> evnobj = time.localtime() object
     """
     
