@@ -7,7 +7,7 @@
   * [LagartoSWAP#Lagarto_Settings Lagarto Settings]
   * [LagartoSWAP#Serial_port_settings Serial port settings]
   * [LagartoSWAP#Wireless_network_settings Wireless network settings]
- * [LagartoSWAP#Control_and_monitoring page Control and monitoring page]
+ * [LagartoSWAP#Control_and_monitoring_page Control and monitoring page]
 
 = Introduction =
 
