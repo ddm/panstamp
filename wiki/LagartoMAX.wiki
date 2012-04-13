@@ -1,4 +1,4 @@
-#labels lagarto,python,event,script
+#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se
 = Lagarto-MAX: extended automation client =
 
  * [LagartoMAX#Introduction Introduction]
@@ -6,7 +6,10 @@
  * [LagartoMAX#Configuration Configuration]
   * [LagartoMAX#Lagarto_settings Lagarto settings]
  * [LagartoMAX#Event_programming Event programming]
- * [LagartoMAX#Compatible_cloud_data_services Compatible cloud data services]
+ * [LagartoMAX#Custom_Python_scripts Custom Python scripts]
+  * [LagartoMAX#NetworkAPI NetworkAPI]
+  * [LagartoMAX#CloudAPI CloudAPI]
+ * [LagartoMAX#Supported_cloud_data_services Supported cloud data services]
 
 = Introduction =
 
@@ -76,9 +79,137 @@ In summary. the web event editor provides a simple interface for programming the
 
 = Custom Python scripts =
 
-Lagarto-MAX also provides a scripting mechanisms for those wanting to develop their own Python scripts.
+Lagarto-MAX also provides a scripting mechanism for those wanting to develop their own Python scripts. "scripts/events.py" is the starting point for any user-defined event. This Python module contains a method named "event_handler". This method is called once per minute and whenever a network value changes. This method has two arguments: "evnsrc" that shows the nature of the event (network and clock), and "evnobj", containing the related event object (lagarto endpoint or time data). Example of user code:
 
-= Compatible cloud data services =
+{{{
+def event_handler(evnsrc, evnobj):
+    """
+    Event handling function
+    
+    @param evnsrc: event source ("network", "clock")
+    @param evnobj: event object
+    
+    evnsrc = "network" -> evnobj = lagarto message
+    evnsrc = "clock" -> evnobj = time.localtime() object
+    """
+    
+    if evnsrc == "network":
+        print time.strftime("%d %b %Y %H:%M:%S", time.localtime()), evnobj
+        
+        value = network.get_value("SWAP-network.SWAP.Temperature")
+        print "Temperature =", value
+    elif evnsrc == "clock":
+        print time.strftime("%d %b %Y %H:%M:%S", evnobj), "Time event"
+}}}
+
+The above is just an example. Users are allowed to develop large amounts of code and place them in separate modules, import Python libraries, run independent threads, etc.
+
+== NetworkAPI ==
+
+In order to interact with lagarto networks, Lagarto-MAX provides the class api.NetworkAPI. The following are some of the methods provided by this API:
+
+{{{
+def get_endpoint(endp):
+    """
+    Get Lagarto endpoint
+        
+    @param endp: endpoint identification string
+    format 1: process.location.name
+    format 2: process.id
+        
+    @return lagarto endpoint object
+    """
+
+    def get_value(endp):
+        """
+        Get endpoint value
+        
+        @param endp: endpoint identification string
+        format 1: process.location.name
+        format 2: process.id
+        
+        @return endpoint value
+        """
+
+    def set_value(endp, value):
+        """
+        Set endpoint value
+        
+        @param endp: endpoint identification string
+        format 1: process.location.name
+        format 2: process.id
+        @param value: new endpoint value
+        
+        @return endpoint value
+        """
+}}}
+
+Example of use:
+
+{{{
+from api import NetworkAPI as network
+
+# Lagarto endpoint
+endpoint = network.get_endpoint("SWAP-network.SWAP.Temperature")
+
+print endpoint.name, "in", endpoint.location, "is", endpoint.value, endpoint.unit
+
+# The above code prints the same result as the following:
+value = network.get_endpoint("SWAP-network.SWAP.Temperature")
+
+print "Temperature in SWAP is", value, " C"
+}}}
+
+== CloudAPI ==
+
+CouldAPI provides direct mechanisms to push data to any of the [LagartoMAX#Supported_cloud_data_services supported cloud services]:
+
+{{{
+    def push_pachube(endp, sharing_key, feed_id, datastream_id):
+        """
+        Push data to pachube
+
+        @param endp: endpoint identification string
+        format 1: process.location.name
+        format 2: process.id        
+        @param sharing_key: Pachube sharing key
+        @param feed_id: Pachube feed ID
+        @param datastream_id: Pachube datastream ID
+        
+        @return HTTP response from Pachube
+        """
+    def push_thingspeak(endp, api_key, field_id):
+        """
+        Push data to ThingSpeak
+
+        @param endp: endpoint identification string
+        format 1: process.location.name
+        format 2: process.id        
+        @param api_key: ThingSpeak API key
+        @param field_id: ThingSpeak field ID
+        
+        @return HTTP response from ThingSpeak
+        """
+}}}
+
+Example of use
+
+{{{
+from api import CloudAPI as cloud
+
+# Push humidity value to Pachube
+cloud.push_pachube("SWAP-network.SWAP.Humidity",
+                   "cykPX_p0wDMmAm8VDXXel3lqv8-SAKx4UlFJT3lyYWhSND0g",
+                   "54081",
+                   "10.12.1")
+
+# And push it to ThingSpeak too
+cloud.push_thingspeak("SWAP-network.SWAP.Humidity",
+                      "VTPX8MN9BFZ7M8MZ",
+                      "field2")
+}}}
+
+= Supported cloud data services =
 
 Any value can be pushed to the following cloud services via custom scripting or web event:
 
