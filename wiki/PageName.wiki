@@ -1,0 +1,37 @@
+= Lagarto-MAX: extended automation client
+
+= Introduction =
+
+Lagarto-MAX is a lagarto client that receives and processes events transmitted from any lagarto server running on the same IP network. Lagarto-MAX is a key piece into the lagarto architecture since it's able to integrate real values belonging to different networks and present them to the user in a homogeneous way. Moreover, being user-programmable, Lagarto-MAX can take decisions based on time or network events.
+
+= Features =
+
+Lagarto-MAX, due to its nature, is one of those components that will be continuously growing in functionalities. The following is a list of features provided by this lagarto client:
+
+ * Reception of network events from any lagarto server on the same IP network (LAN or Internet)
+ * Transmission of commands to any lagarto server on the same IP network (LAN or Internet)
+ * Common web control/monitoring interface for all lagarto endpoints
+ * Event manager entirely programmable from the Web interface
+ * Automatic upload of values to different cloud data services (Pachube, ThingSpeak, ...)
+ * Simple thread-independent interface for running user Python scripts.
+ * Python API for managing values such as "get_value" or "set_value"
+
+= Configuration =
+
+Lagarto-MAX is entirely configured from the web interface. Default HTTP port is 8002 so in order to access the web interface we have to open the following URL:
+
+http:\\ip_address:8002
+
+== Lagarto settings ==
+
+Every lagarto process needs some configuration parameters to be edited from this page:
+
+ * process name: name of the lagarto process. This name has to be unique across all lagarto process
+ * Broadcast channel: TCP/IP address and port to be used for notifications. This channel must be the same for all lagarto processes.
+ * HTTP server port: unique for each lagarto process running in the same machine.Default value is 8002.
+
+<p align="center">
+https://lh5.googleusercontent.com/-ggjb-vUbvHg/T4gFdwyN5MI/AAAAAAAAAPg/q8OgILFoArE/s600/lagarto_max_lagarto_settings.png
+</p>
+
+= Event programming =
