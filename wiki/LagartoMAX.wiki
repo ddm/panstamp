@@ -1,6 +1,13 @@
 #labels lagarto,python,event,script
 = Lagarto-MAX: extended automation client =
 
+ * [LagartoMAX#Introduction Introduction]
+ * [LagartoMAX#Features Features]
+ * [LagartoMAX#Configuration Configuration]
+  * [LagartoMAX#Lagarto_settings Lagarto settings]
+ * [LagartoMAX#Event_programming Event programming]
+ * [LagartoMAX#Compatible_cloud_data_services Compatible cloud data services]
+
 = Introduction =
 
 Lagarto-MAX is a lagarto client that receives and processes events transmitted from any lagarto server running on the same IP network. Lagarto-MAX is a key piece into the lagarto architecture since it's able to integrate real values belonging to different networks and present them to the user in a homogeneous way. Moreover, being user-programmable, Lagarto-MAX can take decisions based on time or network events.
@@ -42,3 +49,38 @@ Programming events from the web interface is simple and intuitive. The _Event Pa
 <p align="center">
 https://lh4.googleusercontent.com/-FnuRQ81mkDE/T4gX5SYe1CI/AAAAAAAAAP0/H69VaO0MUcc/s593/lagarto_max_event_panel.png
 </p>
+
+Each event page shows three different sections: triggers. additional conditions and actions.
+
+* *Triggers* are initial conditions required to start an action. We can create multiple triggers on a single event but only one of them has to be fulfilled in order to run the subsequent actions. Two different types: lagarto network conditions and time conditions.
+* *Additional conditions* don't trigger the event by themselves but all of them must be fulfilled. Two different types: lagarto network conditions and time conditions.
+* *Actions*. Two different types: lagarto network conditions and cloud data service.
+
+<p align="center">
+https://lh6.googleusercontent.com/-tCAeutQBNog/T4g4YU5M3RI/AAAAAAAAAQI/FTlubJ95Xwk/s621/lagarto_max_event_editor.png
+</p>
+
+Defining new triggers and additional conditions is just a matter of pressing the "New" button and fill each requested field.
+
+<p align="center">
+https://lh4.googleusercontent.com/-IjJ2Ef2wWfo/T4g839ZkjMI/AAAAAAAAAQg/P9jDxtt10hs/s623/lagarto_max_condition.png
+</p>
+
+And the same applies for actions. The following is an example of lagarto value being pushed to [https://pachube.com Pachube]:
+
+<p align="center">
+https://lh5.googleusercontent.com/-rmQaM6OfLoU/T4g835TBISI/AAAAAAAAAQc/TmNqye3S9lE/s576/lagarto_max_action.png
+</p>
+
+In summary. the web event editor provides a simple interface for programming the behaviour of any lagarto network based on the event-action paradigm.
+
+= Custom Python scripts =
+
+Lagarto-MAX also provides a scripting mechanisms for those wanting to develop their own Python scripts.
+
+= Compatible cloud data services =
+
+Any value can be pushed to the following cloud services via custom scripting or web event:
+
+ * [https://pachube.com Pachube]
+ * [https://www.thingspeak.com ThingSpeak]
