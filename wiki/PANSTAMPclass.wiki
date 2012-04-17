@@ -4,6 +4,7 @@
  * [PANSTAMPclass#Introduction Introduction]
  * [PANSTAMPclass#Public_arguments Public arguments]
  * [PANSTAMPclass#Public_methods Public methods]
+ * [PANSTAMPclass#Public_macros Public macros]
  * [PANSTAMPclass#Example Example]
 
 = Introduction =
