@@ -88,6 +88,66 @@ The PANSTAMP class contains the necessary mechanisms to control the board. This 
     long getInternalTemp(void);
 }}}
 
+= Public macros =
+
+Aprat from the above methods, developers can use any of the available macros:
+
+{{{
+/**
+ * setSwapStatusCallBack
+ *
+ * Set callback function for any status packet received.
+ *
+ * 'ptrFunc'  Pointer to the callback function
+ *
+ * Usage:
+ * 
+ * void myFunction(SWPACKET *status)
+ * {
+ *   ...
+ * }
+ *
+ * panstamp.setSwapStatusCallBack(myFunction);
+ */
+setSwapStatusCallBack(ptrFunc)
+
+/**
+ * eepromToFactoryDefaults
+ *
+ * Restore EEPROM to the factory defaults
+ *
+ * Usage:
+ * 
+ * panstamp.eepromToFactoryDefaults();
+ */
+eepromToFactoryDefaults()
+
+/**
+ * setHighTxPower
+ *
+ * Set Tx power to the maximum. Increases transmission distances but the current
+ * consumption switches to 33-35 mA when transmitting.
+ *
+ * Usage:
+ * 
+ * panstamp.setHighTxPower();
+ */
+setHighTxPower()
+
+/**
+ * setLowTxPower
+ *
+ * Set Tx power to a medium reasonable value. Decreases transmission distances
+ * (~200 m) but the current consumption is maintained in the 17-19 mA range
+ * when transmitting. This is the default mode.
+ *
+ * Usage:
+ * 
+ * panstamp.setLowTxPower();
+ */
+setLowTxPower()
+}}}
+
 = Example =
 
 [http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphum.pde temphum.pde] is a good example about the use of this class. Generally, you will want to use something similar to the following code:
