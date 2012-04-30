@@ -10,7 +10,7 @@
 
  * [SWAP#Motivation Motivation]
  * [SWAP#Introduction Introduction]
- * [SWAP#Supported_IC's]
+ * [SWAP#Supported_IC's Supported IC's]
  * [SWAP#Registers_and_values Registers and values]
  * [SWAP#Packet_structure Packet structure]
   * [SWAP#Network_id Network id]
