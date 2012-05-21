@@ -194,7 +194,7 @@ Response ->
 
 Before installing Lagarto you need to install pyserial, ZeroMQ with the Python bindings and Barrel.
 
- # Download [pyserial http://pypi.python.org/pypi/pyserial] and install it by running this command:
+ # Download [http://pypi.python.org/pypi/pyserial pyserial] and install it by running this command:
 {{{
 # python setup.py install
 }}}
