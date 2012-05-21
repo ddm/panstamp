@@ -192,8 +192,12 @@ Response ->
 
 == Install Lagarto from Subversion ==
 
-Before installing Lagarto you need to install ZeroMQ with the Python bindings and Barrel.
+Before installing Lagarto you need to install pyserial, ZeroMQ with the Python bindings and Barrel.
 
+ # Download [pyserial http://pypi.python.org/pypi/pyserial] and install it by running this command:
+{{{
+# python setup.py install
+}}}
  # To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
  # Barrel is the middleware used to provide HTTP Basic Authentication for the HTTP services. Download teh latest version from [http://pypi.python.org/pypi/barrel/0.1.3 here], untar the package and complete the installation using the following command:
 {{{
