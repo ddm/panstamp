@@ -1,4 +1,6 @@
 #labels swapmaker,definitionfile,swap
+= SWAPmaker: source code generation wizard for developers =
+
  * [SWAPmaker#Introduction Introduction]
  * [SWAPmaker#Installation Installation]
  * [SWAPmaker#Screenshots Screenshots]
