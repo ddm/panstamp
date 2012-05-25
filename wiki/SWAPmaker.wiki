@@ -1,6 +1,6 @@
- *[SWAPmaker#Introduction Introduction]
- *[SWAPmaker#Installation Installation]
- *[SWAPmaker#Screenshots Screenshots]
+ * [SWAPmaker#Introduction Introduction]
+ * [SWAPmaker#Installation Installation]
+ * [SWAPmaker#Screenshots Screenshots]
 
 = Introduction =
 
