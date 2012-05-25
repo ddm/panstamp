@@ -12,6 +12,7 @@
    * [developmentsteps#Main.ino_file:_initialize_the_board Main.ino file: initialize the board]
    * [developmentsteps#Main.ino_file:_Run_periodic_tasks Main.ino file: Run periodic tasks]
   * [developmentsteps#Step_3:_Create_a_definition_file_for_our_new_device Step 3: Create a definition file for our new device]
+ * [Automatic_generation_of_source_code_Automatic generation of source code]
 
 = Introduction =
 
@@ -349,4 +350,4 @@ Our [devicexml Device Definition File] is now ready for final consumption. We ca
 
 = Automatic generation of source code =
 
-Since the release of SWAPmaker, source code can be easily initialized with the most common parts, including the definition of registers and callback functions. We now strongly suggest to use this wizard and then complete the source code with your desired functionality (read sensors, write outputs, etc). SWAPmaker also generates the Device Definition File so developers no longer need to manually edit the xml files by hand.
+Since the release of [SWAPmaker SWAPmaker], source code can be easily initialized with the most common parts, including the definition of registers and callback functions. We now strongly suggest to use this wizard and then complete the source code with your desired functionality (read sensors, write outputs, etc). SWAPmaker also generates the Device Definition File so developers no longer need to manually edit the xml files by hand.
