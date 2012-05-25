@@ -346,3 +346,7 @@ In our example we should create a definition file similar to this one:
 }}}
 
 Our [devicexml Device Definition File] is now ready for final consumption. We can now submit this file, named _mynewdevice.xml_and the product code to the Product Registration section of the forum. Once received, definition file and product code will be uploaded to the central repositories.
+
+= Automatic generation of source code =
+
+Since the release of SWAPmaker, source code can be easily initialized with the most common parts, including the definition of registers and callback functions. We now strongly suggest to use this wizard and then complete the source code with your desired functionality (read sensors, write outputs, etc). SWAPmaker also generates the Device Definition File so developers no longer need to manually edit the xml files by hand.
