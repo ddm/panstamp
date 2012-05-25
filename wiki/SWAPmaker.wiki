@@ -1,0 +1,17 @@
+ *[SWAPmaker#Introduction Introduction]
+ *[SWAPmaker#Installation Installation]
+ *[SWAPmaker#Screenshots Screenshots]
+
+= Introduction =
+
+SWAPmaker is a wizard application that helps starting new developments. This wizard prompts the developer for some information, necessary to initialize the source code, at least the most common lines. SWAPmaker also generates the associated Device Definition File (xml) so that developers can now avoid the burden of creating these files by hand.
+
+= Installation =
+
+Installing SWAPmaker is very easy. You need Python 2.6 or higher and wxPython. Then you can download SWAPmaker from Subversion as follows:
+
+{{{
+# svn checkout https://panstamp.googlecode.com/svn/trunk/python/swapmaker
+}}}
+
+= Screenshots =
