@@ -220,6 +220,8 @@ If you want to run [LagartoMAX Lagarto-MAX], you need to install [http://rhodesm
 # python setup.py install
 }}}
 
+And also install the [http://mike.verdone.ca/twitter/ Python Twitter Tools].
+
 Finally, download Lagarto from SVN:
 {{{
 # svn checkout https://panstamp.googlecode.com/svn/trunk/python/lagarto
