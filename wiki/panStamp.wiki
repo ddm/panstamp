@@ -3,7 +3,7 @@
 
  * [panStamp#Pin_mapping Pin mapping]
  * [panStamp#Voltage_range Voltage range]
- * [panStamp#pgramming_panStamps Programming panStamps]
+ * [panStamp#programming_panStamps Programming panStamps]
  * [panStamp#Bootloader Bootloader]
 
 = Pin mapping =
