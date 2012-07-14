@@ -27,7 +27,7 @@ Besides, SWAPdmt can identify every SWAP mote in the network (with the same freq
 Before installing SWAPdmt, you should check that your computer meets the following requirements:
 
  * Python 2.6 or 2.7
- * [http://wxpython.org/ wxPython] and [http://pyserial.sourceforge.net/ pyserial] installed
+ * [http://wxpython.org/ wxPython 2.8] and [http://pyserial.sourceforge.net/ pyserial] installed
  * Subversion (SVN) client
 
 Once the above requirements met, you can start installing SWAPdmt as follows:
