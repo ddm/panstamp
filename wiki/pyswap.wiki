@@ -185,7 +185,7 @@ Whenever you want to iterate among all the existing motes in a given SWAP networ
 
 {{{
     for mote in self.lstMotes:
-        print "Devie with address", mote.address, mote.definition.product
+        print "Device with address", mote.address, mote.definition.product
 }}}
 
 = Documentation =
