@@ -1,4 +1,4 @@
-
+#labels cc1101,panstamp,lowlevellibrary
 = Introduction =
 
 As said in other documentation pages, the PANSTAMP class, available from our Arduino library, is the preferred way to develop new applications for panStamps. However, some users will still prefer to write their own transmission/reception functions in order to get more control over the wireless communications. This is mainly the case for the following scenarios:
@@ -28,7 +28,7 @@ From cc1101.h:
 byte receiveData(CCPACKET * packet);
 }}}
 
-_receiveData_ takes as argument a pointer to the CCPACKET received. In order to detect incoming packets, developers have to interrupt their application whenever Atmega's INT0 pin go to low:
+_receiveData_ takes a pointer to the CCPACKET received as argument. In order to detect incoming packets, developers have to interrupt their application whenever Atmega's INT0 pin goes to low:
 
 {{{
 attachInterrupt(0, myCallbackFunct, FALLING);
@@ -44,18 +44,236 @@ void myCallbackFunct(void)
   // Read incoming wireless packet (if any)
   if (cc1101.receiveData(&ccPacket) > 0)
   {
+    // If CRC is OK
     if (ccPacket.crc_ok)
     {
-      swPacket = SWPACKET(ccPacket);
-      // Smart encryption locally enabled?
-      if (panstamp.security & 0x02)
-      {
-        // OK, then incoming packets must be encrypted too
-        if (!(swPacket.security & 0x02))
-          eval = false;
-      }
+      // status->value.data : data bytes
+      // status->value.length: data length
+    }
+  }
+}
 }}}
 
-Matthias has provided [http://www.panstamp.org/forum/showthread.php?tid=22 in the forum] some good examples about the use of these functions:
+== sendData ==
+
+From cc1101.h:
 
 {{{
+/**
+ * sendData
+ * 
+ * Send data packet via RF
+ * 
+ * 'packet'	Packet to be transmitted
+ *
+ *  Return:
+ *    True if the transmission succeeds
+ *    False otherwise
+ */
+boolean sendData(CCPACKET packet);
+}}}
+
+_sendData_ is a simple method which takes the packet to be sent as argument. The first data byte needs to be the destination address of the wireless packet. Leave this byte to 0 if you want to broadcast your transmission. The following example sends one byte (100) to the address 5:
+
+{{{
+  CCPACKET packet;
+
+  packet.length=2;
+  packet.data[0] = 5;    // destination address
+  packet.data[1] = 100;  // data byte
+
+  if(cc1101.sendData(packet))
+  {
+    // Transmission completed
+  }
+}}}
+
+= Some examples ==
+
+Matthias Stolt has provided [http://www.panstamp.org/forum/showthread.php?tid=22 in the forum] some good examples about the use of the CC1101 class. We have included these examples here for clarity:
+
+The following is a sender application which transmits a count every two seconds:
+
+{{{
+#define LEDOUTPUT 4  // Arduino's digital pin 4 = panStamp's pin 19
+
+// The synchWord of sender and receiver must be the same
+byte synchWord = 199;
+byte senderAddress = 4;
+byte receiverAddress = 5;
+
+// counter to get increment in each loop
+byte counter;
+
+/**
+* Let the LED Output blink one time.
+* 
+* With small pause after the blink to see two consecutive blinks. 
+*/
+void blinker(){
+      digitalWrite(LEDOUTPUT, HIGH);
+      delay(100);
+      digitalWrite(LEDOUTPUT, LOW);
+      delay(100);
+}
+
+/**
+* The setup method gets called on start of the system.
+*/
+void setup()
+{
+  Serial.begin(38400);
+  Serial.println("start");
+
+  // setup the blinker output
+  pinMode(LEDOUTPUT, OUTPUT);
+  digitalWrite(LEDOUTPUT, LOW);
+
+  // blink once to signal the setup
+  blinker();
+  
+  // reset the counter
+  counter=0;
+  
+  // initialize the RF Chip
+  cc1101.init();
+  cc1101.setSyncWord(&networkAddress, false);
+  cc1101.setDevAddress(senderAddress, false);
+  Serial.println("device initialized");
+
+  Serial.print("set sender address to ");
+  Serial.println(senderAddress);
+  Serial.println("done");
+}
+
+/**
+* The loop method gets called on and on after the start of the system.
+*/
+void loop()
+{
+  Serial.println("loop");
+  
+  CCPACKET data;
+  data.length=2;
+  byte blinkCount=counter++;
+  // the first byte in the data is the destination address
+  // it must match the device address of the receiver
+  Serial.println("set address to ");
+  data.data[0]=receiverAddress;
+  data.data[1]=blinkCount;
+  if(cc1101.sendData(data)){
+    Serial.print("ok ");
+    Serial.println(blinkCount);
+    for(int j=0; j<blinkCount; j++){
+      blinker();
+    }
+  }else{
+    Serial.print("failed ");
+    Serial.println(blinkCount);    
+    blinker();
+    blinker();
+  }  
+  Serial.println("loop done");    
+  delay(2000);
+}
+}}}
+
+And this is the code of the receiver application:
+
+{{{
+#include "EEPROM.h"
+#include "cc1101.h"
+
+// The LED is wired to the Arduino Output 4 (physical panStamp pin 19)
+#define LEDOUTPUT 4
+// The synchWord of sender and receiver must be the same
+byte synchWord = 199;
+byte receiverAddress = 5;
+
+// The connection to the hardware chip CC1101 the RF Chip
+CC1101 cc1101;
+
+// a flag that a wireless packet has been received 
+boolean packetAvailable = false;         
+
+/**
+* Let the LED Output blink one time.
+* 
+* With small pause after the blink to see two consecutive blinks. 
+*/
+void blinker(){
+      digitalWrite(LEDOUTPUT, HIGH);
+      delay(100);
+      digitalWrite(LEDOUTPUT, LOW);
+      delay(100);
+}
+
+/**
+* Handle interrupt from CC1101 (INT0)
+*/
+void cc1101signalsInterrupt(void){
+  // set the flag that a package is available
+  packetAvailable = true;
+}
+
+/**
+* The setup method gets called on start of the system.
+*/
+void setup()
+{
+  Serial.begin(38400);
+  Serial.println("start");
+
+  // setup the blinker output
+  pinMode(LEDOUTPUT, OUTPUT);
+  digitalWrite(LEDOUTPUT, LOW);
+
+  // blink once to signal the setup
+  blinker();
+  
+  // initialize the RF Chip
+  cc1101.init();
+  cc1101.setSyncWord(&networkAdress, false);
+  
+  // this device address need to match the target address in the sender
+  cc1101.setDevAddress(receiverAddress, false);
+  cc1101.enableAddressCheck(); // you can skip this line, because the default is to have the address check enabled
+  cc1101.setRxState();
+  // Enable wireless reception interrupt
+  attachInterrupt(0, cc1101signalsInterrupt, FALLING);
+  Serial.println("device initialized");
+
+  Serial.println("setup done");
+}
+
+/**
+* The loop method gets called on and on after the start of the system.
+*/
+void loop()
+{
+  if(packetAvailable){
+    // clear the flag
+    packetAvailable = false;
+    
+    CCPACKET packet;
+    
+    // Disable wireless reception interrupt
+    detachInterrupt(0);
+    
+    if(cc1101.receiveData(&packet) > 0){
+      if (packet.crc_ok && packet.length > 1){
+        Serial.print("packet: len");
+        Serial.print(packet.length);
+        Serial.print(" data1: ");
+        Serial.println(packet.data[1]);
+        for(int j=0; j<packet.data[1]; j++){
+          blinker();
+        }
+      }
+    }
+    
+    // Enable wireless reception interrupt
+    attachInterrupt(0, cc1101signalsInterrupt, FALLING);
+  }
+}
+}}}
