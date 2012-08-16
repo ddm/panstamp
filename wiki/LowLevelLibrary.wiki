@@ -4,6 +4,7 @@
   * [LowLevelLibrary#receiveData_method receiveData method]
   * [LowLevelLibrary#sendData_method sendData method]
  * [LowLevelLibrary#Some_examples Some examples]
+ * [LowLevelLibrary#Power_management Power management]
 
 = Introduction =
 
@@ -283,3 +284,45 @@ void loop()
   }
 }
 }}}
+
+= Power management =
+
+The CC1101 class only lets us set the power state of the CC1101 IC. However, we need to control the power consumption of the complete panStamp board. In order to achieve this, we can borrow some of the power management methods from the panStamp class. For example, _sleepWd_ is a basic method that lets us put the panStamp into deep sleep for some seconds.
+
+From panstamp.h:
+
+{{{
+/**
+ * sleepWd
+ * 
+ * Put panStamp into Power-down state during "time".
+ * This function uses the internal watchdog timer in order to exit (interrupt)
+ * from the power-doen state
+ * 
+ * 'time'	Sleeping time:
+ *  WDTO_15MS  = 15 ms
+ *  WDTO_30MS  = 30 ms
+ *  WDTO_60MS  = 60 ms
+ *  WDTO_120MS  = 120 ms
+ *  WDTO_250MS  = 250 ms
+ *  WDTO_500MS  = 500 ms
+ *  WDTO_1S = 1 s
+ *  WDTO_2S = 2 s
+ *  WDTO_4S = 4 s
+ *  WDTO_8S = 8 s
+ */
+void sleepWd(byte time);
+}}}
+
+You can easily call this method from your application loop as follows:
+
+{{{
+void loop()
+{
+  // Run here your tasks...
+
+  panstamp.sleepWd(WDTO_8S);
+}
+}}}
+
+Running the above code will let your application run the necessary tasks, then go to sleep for eight seconds and then wake up again to restart the job.
