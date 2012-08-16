@@ -1,12 +1,61 @@
 
-
 = Introduction =
 
 As said in other documentation pages, the PANSTAMP class, available from our Arduino library, is the preferred way to develop new applications for panStamps. However, some users will still prefer to write their own transmission/reception functions in order to get more control over the wireless communications. This is mainly the case for the following scenarios:
 
  # Developments that don't need to interoperate via SWAP with other devices
- # Applications already developed for other wireless solutions (ex: XBees)which need to be quickly ported to panStamp with no support for SWAP.
+ # Applications already developed for other wireless solutions (ex: XBees) which need to be quickly ported to panStamp with no support for SWAP.
 
 = CC1101 class =
 
-The [CC1101class CC1101 class] contained in the panstamp library provides simple mechanisms to send and receive wireless packets
+The [CC1101class CC1101 class] contained in the panstamp library provides simple mechanisms to send and receive wireless packets. The most interesting methods are _receiveData_ and _sendData_.
+
+== receiveData ==
+
+From cc1101.h:
+
+{{{
+/**
+ * receiveData
+ * 
+ * Read data packet from RX FIFO
+ *
+ * 'packet'	Container for the packet received
+ * 
+ * Return:
+ * 	Amount of bytes received
+ */
+byte receiveData(CCPACKET * packet);
+}}}
+
+_receiveData_ takes as argument a pointer to the CCPACKET received. In order to detect incoming packets, developers have to interrupt their application whenever Atmega's INT0 pin go to low:
+
+{{{
+attachInterrupt(0, myCallbackFunct, FALLING);
+}}}
+
+Then, _receiveData_ has to be called from _myCallbackFunct_:
+
+{{{
+void myCallbackFunct(void)
+{
+  CCPACKET ccPacket;
+
+  // Read incoming wireless packet (if any)
+  if (cc1101.receiveData(&ccPacket) > 0)
+  {
+    if (ccPacket.crc_ok)
+    {
+      swPacket = SWPACKET(ccPacket);
+      // Smart encryption locally enabled?
+      if (panstamp.security & 0x02)
+      {
+        // OK, then incoming packets must be encrypted too
+        if (!(swPacket.security & 0x02))
+          eval = false;
+      }
+}}}
+
+Matthias has provided [http://www.panstamp.org/forum/showthread.php?tid=22 in the forum] some good examples about the use of these functions:
+
+{{{
