@@ -92,7 +92,7 @@ _sendData_ is a simple method which takes the packet to be sent as argument. The
 
 Matthias Stolt has provided [http://www.panstamp.org/forum/showthread.php?tid=22 in the forum] some good examples about the use of the CC1101 class. We have included these examples here for clarity:
 
-The following is a sender application which transmits a count every two seconds:
+The following is a sender application which transmits a counter value every two seconds:
 
 {{{
 #define LEDOUTPUT 4  // Arduino's digital pin 4 = panStamp's pin 19
