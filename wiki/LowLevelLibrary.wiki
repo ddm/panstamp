@@ -70,7 +70,7 @@ From cc1101.h:
  * 
  * Send data packet via RF
  * 
- * 'packet'	Packet to be transmitted
+ * 'packet'	Packet to be transmitted. First byte is the destination address
  *
  *  Return:
  *    True if the transmission succeeds
