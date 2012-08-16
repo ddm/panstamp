@@ -60,7 +60,7 @@ void myCallbackFunct(void)
 }
 }}}
 
-== sendData ==
+== sendData method ==
 
 From cc1101.h:
 
