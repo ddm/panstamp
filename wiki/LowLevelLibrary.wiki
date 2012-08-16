@@ -1,0 +1,12 @@
+
+
+= Introduction =
+
+As said in other documentation pages, the PANSTAMP class, available from our Arduino library, is the preferred way to develop new applications for panStamps. However, some users will still prefer to write their own transmission/reception functions in order to get more control over the wireless communications. This is mainly the case for the following scenarios:
+
+ # Developments that don't need to interoperate via SWAP with other devices
+ # Applications already developed for other wireless solutions (ex: XBees)which need to be quickly ported to panStamp with no support for SWAP.
+
+= CC1101 class =
+
+The [CC1101class CC1101 class] contained in the panstamp library provides simple mechanisms to send and receive wireless packets
