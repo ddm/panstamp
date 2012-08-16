@@ -1,4 +1,9 @@
 #labels cc1101,panstamp,lowlevellibrary
+ * [LowLevelLibrary#Introduction Introduction]
+  * [LowLevelLibrary#receiveData_method receiveData method]
+  * [LowLevelLibrary#sendData_method sendData method]
+ * [LowLevelLibrary#Some_examples Some examples]
+
 = Introduction =
 
 As said in other documentation pages, the PANSTAMP class, available from our Arduino library, is the preferred way to develop new applications for panStamps. However, some users will still prefer to write their own transmission/reception functions in order to get more control over the wireless communications. This is mainly the case for the following scenarios:
@@ -10,7 +15,7 @@ As said in other documentation pages, the PANSTAMP class, available from our Ard
 
 The [CC1101class CC1101 class] contained in the panstamp library provides simple mechanisms to send and receive wireless packets. The most interesting methods are _receiveData_ and _sendData_.
 
-== receiveData ==
+== receiveData method ==
 
 From cc1101.h:
 
