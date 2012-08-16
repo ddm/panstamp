@@ -1,5 +1,6 @@
 #labels cc1101,panstamp,lowlevellibrary
  * [LowLevelLibrary#Introduction Introduction]
+ * [LowLevelLibrary#CC1101_class CC1101 class]
   * [LowLevelLibrary#receiveData_method receiveData method]
   * [LowLevelLibrary#sendData_method sendData method]
  * [LowLevelLibrary#Some_examples Some examples]
