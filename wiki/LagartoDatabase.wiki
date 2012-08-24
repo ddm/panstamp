@@ -1,0 +1,13 @@
+#Datatabase module for Lagarto Max
+
+= Introduction =
+One missing feature of Lagarto is the storage of time series of data in a SQL or nonSQL database.
+This is an SQLAlchemy module that stores the SWAP traffic in tables for later analysis of temporal data.
+
+
+= Details =
+
+And a list
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
