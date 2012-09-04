@@ -78,8 +78,11 @@ Access: read and write
 
 Description: 1-byte register used to query and control the state of the wireless device. Developers are free to define their own states but, at least, the following should be used:
 
- * State = 0 -> Restart wireless device
- * State = 1 -> Wireless device in normal running mode
+ * State = 0 (RESTART) -> Restart wireless device
+ * State = 1 (RXON) -> Wireless reception enabled
+ * State = 2 (RXOFF) -> Wireless reception disabled
+ * State = 3 (SYNC) -> Synchronization mode, wireless reception enabled
+ * State = 4 (LOWBAT) -> Low battery state
 
 == Frequency channel ==
 
