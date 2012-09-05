@@ -83,7 +83,7 @@ REGISTER regPWMoutput1(dtPWMoutput1,          // Pointer to the data container
                       &setPWMoutput);         // Pointer to the setter function
 }}}
 
-And now we have to insert pointers to the above registers into the global table of registers:
+And now we have to insert pointers to the above registers into the global table of registers. These pointers have to be inserted in the same order as they were defined.
 
 {{{
 /**
