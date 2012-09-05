@@ -127,9 +127,7 @@ This 4-bit value specifies the type of security defense used to protect data fie
 
  * security = 0 -> No data encryption, security nonce disabled
  * security = 1 -> No data encryption, security nonce enabled
- * security = 2 -> Data encryption (under development) and security nonce enabled
-
-We are still in the process of working on a simple encryption algorithm. Once completed, we may work on additional methods if necessary.
+ * security = 2 -> Smart encryption and security nonce enabled
 
 == Security nonce ==
 
