@@ -1,3 +1,4 @@
+#labels Phase-Design
 #Datatabase module for Lagarto Max
 
 = Introduction =
@@ -5,9 +6,21 @@ One missing feature of Lagarto is the storage of time series of data in a SQL or
 This is an SQLAlchemy module that stores the SWAP traffic in tables for later analysis of temporal data.
 
 
+
 = Details =
 
-And a list
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The module comes with a standard sqlite connection and saves the data to a local file in python/lagarto/database/events.db.
+The class is located in lagarto-max/storage.py and is instantiated in the evnmanager.py when the thread for logging events is called.
+Don't worry about concurrency or multiple instances as the class DatabaseManager is using the singleton pattern so you can create as many objects you like.
+
+The table network stores the following informations:
+
+  * event_id: primary key that is a sequence of integers
+  * name: the name of the endpoint 
+  * location: the location
+  * type: the type of endpoint (num,bin etc)
+  * direction: the direction (inp,out etc)
+  * value: the value like temperature etc
+  * time: the time when it was logged
+
+I was thinking that probably the best way is to move the timestamp as the primary key rather then the event_id.
