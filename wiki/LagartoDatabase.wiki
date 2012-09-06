@@ -24,3 +24,15 @@ The table network stores the following informations:
   * time: the time when it was logged
 
 I was thinking that probably the best way is to move the timestamp as the primary key rather then the event_id.
+
+= Usage =
+In events.py is used in this way:
+
+database.addEntry(evnobj.location,evnobj.name,evnobj.value,evnobj.type)
+
+and the database object is created simply as:
+database=DatabaseManager()
+
+the constructor take care of creating a new database if not present or loading the tables if already present.
+
+That's all for now.
