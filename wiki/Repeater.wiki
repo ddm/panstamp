@@ -1,4 +1,9 @@
 #labels repeater
+ * [Repeater#Introduction Introduction]
+ * [Repeater#Repeaters Repeaters]
+ * [Repeater#How_to_use How to use]
+ * [Repeater#Example Example]
+
 = Introduction =
 
 The panStamp stack provides a way to repeat packets along the wireless network. This mechanism relies on special nodes called repeaters, which can also work as standard sensors and actuators.
