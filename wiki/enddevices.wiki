@@ -13,11 +13,10 @@ This page lists all the available SWAP devices and their associated resources. I
 || rgbdriver || RGB driver board || rgbdriver || rgbdriver.xml || 3 ||
 || bininps || Binary/Counter input module || bininps || bininps.xml || 6 ||
 || binouts || Binary/PWM output module || binouts || binouts.xml || 7 ||
+|| binouts2 || Advanced Binary/PWM output module + repeater || binouts2 || binouts2.xml || 12 ||
 || lcddriver || Alphanumeric LCD driver || lcddriver || lcddriver.xml || 8 ||
 || pulsegen || Programmable pulse generator || pulsegen || pulsegen.xml || 9 ||
 || pulsecounter || Pulse counter || pulsecounter || pulsecounter.xml || 10 ||
 || meter || Energy meter || meter || meter.xml || 11 ||
-|| binouts2 || Advanced Binary/PWM output module + repeater || binouts2 || binouts2.xml || 12 ||
-
 
 Except the [https://github.com/dberenguer/OpenChronos OpenChronos] image, all the above Arduino sketches are downloadable from our [http://code.google.com/p/panstamp/source/checkout SVN repository] and from the [http://www.panstamp.com/downloads Download section].
