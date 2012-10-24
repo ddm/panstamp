@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<lagarto>
+	<procname>Lagarto-MAX</procname>
+	<comms>
+		<broadcast>tcp://127.0.0.1:5001</broadcast>
+		<httpport>8002</httpport>
+	</comms>
+</lagarto>
