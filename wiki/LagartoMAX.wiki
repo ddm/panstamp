@@ -52,7 +52,7 @@ https://lh5.googleusercontent.com/-ggjb-vUbvHg/T4gFdwyN5MI/AAAAAAAAAPg/q8OgILFoA
 Lagarto-MAX is a central piece in the lagarto ecosystem, not only for its wide functionality but also because it acts as a hub between servers and clients.
 
 <p align="center">
-http://www.panstamp.com/images/lagarto_hub.png
+<img src="http://www.panstamp.com/images/lagarto_hub.png" alt="lagarto-max as the central hub" width="350">
 </p>
 
 In order for lagarto-max to run as the central hub or concentrator, it has to be started before any other lagarto process. Then, lagarto servers need to connect to lagarto-max via its broadcast port, that is the one being configured from the lagarto settings page. Finally, lagarto clients will connect to lagarto-max via the secondary broadcast port, that is the main broadcast port + 1.
