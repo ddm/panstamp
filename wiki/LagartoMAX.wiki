@@ -13,7 +13,7 @@
 
 = Introduction =
 
-Lagarto-MAX is a lagarto client that receives and processes events transmitted from any lagarto server running on the same IP network. Lagarto-MAX is a key piece into the lagarto architecture since it's able to integrate real values belonging to different networks and present them to the user in a homogeneous way. Moreover, being user-programmable, Lagarto-MAX can take decisions based on time or network events.
+Lagarto-MAX is a lagarto process which receives, resends and processes events transmitted from any lagarto server running on the same IP network. Lagarto-MAX is a key piece into the lagarto architecture since it's able to integrate real values belonging to different networks and present them to the user in a homogeneous way. Moreover, being user-programmable, Lagarto-MAX can take decisions based on time or network events.
 
 = Features =
 
@@ -25,7 +25,9 @@ Lagarto-MAX, due to its nature, is one of those components that will be continuo
  * Event manager entirely programmable from the Web interface
  * Automatic upload of values to different cloud data services (Pachube, ThingSpeak, ...)
  * Simple thread-independent interface for running user Python scripts.
- * Python API for managing values such as "get_value" or "set_value"
+ * Python API for managing values such as "get_value" or "set_value".
+ * Local database (SQLite) storage of values.
+ * On-the-fly creation of web graphs and charts.
 
 = Configuration =
 
@@ -44,6 +46,16 @@ Every lagarto process needs some configuration parameters to be edited from this
 <p align="center">
 https://lh5.googleusercontent.com/-ggjb-vUbvHg/T4gFdwyN5MI/AAAAAAAAAPg/q8OgILFoArE/s600/lagarto_max_lagarto_settings.png
 </p>
+
+= Lagarto-MAX as a network hub =
+
+Lagarto-MAX is a central piece in the lagarto ecosystem, not only for its wide functionality but also because it acts as a hub between servers and clients.
+
+<p align="center">
+http://www.panstamp.com/images/lagarto_hub.png
+</p>
+
+In order for lagarto-max to run as the central hub or concentrator, it has to be started before any other lagarto process. Then, lagarto servers need to connect to lagarto-max via its broadcast port, that is the one being configured from the lagarto settings page. Finally, lagarto clients will connect to lagarto-max via the secondary broadcast port, that is the main broadcast port + 1.
 
 = Event programming =
 
