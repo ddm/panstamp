@@ -5,7 +5,7 @@
  * [LagartoMAX#Features Features]
  * [LagartoMAX#Configuration Configuration]
   * [LagartoMAX#Lagarto_settings Lagarto settings]
- * [Lagarto-MAX_as_a_network_hub Lagarto-MAX as a network hub]
+ * [LagartoMAX#Lagarto-MAX_as_a_network_hub Lagarto-MAX as a network hub]
  * [LagartoMAX#Event_programming Event programming]
  * [LagartoMAX#Custom_Python_scripts Custom Python scripts]
   * [LagartoMAX#NetworkAPI NetworkAPI]
