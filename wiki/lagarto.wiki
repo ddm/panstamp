@@ -235,7 +235,7 @@ This will set your Twitter account as the default one on your computer so that L
 
 Finally, download Lagarto from SVN:
 {{{
-# svn checkout https://panstamp.googlecode.com/svn/tags/python/lagarto_1.2
+# svn checkout https://panstamp.googlecode.com/svn/tags/python/lagarto_1.3
 }}}
 
 And run the necessary Lagarto processes. For Lagarto-SWAP:
