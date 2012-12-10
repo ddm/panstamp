@@ -179,7 +179,7 @@ The above code is specially suited for a sensor that sleeps most of the time. Le
 
 {{{
 // Define here what you want to do with the incoming SWAP status
-void (*statusReceived)(SWPACKET *status)
+void swapStatusReceived(SWPACKET *status)
 {
   // SWAP status packet received
   byte sAddr = status->srcAddr;       // Source address
@@ -197,7 +197,7 @@ void setup()
   panstamp.init();
 
   // Declare SWAP status callback function
-  panstamp.statusReceived = gotStatus;
+  panstamp.setSwapStatusCallBack(swapStatusReceived);
 
   // Send SWAP status packet containing product information
   getRegister(REGI_PRODUCTCODE)->getData();
