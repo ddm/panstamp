@@ -151,7 +151,7 @@ setLowTxPower()
 
 = Example =
 
-[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphum/temphumpress.ino temphumpress.ino] is a good example about the use of this class. Generally, you will want to use something similar to the following code:
+[http://code.google.com/p/panstamp/source/browse/trunk/arduino/sketches/temphumpress/temphumpress.ino temphumpress.ino] is a good example about the use of this class. Generally, you will want to use something similar to the following code:
 
 {{{
 void setup()
