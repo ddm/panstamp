@@ -9,7 +9,7 @@
 = Pin mapping =
 Sample sketches and libraries use either the Arduino pin naming, panStamp pin numbers or Atmega's port register/masks. Depending on the library being used and the degree of control to be achieved over the microcontroller I/O's, you'll find any of the mentioned conventions.
 
-https://lh3.googleusercontent.com/-gMxv5gU4yVw/Tyf7p46gP_I/AAAAAAAAAHc/sqTlwApIcOs/s621/pinmap.png
+https://0cdf7099-a-3ce7cda5-s-sites.googlegroups.com/a/panstamp.com/panstamp/pinmap.png
 
 = Voltage range =
 panStamps have to be powered between 2.5 VDC and 3.6VDC
