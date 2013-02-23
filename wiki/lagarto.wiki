@@ -9,7 +9,6 @@
   * [lagarto#Raw_format Raw format]
   * [lagarto#JSON_format JSON format]
  * [lagarto#Installation Installation]
-  * [lagarto#Install_Lagarto Install Lagarto]
  * [lagarto#Available_processes Available lagarto processes]
  * [lagarto#Screenshots Screenshots]
 
@@ -189,8 +188,6 @@ Response ->
 }}}
 
 = Installation =
-
-== Install Lagarto ==
 
 Before installing Lagarto you need to install pyserial, ZeroMQ with the Python bindings and Barrel.
 
