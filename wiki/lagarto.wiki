@@ -204,7 +204,6 @@ Before installing Lagarto you need to install pyserial, ZeroMQ with the Python b
 Now, if you want to run [LagartoSWAP Lagarto-SWAP], you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
 
  # [http://www.panstamp.com/downloads/pyswap.zip?attredirects=0&d=1 Download pyswap], our Python toolbox for panStamp and SWAP.
-
  # Enter the new pyswap directory and install the package using this command:
 {{{
 # python setup.py install
