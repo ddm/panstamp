@@ -35,7 +35,7 @@ Outgoing packets are passed to the serial gateway following the same structure s
 
 *_DDpayload_*
 
-Implementing custom protocols over the above packet structure is quite straightforward. For example, SWAP sits onto the data payload as described in [this page].
+Implementing custom protocols over the above packet structure is quite straightforward. For example, SWAP fields from source address to the last data byte sit onto the data payload as described in [SWAP#Packet_structure this page].
 
 == Command mode ==
 _Command mode_ is entered from _data mode_  following a simple process:
