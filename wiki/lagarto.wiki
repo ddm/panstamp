@@ -195,7 +195,7 @@ Before installing Lagarto you need to install pyserial, ZeroMQ with the Python b
 {{{
 # python setup.py install
 }}}
- # To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
+ # To install ZeroMQ just download the necessary package from [http://www.zeromq.org/area:download here] and follow the provided instructions. Most popular OS's also provide [http://www.zeromq.org/distro:_start pre-packaged installers]. Then follow [http://www.zeromq.org/bindings:python these instructions] for the Python bindings
  # Barrel is the middleware used to provide HTTP Basic Authentication for the HTTP services. Download teh latest version from [http://pypi.python.org/pypi/barrel/0.1.3 here], untar the package and complete the installation using the following command:
 {{{
 # python setup.py install
