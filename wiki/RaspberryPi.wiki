@@ -1,0 +1,57 @@
+#summary How to run Lagarto on Raspberry Pi
+#labels Phase-Deploy
+
+= Introduction =
+
+Lagarto can be run on a Raspberry Pi. Either you can install everything from scratch or you could download our image based on Raspbian which includes Lagarto-SWAP, Lagarto-MAX and an OpenRemote version which can be integrated with Lagarto.
+
+http://www.panstamp.com/_/rsrc/1352127280683/announcements/newupdatedimageforraspberrypi/raspberry_01.png?height=222&width=400
+
+
+= Getting started =
+
+  # Download the latest image here: http://www.panstamp.org/lagarto_images/lagarto_rpi_0.3_8gb.img.zip
+  # Unzip and write the image to the SD card (at least 8 GB) according to the [http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_the_image_to_an_SD_Card_on_Windows Raspberry Pi Wiki]:
+    * For Windows, use [http://sourceforge.net/projects/win32diskimager/ Win32 Disk Imager]
+    * For Linux, use `dd if=lagarto_rpi_0.2_4gb.img of=/dev/sdc`
+  # Insert the SD card in your Raspberry Pi and boot it up.
+  # Once started, you should be able access:
+    * http://192.168.1.22:8001 for Lagarto-SWAP
+    * http://192.168.1.22:8002 for Lagarto-MAX
+  # You can also SSH to it using username lagarto and the same password.
+
+
+= Raspberry Pi configuration = 
+
+  * To change IP-address, edit *`/etc/network/interfaces`*
+  * To change which DNS servers to use, edit *`/etc/resolv.conf`*
+
+
+= Raspberry Pi updates = 
+
+Between each Raspberry Pi, Lagarto applications will probably get updated. To update your applications, ssh to the Raspberry Pi
+
+{{{
+cd ~/panStamp/lagarto/
+sudo svn update
+}}}
+
+
+= Raspberry Pi re-install = 
+
+If you decide to re-install your Raspberry Pi, you might want to backup your current configuration.
+
+For *Lagarto-SWAP*, you need to backup:
+  * `~/panStamp/lagarto/lagarto-swap/config/swapnet.json`
+  * `~/panStamp/lagarto/lagarto-swap/config/network.xml`
+  * `~/panStamp/lagarto/lagarto-swap/config/serial.xm`
+
+For *Lagarto-MAX*, you need to backup:
+  * `to be added`
+
+
+= Raspberry Pi version history = 
+
+  * 0.1: Initial release.
+  * 0.2: Including autostart och Lagarto.
+  * 0.3: Including OpenRemote.
