@@ -18,7 +18,9 @@ http://www.panstamp.com/_/rsrc/1352127280683/announcements/newupdatedimageforras
   # Once started, you should be able access:
     * http://192.168.1.22:8001 for Lagarto-SWAP
     * http://192.168.1.22:8002 for Lagarto-MAX
-  # You can also SSH to it using username lagarto and the same password.
+  # You can also SSH to it using username lagarto and the same password. If Lagarto didn't start at boot, you can manually start them using:
+    * `nohup python ~/panStamp/lagarto/lagarto-swap/lagarto-swap.py &`
+    * `nohup python ~/panStamp/lagarto/lagarto-max/lagarto-max.py &`
 
 
 = Raspberry Pi configuration = 
