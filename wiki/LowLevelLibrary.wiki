@@ -102,6 +102,9 @@ Matthias Stolt has provided [http://www.panstamp.org/forum/showthread.php?tid=22
 The following is a sender application which transmits a counter value every two seconds:
 
 {{{
+#include "EEPROM.h"
+#include "cc1101.h"
+
 #define LEDOUTPUT 4  // Arduino's digital pin 4 = panStamp's pin 19
 
 // The syncWord of sender and receiver must be the same
