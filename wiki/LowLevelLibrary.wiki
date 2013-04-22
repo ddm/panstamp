@@ -104,8 +104,8 @@ The following is a sender application which transmits a counter value every two 
 {{{
 #define LEDOUTPUT 4  // Arduino's digital pin 4 = panStamp's pin 19
 
-// The synchWord of sender and receiver must be the same
-byte synchWord = 199;
+// The syncWord of sender and receiver must be the same
+byte syncWord = 199;
 byte senderAddress = 4;
 byte receiverAddress = 5;
 
@@ -193,8 +193,8 @@ And this is the code of the receiver application:
 
 // The LED is wired to the Arduino Output 4 (physical panStamp pin 19)
 #define LEDOUTPUT 4
-// The synchWord of sender and receiver must be the same
-byte synchWord = 199;
+// The syncWord of sender and receiver must be the same
+byte syncWord = 199;
 byte receiverAddress = 5;
 
 // The connection to the hardware chip CC1101 the RF Chip
