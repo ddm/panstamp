@@ -1,4 +1,11 @@
 #labels lagarto,raspberry,raspberrypi
+Table of contents:
+ * [Introduction Introduction]
+ * [Download_image_and_grab_SD_card Download image and grab SD card]
+ * [Initializing_Raspbian Initializing Raspbian]
+ * [Connecting_via_SSH Connecting via SSH]
+ * [Test_lagarto_and_OpenRemote Test lagarto and OpenRemote]
+
 = Introduction =
 
 Running [https://code.google.com/p/panstamp/wiki/lagarto Lagarto] and [http://www.openremote.org OpenRemote] on a RaspberryPI is now a straightforward process. With panStamp's official image based on Raspbian you can avoid the steps about installing Python, ZeroMQ and the rest of dependencies necessary to make lagarto work on this platform.
