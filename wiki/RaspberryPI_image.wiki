@@ -1,6 +1,6 @@
 #labels lagarto,raspberry,raspberrypi
 Table of contents:
- * [Introduction Introduction]
+ * [RaspberryPI_image#Introduction Introduction]
  * [Download_image_and_grab_SD_card Download image and grab SD card]
  * [Initializing_Raspbian Initializing Raspbian]
  * [Connecting_via_SSH Connecting via SSH]
