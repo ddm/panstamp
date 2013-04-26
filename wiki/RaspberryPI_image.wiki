@@ -5,7 +5,7 @@ Running [https://code.google.com/p/panstamp/wiki/lagarto Lagarto] and [http://ww
 
 = Download image and grab SD card =
 
-You can download the latest panStamp image for Raspberry from [www.panstamp.org/lagarto_images/lagarto_rpi_0.6_2gb.zip here].
+You can download the latest panStamp image for Raspberry from [http://www.panstamp.org/lagarto_images/lagarto_rpi_0.6_2gb.zip here].
 
 This image is created from the standard Raspbian image, which is then modified for own purposes. This image does not provide a graphical desktop interface and comes with all the necessary to run Lagarto and OpenRemote.
 
