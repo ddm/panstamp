@@ -1,7 +1,7 @@
 #labels lagarto,raspberry,raspberrypi
 = Introduction =
 
-Running Lagarto and OpenRemote on a RaspberryPI is now a straightforward process. With panStamp's official image based on Raspbian you can avoid the steps about installing Python, ZeroMQ and the rest of dependencies necessary to make lagarto work on this platform.
+Running [https://code.google.com/p/panstamp/wiki/lagarto Lagarto] and [http://www.openremote.org OpenRemote] on a RaspberryPI is now a straightforward process. With panStamp's official image based on Raspbian you can avoid the steps about installing Python, ZeroMQ and the rest of dependencies necessary to make lagarto work on this platform.
 
 = Download image and grab SD card =
 
@@ -33,9 +33,11 @@ Raspbian comes with DHCP enabled by default so you will probably want to edit /e
 
 [https://code.google.com/p/panstamp/wiki/LagartoMAX lagarto-max] and [https://code.google.com/p/panstamp/wiki/LagartoSWAP lagarto-swap] are launched at start-up from a system script (/etc/init.d/panstamp) so 30 seconds after powering your Raspberry you should be able to connect to lagarto's embedded web server entering the following addresses from a web browser:
 
+{{{
 lagarto-swap : http://rpi_ip_address:8001
 lagarto-max : http://rpi_ip_address:8002
+}}}
 
-You can also check that OpenRemote is running by opening the controller page: http://rpi_ip_address:8080/Controller
+You can also check that [http://www.openremote.org OpenRemote] is running by opening the controller page: http://rpi_ip_address:8080/Controller
 
 [http://www.panstamp.com/announcements/openremotejoinsthepanstampecosystem This review] explains how to use OpenRemote with lagarto.
