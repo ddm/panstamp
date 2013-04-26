@@ -1,10 +1,10 @@
 #labels lagarto,raspberry,raspberrypi
 Table of contents:
  * [RaspberryPI_image#Introduction Introduction]
- * [Download_image_and_grab_SD_card Download image and grab SD card]
- * [Initializing_Raspbian Initializing Raspbian]
- * [Connecting_via_SSH Connecting via SSH]
- * [Test_lagarto_and_OpenRemote Test lagarto and OpenRemote]
+ * [RaspberryPI_image#Download_image_and_grab_SD_card Download image and grab SD card]
+ * [RaspberryPI_image#Initializing_Raspbian Initializing Raspbian]
+ * [RaspberryPI_image#Connecting_via_SSH Connecting via SSH]
+ * [RaspberryPI_image#Test_lagarto_and_OpenRemote Test lagarto and OpenRemote]
 
 = Introduction =
 
