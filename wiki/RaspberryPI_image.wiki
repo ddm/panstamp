@@ -1,5 +1,5 @@
 #labels lagarto,raspberry,raspberrypi
-#Table of contents#:
+*Table of contents*:
  * [RaspberryPI_image#Introduction Introduction]
  * [RaspberryPI_image#Download_image_and_grab_SD_card Download image and grab SD card]
  * [RaspberryPI_image#Initializing_Raspbian Initializing Raspbian]
