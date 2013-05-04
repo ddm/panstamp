@@ -16,7 +16,7 @@ http://www.panstamp.com/_/rsrc/1352127280683/announcements/newupdatedimageforras
     * For Linux, use `dd if=lagarto_rpi_0.2_4gb.img of=/dev/sdc`
   # Insert the SD card in your Raspberry Pi and boot it up.
   # By default, Raspbian comes with with DHCP enabled so you need to get the IP-address from your DHCP server.
- # Once started, you should be able to access:
+  # Once started, you should be able to access:
     * http://ip-address:8001 for Lagarto-SWAP
     * http://ip-address:8002 for Lagarto-MAX
   # The current image does not start Lagarto automatically on startup, so you need to SSH to it using username "pi" and password "raspberry".:
