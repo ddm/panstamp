@@ -48,9 +48,7 @@ lagarto-max : http://rpi_ip_address:8002
 
 = Run OpenRemote =
 
-Even if [http://www.openremote.com OpenRemote] is installed by default, it has been disabled from the official image due to an incompatibility with Oracle's license for the distribution of their new (pre-production) JDK8 for ARM. Instead, you can follow [http://www.savagehomeautomation.com/projects/raspberry-pi-installing-oracle-java-se-8-with-javafx-develop.html this tutorial] in order to install JDK8 for ARM with support for hard-float ABI
-
-After that, you have to re-enable all the lines about OpenRemote from /etc/init.d/panstamp
+Even if [http://www.openremote.com OpenRemote] is installed by default, it has been disabled from the official image due to an incompatibility with Oracle's license for the distribution of their new (pre-production) JDK8 for ARM. Instead, you have to manually install the Java Develope rKit by following [http://www.savagehomeautomation.com/projects/raspberry-pi-installing-oracle-java-se-8-with-javafx-develop.html this tutorial] in order to install JDK8 for ARM with support for hard-float ABI. After that, you have to re-enable all the lines about OpenRemote from /etc/init.d/panstamp
 
 Finally, you can check that [http://www.openremote.org OpenRemote] is running by opening the controller page from a web browser: http://rpi_ip_address:8080/Controller
 
