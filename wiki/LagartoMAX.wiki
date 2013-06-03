@@ -1,4 +1,4 @@
-#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se,AutoRemote
+#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se
 = Lagarto-MAX: extended automation client =
 
  * [LagartoMAX#Introduction Introduction]
