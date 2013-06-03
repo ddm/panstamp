@@ -242,7 +242,7 @@ Any value can be pushed to the following cloud services via custom scripting or 
 
 [https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote&hl=en AutoRemote]
 
-AutoRemote acts as a messaging bus across a number of different platforms and applications. Very useful for pushing endpoint information to Android/iOS.
+!AutoRemote acts as a messaging bus across a number of different platforms and applications. Very useful for pushing endpoint information to Android/iOS.
 
 ====Usage Note====
  * Message - Formatting string. The following are placeholders that can be used. When the message is sent, Lagarto will replace the placeholders with the relevant enpoint information. Ex: "${id} ${location} ${name} ${type} ${value} ${unit}=:=${name} is now ${value}"
