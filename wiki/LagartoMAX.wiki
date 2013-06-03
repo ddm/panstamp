@@ -1,4 +1,4 @@
-#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se
+#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se,AutoRemote
 = Lagarto-MAX: extended automation client =
 
  * [LagartoMAX#Introduction Introduction]
@@ -226,6 +226,30 @@ cloud.push_thingspeak("SWAP-network.SWAP.Humidity",
 
 Any value can be pushed to the following cloud services via custom scripting or web event:
 
- * [https://cosm.com Cosm]
- * [https://www.thingspeak.com ThingSpeak]
- * [http://open.sen.se/ open.sen.se]
+==Cosm==
+
+[https://cosm.com Cosm]
+
+==ThingSpeak==
+
+[https://www.thingspeak.com ThingSpeak]
+
+==Sen.se==
+
+[http://open.sen.se/ open.sen.se]
+
+==AutoRemote==
+
+[https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote&hl=en AutoRemote]
+
+AutoRemote acts as a messaging bus across a number of different platforms and applications. Very useful for pushing endpoint information to Android/iOS.
+
+====Usage Note====
+ * Message - Formatting string. The following are placeholders that can be used. When the message is sent, Lagarto will replace the placeholders with the relevant enpoint information. Ex: "${id} ${location} ${name} ${type} ${value} ${unit}=:=${name} is now ${value}"
+  * ${id}
+  * ${location}
+  * ${name}
+  * ${type}
+  * ${direction}
+  * ${value}
+  * ${unit}
