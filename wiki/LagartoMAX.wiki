@@ -1,4 +1,4 @@
-#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se
+#labels lagarto,python,event,script,pachube,thingspeak,cloud,open.sen.se,autoremote
 = Lagarto-MAX: extended automation client =
 
  * [LagartoMAX#Introduction Introduction]
@@ -230,7 +230,7 @@ Any value can be pushed to the following cloud services via custom scripting or 
 
 [https://cosm.com Cosm]
 
-==ThingSpeak==
+==!ThingSpeak==
 
 [https://www.thingspeak.com ThingSpeak]
 
@@ -238,7 +238,7 @@ Any value can be pushed to the following cloud services via custom scripting or 
 
 [http://open.sen.se/ open.sen.se]
 
-==AutoRemote==
+==!AutoRemote==
 
 [https://play.google.com/store/apps/details?id=com.joaomgcd.autoremote&hl=en AutoRemote]
 
