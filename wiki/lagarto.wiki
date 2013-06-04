@@ -11,6 +11,7 @@
  * [lagarto#Installation Installation]
  * [lagarto#Available_processes Available lagarto processes]
  * [lagarto#Screenshots Screenshots]
+ * [lagarto#Supported_web_browsers Supported web browsers]
 
 = Introduction =
 
@@ -252,3 +253,7 @@ For Lagarto-MAX:
 <p align="center">
 [https://lh4.googleusercontent.com/-gbXrbZaYKuE/T0Elh3N7VPI/AAAAAAAAAKU/FswIVwaZJ_w/s571/lagarto_web_1.png]
 </p>
+
+= Supported web browsers =
+
+Mozilla Firefox and Google Chrome have proven to work well with lagarto's web pages. Internet Explorer is able to display most pages except for the ones running AJAX (device and endpoint browsers).
