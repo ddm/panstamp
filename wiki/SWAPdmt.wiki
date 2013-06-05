@@ -31,14 +31,14 @@ Before installing SWAPdmt, you should check that your computer meets the followi
 
 Once the above requirements met, you can start installing SWAPdmt as follows:
 
- # Download the latest version of our [http://www.panstamp.com/downloads/panStamp_apps.zip?attredirects=0&d=1 Python tools], where you will find all the necessary to install pyswap and SWAPdmt.
+ 1. Download the latest version of our [http://www.panstamp.com/downloads/panStamp_apps.zip?attredirects=0&d=1 Python tools], where you will find all the necessary to install pyswap and SWAPdmt.
 
- # Enter the pyswap directory and install the package with this command
+ 2. Enter the pyswap directory and install the package with this command
 {{{
 # python setup.py install
 }}}
 
- # Now enter the SWAPdmt folder and run the application as follows:
+ 3. Now enter the SWAPdmt folder and run the application as follows:
 {{{
 # python path/to/swapdmt/pyswapdmtgui.py
 }}}
