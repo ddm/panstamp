@@ -204,8 +204,8 @@ Before installing Lagarto you need to install pyserial, ZeroMQ with the Python b
 
 Now, if you want to run [LagartoSWAP Lagarto-SWAP], you need to install pyswap. At the moment of writing this tutorial there was no setup script do you will have to do the followng:
 
- # [http://www.panstamp.com/downloads/pyswap.zip?attredirects=0&d=1 Download pyswap], our Python toolbox for panStamp and SWAP.
- # Enter the new pyswap directory and install the package using this command:
+ # [http://www.panstamp.com/downloads/panStamp_apps.zip?attredirects=0&d=1 Download our Python toolbox] for panStamp and SWAP.
+ # Enter the pyswap directory and install the package using this command:
 {{{
 # python setup.py install
 }}}
@@ -228,9 +228,7 @@ After installing PTT, send a first message to your Twitter account from PTT's co
 
 This will set your Twitter account as the default one on your computer so that Lagarto-MAX won't have to worry about this.
 
-Finally, [http://www.panstamp.com/downloads/lagarto.zip?attredirects=0&d=1 download Lagarto].
-
-And run the necessary Lagarto processes. For Lagarto-SWAP:
+And finally run the necessary Lagarto processes. For Lagarto-SWAP:
 {{{
 # python lagarto/lagarto-swap/lagarto-swap.py
 }}}
