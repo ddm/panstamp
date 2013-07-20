@@ -13,16 +13,13 @@ http://www.panstamp.com/_/rsrc/1352127280683/announcements/newupdatedimageforras
   # Download the latest image here: http://www.panstamp.org/lagarto_images/lagarto_rpi_0.7_2gb.zip
   # Unzip and write the image to the SD card (at least 8 GB) according to the [http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_the_image_to_an_SD_Card_on_Windows Raspberry Pi Wiki]:
     * For Windows, use [http://sourceforge.net/projects/win32diskimager/ Win32 Disk Imager]
-    * For Linux, use `dd if=lagarto_rpi_0.2_4gb.img of=/dev/sdc`
+    * For Linux, use `dd if=lagarto_rpi_xyz.img of=/dev/sdc`
   # Insert the SD card in your Raspberry Pi and boot it up.
   # By default, Raspbian comes with with DHCP enabled so you need to get the IP-address from your DHCP server.
   # Once started, you should be able to access:
     * http://ip-address:8001 for Lagarto-SWAP
     * http://ip-address:8002 for Lagarto-MAX
-  # The current image does not start Lagarto automatically on startup, so you need to SSH to it using username "pi" and password "raspberry".:
-    * `nohup python ~/panStamp/lagarto/lagarto-swap/lagarto-swap.py &`
-    * `nohup python ~/panStamp/lagarto/lagarto-max/lagarto-max.py &`
-    * Run `cat ~/nohup.out` to check output log.
+  # You can SSH to the Raspberry and login using username "pi" and password "raspberry"
 
 
 = Raspberry Pi configuration = 
