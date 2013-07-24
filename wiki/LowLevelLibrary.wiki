@@ -112,6 +112,9 @@ byte syncWord[] = {19, 9};
 byte senderAddress = 4;
 byte receiverAddress = 5;
 
+// The connection to the hardware chip CC1101 the RF Chip
+CC1101 cc1101;
+
 // counter to get increment in each loop
 byte counter;
 
