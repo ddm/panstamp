@@ -92,3 +92,28 @@ For new devices, it's a good idea to provide multiple units for each endpoint wh
 _reading = factor x (endpoint value) + offset (unit name)_
 
 Modifiers can take any real value. Default modifiers: factor = 1, offset = 0.
+
+== Optional attributes ==
+
+the register node in the device description file can contain two optional attributes:
+
+*hwmask*: a bitmask in hexadecimal format to indicate for which Hardware Version (SWAP register 0x01) this register is available. As an example, this attribute can be used to indicate if specific hardware features (like connected sensors) are available for a given instance
+of panStamp. this can be statically set at compile time or determined at runtime. Whenever *hwmask* is present for a given register, this register is considered as available only if ( hwmask & HardwareVersion ) == hwmask.
+
+*swversion*: the minimum Firmware Version (SWAP register 0x02) for which this register is available. This allows to add features to the firmware over the lifetime of a product and have different software revisions
+of a product deployed at the same time. Whenever *swversion* is present, the register is considered as available only if FirmwareVersion >= swversion.
+
+during the evolution of a product both attributes will often be used in conjunction.
+
+examples:
+- a first version of a product is created
+-> the device description file would contain no registers with the hwmask or swversion attribute.
+
+- a second version of the product is created that has an additional register to indicate a sensor reading
+-> the swversion attribute of this register would indicate that it is only available in firmware version 2.
+
+- different versions of the second generation product will be deployed with or without the additional sensor attached
+-> hwmask would use a bit in the HardwareVersion to indicate if the sensor is present.
+
+- the first gen. hardware will get the firmware from gen. two as an upgrade
+-> the indicator bit would show that the additional sensor and the associated register is not available.
