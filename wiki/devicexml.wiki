@@ -107,6 +107,7 @@ of a product deployed at the same time. Whenever *swversion* is present, the reg
 during the evolution of a product both attributes will often be used in conjunction.
 
 examples:
+
 - a first version of a product is created
 -> the device description file would contain no registers with the hwmask or swversion attribute.
 
