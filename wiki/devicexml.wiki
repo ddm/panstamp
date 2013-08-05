@@ -6,6 +6,7 @@
  * [devicexml#Structure_of_XML_definition_files Structure of XML definition files]
  * [devicexml#Registers,_endpoints_and_parameters Registers, endpoints and parameters]
   * [devicexml#Units_and_modifiers Units and modifiers]
+  * [devicexml#Optional_attributes Optional attributess]
 
 = Introduction =
 
