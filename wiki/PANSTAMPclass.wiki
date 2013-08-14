@@ -185,8 +185,8 @@ void swapStatusReceived(SWPACKET *status)
   byte sAddr = status->srcAddr;       // Source address
   byte rAddr = status->regAddr;       // Register address
   byte rId = status->regId;           // Register id
-  byte len = status->value->length;   // Length of the register value
-  byte *val = status->value->data;    // register value
+  byte len = status->value.length;   // Length of the register value
+  byte *val = status->value.data;    // register value
 
   // Run here your code
 }
