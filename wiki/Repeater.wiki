@@ -16,19 +16,11 @@ In order to avoid unnecessary repeating loops, repeaters maintain transaction ta
 
 = How to use =
 
-In order to enable the repeater feature on a given node, you need to include _"repeater.h"_ after including _"panstamp.h"_ in the main application file:
+Repeater mode can be enabled  simply by including the following sentence in setup() after panstamp.init();
 
 {{{
-#include "regtable.h"
-#include "panstamp.h"
-#include "repeater.h"
-}}}
-
-Then, you simply have to initialize the repeater as follows:
-
-{{{
-// Initialize repeater
-repeater.init(4);
+// Enable repeater mode
+panstamp.enableRepeater(4);
 }}}
 
 Where 4 is the amount of times that a packet can be repeated (maximum hop count). You can replace this value by any other value between 1 and 15.
@@ -40,15 +32,14 @@ This is a very basic example of a SWAP repeater. Note that _repeater_ has to be 
 {{{
 #include "regtable.h"
 #include "panstamp.h"
-#include "repeater.h"
 
 void setup()
 {
   // Init panStamp
   panstamp.init();
   
-  // Initialize repeater
-  repeater.init(4);
+  // Enable repeater mode
+  panstamp.enableRepeater(4);
 }
 
 void loop()
