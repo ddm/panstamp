@@ -91,7 +91,7 @@ The PANSTAMP class contains the necessary mechanisms to control the board. This 
 
 = Public macros =
 
-Aprat from the above methods, developers can use any of the available macros:
+Apart from the above methods, developers can use any of the available macros:
 
 {{{
 /**
