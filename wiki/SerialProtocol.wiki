@@ -50,18 +50,14 @@ Once in _command mode_, the _modem_ application accepts the following set of AT 
 || AT || Basic Attention command ||
 || ATZ || Reset modem ||
 || ATO || Go to data mode ||
-|| ATHV? || Return hardware version ||
-|| ATHV=x || Set hardware version to x (HEX) ||
-|| ATFV? || Return firmware version ||
-|| ATFV=x || Set firmware version to x (HEX) ||
 || ATCH? || Return frequency channel ||
-|| ATCH=x || Set frequency channel to x (HEX) ||
+|| ATCH=XX || Set frequency channel to XX (HEX) ||
 || ATSW? || Return synchronization word ||
-|| ATSW=x || Set synchronization word to x (HEX) ||
+|| ATSW=XXXX || Set synchronization word to XXXX (HEX) ||
 || ATDA? || Return device address ||
-|| ATDA=x || Set device address to x (HEX) ||
+|| ATDA=XX || Set device address to XX (HEX) ||
 || ATAC? || Return address check. 1 = enabled, 0 = disabled ||
-|| ATAC=x || Set address check to x. 1 = enabled, 0 = disabled ||
+|| ATAC=XX || Set address check to XX. 01 = enabled, 00 = disabled ||
 
 
 = Existing software libraries =
