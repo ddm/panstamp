@@ -58,7 +58,8 @@ Once in _command mode_, the _modem_ application accepts the following set of AT 
 || ATDA=XX || Set device address to XX (HEX) ||
 || ATAC? || Return address check. 1 = enabled, 0 = disabled ||
 || ATAC=XX || Set address check to XX. 01 = enabled, 00 = disabled ||
-
+|| ATHV? || Return Hardware version ||
+|| ATFV? || Return Firmware version ||
 
 = Existing software libraries =
 pyswap is the official library created to interface the modem application. Written using Python, this library is the basis of [SWAPdmt SWAPdmt] and other plugins currently being developed.
