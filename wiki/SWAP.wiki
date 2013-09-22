@@ -53,7 +53,9 @@ This register approach has been inspired on Modbus, an abstract protocol that ha
 
 = Packet structure =
 
-http://4.bp.blogspot.com/-ldLSH3Mfsko/TdWPySWWQHI/AAAAAAAAA54/MUON0rlIr0A/s1600/swap.png
+http://www.panstamp.com/swap_frame.png
+
+SWAP can be used under two different addressing schemes: single-byte addresses and 2-byte addresses. The function byte will tell the application which schema is being used in each frame. 
 
 == Network ID ==
 
@@ -68,6 +70,8 @@ There are only three function codes:
  * 0x02 - Command packet
 
 All SWAP packets share the same structure except query packets (function code = 0x01) that don't contain a data field. This makes parsing wireless packets a simple task.
+
+Besides, bit 7 (most significant bit) from the function byte shows the length of the address fields. When function code, bit 7 is equal to 0 then single-byte addresses are being used. If bit 7 is equal to 1 then this means that the frame is using the extended address schema.
 
 === Status packets (function code = 0x00) ===
 
