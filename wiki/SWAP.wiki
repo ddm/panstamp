@@ -95,7 +95,7 @@ Command packets can never be broadcasted.
 
 == Device address ==
 
-SWAP device addresses are 1-byte length. Thus, the automatic address filtering may be enabled on the RF IC. Broadcast address is 0 so wireless devices must take an addresses between 1 and 255 (0xFF).
+SWAP device addresses are 1-byte or 2-byte length, depending on the addressing schema being used. In both cases the automatic address filtering may be enabled on the RF IC. Broadcast address is 0 so wireless devices must take an addresses between 1 and 255 (0xFF) for the simple addressing schema or between 1 and 65535 (0xFFFF) for the extended schema.
 
 Each SWAP packet contains three different device addresses:
 
