@@ -34,16 +34,6 @@
  */
 class AVRRTC
 {
-  private:
-    /**
-     * wakeUp
-     *
-     * Wake from sleep mode
-     *
-     * 'rxOn' Enter RX_ON state after waking up
-     */
-    void wakeUp(void);
-
   public:
     /**
      * Event counter. This variable gets incremented whenever a timer 2
@@ -107,6 +97,15 @@ class AVRRTC
      *  RTC_8S = 8 s
      */
     void sleepRtc(unsigned char time);
+
+    /**
+     * wakeUp
+     *
+     * Wake from sleep mode
+     *
+     * 'rxOn' Enter RX_ON state after waking up
+     */
+    void wakeUp(void);
 };
 
 #endif
