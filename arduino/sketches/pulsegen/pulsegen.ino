@@ -38,10 +38,10 @@
  * configuration parameters:
  * pulsegen.xml (Binary/PWM output module)
  */
- 
+
+#include "TimerOne.h"
 #include "regtable.h"
 #include "panstamp.h"
-#include "TimerOne.h"
 
 /**
  * Timer 1
