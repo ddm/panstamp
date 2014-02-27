@@ -1,4 +1,4 @@
-#sumary panStamp NRG - Technical details
+#summary panStamp NRG - Technical details
 
 = panStamp NRG - Technical details =
 
@@ -6,4 +6,4 @@
 = Pin mapping =
 
 The following is the pin diagram of _panStamp NRT_:
-http://www.panstamp.com/files/nrg_pinout.png
+<img width=400>http://www.panstamp.com/files/nrg_pinout.png</img>
