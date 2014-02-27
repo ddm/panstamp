@@ -5,5 +5,5 @@
 
 = Pin mapping =
 
-The following is the pin diagram of _panStamp NRT_:
-<img width=400>http://www.panstamp.com/files/nrg_pinout.png</img>
+The following is the pin diagram of _panStamp NRG_:
+<img width="400" src="http://www.panstamp.com/files/nrg_pinout.png">
