@@ -21,8 +21,9 @@
 
 The following is the pin diagram of _panStamp NRG_:
 
+<p>
 <img width="500" align="left" src="http://www.panstamp.com/files/nrg_pinout.png"/>
-
+</p>
 
 One of the great things about the CC430 processor is that digital functions (green lines) can be moved to any P1 or P2 pin. Green text shows the default position of these functions.
 
