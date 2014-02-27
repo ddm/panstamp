@@ -27,4 +27,4 @@ One of the great things about the CC430 processor is that digital functions (gre
 
 = Info memory =
 
-CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash for storing configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU.
+CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash for storing configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU. The panStamp library provides the necessary functions to use this info space as any other EEPROM-based region.
