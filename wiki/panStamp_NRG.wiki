@@ -1,10 +1,30 @@
 #summary panStamp NRG - Technical details
+#labels CC430,panstamp,NRG,Energia
 
 = panStamp NRG - Technical details =
 
+= Specifications =
+
+ * MCU: CC430F5137 (MSP430 core + CC11XX radio SOC)
+ * Speed: Programmable speed between 8MHz and 24MHz
+ * Flash: 32KB
+ * RAM: 4KB
+ * Info memory: 512 bytes
+ * Unique MAC address
+ * Rx current: 18 mA max
+ * Tx current: 36 mA max
+ * Sleep current: 0.5 uA
+ * RF bands: 868/905/915/918 MHz ISM bands
+ * Communication length: 200m in open spaces at 0dBm with pigtail antenna
 
 = Pin mapping =
 
 The following is the pin diagram of _panStamp NRG_:
 
 <img width="500" align="left" src="http://www.panstamp.com/files/nrg_pinout.png">
+
+One of the great things about the CC430 processor is that digital functions (green lines) can be moved to any P1 or P2 pin. Green text shows the default position of these functions.
+
+= Info memory =
+
+CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash for storing configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU.
