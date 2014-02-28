@@ -35,7 +35,7 @@ One of the great things about the CC430 processor is that digital functions (gre
 
 = Info memory =
 
-CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash for storing configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU. The panStamp library provides the necessary functions to use this info space as any other EEPROM-based region.
+CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash to store configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU. The panStamp library provides the necessary functions to use this info space as any other EEPROM-based region.
 
 = Programming methods =
 
@@ -54,3 +54,5 @@ panStamp's serial firmware loader, developed by [http://kimballsoftware.com/ Ric
 In order to load a new firmware, the _panStamp NRG_ board has to enter the bootloading mode. This is achieved by connecting P2.0 to ground before rebooting the board. Once the board has been programmed and to exit from bootloading mode, P2.0 has to be unconnected from ground and then apply a new reset or power-cycle to the board.
 
 = Energia IDE =
+
+[http://www.energia.nu Energia] is a variation of [http://processing.org/ Processing], the original IDE used by [http://www.arduino.cc/ Arduino], for MSP430's and Stellaris processors. Energia now provides support for _panStamp NRG_ as well so that users switching from _panStamp AVR_ to _panStamp NRG_ will notice very few differences on the programming side.
