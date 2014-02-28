@@ -16,6 +16,9 @@
  * Sleep current: 0.5 uA
  * RF bands: 868/905/915/918 MHz ISM bands
  * Communication length: 200m in open spaces at 0dBm with pigtail antenna
+ * (Optional) MMA8652FFC 3-axis accelerometer
+ * On-board LED
+ * Footprint for SMA edge connector
 
 <img width="400" src="http://www.panstamp.com/announcements/panstampnrgiscoming/panStamp_NRG_parts.png" align="center" title="panStamp NRG top view"></img>
 
