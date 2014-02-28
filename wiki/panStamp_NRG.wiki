@@ -11,6 +11,7 @@
 
 = Specifications =
 
+ * Dimmensions: 0.7 x 1.2 in (17.7 x 30.5 mm)
  * MCU: CC430F5137 (MSP430 core + CC11XX radio SOC)
  * Speed: Programmable speed between 8MHz and 24MHz
  * Flash: 32KB
