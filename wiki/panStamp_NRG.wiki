@@ -41,8 +41,16 @@ CC430 processors do not include EEPROM space. Instead, they provide a special re
 
 _panStamp NRG_ can be programmed in two different ways. The first method is SBW (Serial bi-wire) JTAG interface. Any MSP430 programmer supporting SBW can be used to program panStamps, including [http://www.ti.com/tool/msp-exp430g2 MSP430 Launchpads] and [http://www.ti.com/tool/ez430-f2013 ez430 programmers], which are very low cost programming interfaces.
 
-On the other hand, _panStamp NRG_ can also be programmed serially from [http://www.sourceware.org/gdb/ GDB], the popular open source debugging software. Any kind of USB-UART converter can be used for this task.
+On the other hand, _panStamp NRG_ can also be programmed serially from [http://www.sourceware.org/gdb/ GDB], the popular open source debugging software. Any kind of USB-UART converter can be used for this task. Serial programming is the method used when loading firmware images from the [http://energia.nu/ Energia IDE].
 
 The following is the necessary wiring diagram according of the programming method being used:
 
 <img width="600" src="http://www.panstamp.com/files/nrg_pgm_layout.png" align="center" title="panStamp NRG pin mapping"></img>
+
+== Serial programming - Booting sequence ==
+
+panStamp's serial firmware loader, developed by [http://kimballsoftware.com/ Rick Kimball], is a compact implementation of the GDB server for the CC430 familly. Although this server doesn't provide full debugging capabilities, it can be used to read and write memory sections without having to load any specific firmware into the target board.
+
+In order to load a new firmware, the _panStamp NRG_ board has to enter the bootloading mode. This is achieved by connecting P2.0 to ground before rebooting the board. Once the board has been programmed and to exit from bootloading mode, P2.0 has to be unconnected from ground and then apply a new reset or power-cycle to the board.
+
+= Energia IDE =
