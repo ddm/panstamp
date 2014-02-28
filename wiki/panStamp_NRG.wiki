@@ -3,6 +3,12 @@
 
 = panStamp NRG - Technical details =
 
+ * [panStamp_NRG#Specifications Specifications]
+ * [panStamp_NRG#Pin_mapping Pin mapping]
+ * [panStamp_NRG#Info_memory Info memory]
+ * [panStamp_NRG#Programming_methods Programming methods]
+ * [panStamp_NRG#Energia_IDE Energia IDE]
+
 = Specifications =
 
  * MCU: CC430F5137 (MSP430 core + CC11XX radio SOC)
@@ -11,10 +17,11 @@
  * RAM: 4KB
  * Info memory: 512 bytes
  * Unique MAC address
+ * Voltage range: from 2VDC to 3.6VDC
  * Rx current: 18 mA max
  * Tx current: 36 mA max
  * Sleep current: 0.5 uA
- * MAximum Tx power: +12 dBm
+ * Maximum Tx power: +12 dBm
  * RF bands: 868/905/915/918 MHz ISM bands
  * Communication length: 200m in open spaces at 0dBm with pigtail antenna
  * 128-bit AES Security Encryption
@@ -49,7 +56,7 @@ The following is the necessary wiring diagram according of the programming metho
 
 == Serial programming - Booting sequence ==
 
-panStamp's serial firmware loader, developed by [http://kimballsoftware.com/ Rick Kimball], is a compact implementation of the GDB server for the CC430 familly. Although this server doesn't provide full debugging capabilities, it can be used to read and write memory sections without having to load any specific firmware into the target board.
+panStamp's serial firmware loader, developed by [http://kimballsoftware.com/ Rick Kimball], is a compact implementation of the GDB server for the CC430 familly. Although this server doesn't provide full debugging capabilities, it can be used to read and write memory sections without having to load any specific firmware into the target board. This GDB bootloader replaces the old BSL loader flashed by Texas Instruments in their chips. Unlike Atmega's, CC430 processors include a separate 2KB region in flash called "BSL memory" that can be used to store bootloaders. Thus, programmers still keep the whole 32KB flash region for their programs.
 
 In order to load a new firmware, the _panStamp NRG_ board has to enter the bootloading mode. This is achieved by connecting P2.0 to ground before rebooting the board. Once the board has been programmed and to exit from bootloading mode, P2.0 has to be unconnected from ground and then apply a new reset or power-cycle to the board.
 
