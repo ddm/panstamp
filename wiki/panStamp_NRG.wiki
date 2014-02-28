@@ -14,11 +14,14 @@
  * Rx current: 18 mA max
  * Tx current: 36 mA max
  * Sleep current: 0.5 uA
+ * MAximum Tx power: +12 dBm
  * RF bands: 868/905/915/918 MHz ISM bands
  * Communication length: 200m in open spaces at 0dBm with pigtail antenna
+ * 128-bit AES Security Encryption
  * (Optional) MMA8652FFC 3-axis accelerometer
  * On-board LED
  * Footprint for SMA edge connector
+ * Programmable via SBW and serial GDB
 
 <img width="400" src="http://www.panstamp.com/announcements/panstampnrgiscoming/panStamp_NRG_parts.png" align="center" title="panStamp NRG top view"></img>
 
@@ -33,3 +36,13 @@ One of the great things about the CC430 processor is that digital functions (gre
 = Info memory =
 
 CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash for storing configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU. The panStamp library provides the necessary functions to use this info space as any other EEPROM-based region.
+
+= Programming methods =
+
+_panStamp NRG_ can be programmed in two different ways. The first method is SBW (Serial bi-wire) JTAG interface. Any MSP430 programmer supporting SBW can be used to program panStamps, including [http://www.ti.com/tool/msp-exp430g2 MSP430 Launchpads] and [http://www.ti.com/tool/ez430-f2013 ez430 programmers], which are very low cost programming interfaces.
+
+On the other hand, _panStamp NRG_ can also be programmed serially from [http://www.sourceware.org/gdb/ GDB], the popular open source debugging software. Any kind of USB-UART converter can be used for this task.
+
+The following is the necessary wiring diagram according of the programming method being used:
+
+<img width="600" src="http://www.panstamp.com/files/nrg_pgm_layout.png" align="center" title="panStamp NRG pin mapping"></img>
