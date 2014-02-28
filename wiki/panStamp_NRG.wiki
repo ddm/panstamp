@@ -59,7 +59,7 @@ The following is the necessary wiring diagram according of the programming metho
 
 panStamp's serial firmware loader, developed by [http://kimballsoftware.com/ Rick Kimball], is a compact implementation of the GDB server for the CC430 familly. Although this server doesn't provide full debugging capabilities, it can be used to read and write memory sections without having to load any specific firmware into the target board. This GDB bootloader replaces the old BSL loader flashed by Texas Instruments in their chips. Unlike Atmega's, CC430 processors include a separate 2KB region in flash called "BSL memory" that can be used to store bootloaders. Thus, programmers can still keep the whole 32KB flash region for their programs.
 
-In order to load a new firmware, the _panStamp NRG_ board has to enter the bootloading mode. This is achieved by connecting P2.0 to ground before rebooting the board. Once the board has been programmed and in order to exit from bootloading mode, P2.0 has to be unconnected from ground and then apply a new reset or power-cycle to the board.
+In order to load a new firmware, the _panStamp NRG_ board has to enter the bootloading mode. This is achieved by connecting P2.0 to ground before rebooting the board. Once the board has been programmed and in order to exit from bootloading mode, P2.0 has to be unconnected from ground and then a new reset or power-cycle has to be applied to the board.
 
 = Energia IDE =
 
