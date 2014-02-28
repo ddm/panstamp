@@ -10,6 +10,7 @@
 
 = Specifications =
 
+ * Dimmensions: 0.7 x 1.2 in (17.7 x 30.5 mm)
  * MCU: Atmega328p
  * Radio chip: CC1101 (Texas Instruments)
  * Speed: 8MHz
