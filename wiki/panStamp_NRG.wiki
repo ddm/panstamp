@@ -41,6 +41,14 @@ The following is the pin diagram of _panStamp NRG_:
 
 One of the great things about the CC430 processor is that digital functions (green lines) can be moved to any P1 or P2 pin. Green text shows the default position of these functions.
 
+= Memory Organization =
+
+The following table shows how the memory of the CC430F5137 MCU is distributed:
+
+http://www.panstamp.com/images/cc430_memory.png
+
+One of the interesting things of the MSP430 architecture is that Flash and RAM share a common addressing schema so that we can access address locations in the same way, regardless of the nature of the memory. This is really appreciated for example when a given constant variable needs to be permanently located in flash since this variable will never be copied into RAM by the stack.
+
 = Info memory =
 
 CC430 processors do not include EEPROM space. Instead, they provide a special region in Flash to store configurations. This region is called info memory and is 512 bytes long in the CC430F5137 MCU. The panStamp library provides the necessary functions to use this info space as any other EEPROM-based region.
