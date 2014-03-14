@@ -6,6 +6,7 @@
  * [panStamp_NRG#Specifications Specifications]
  * [panStamp_NRG#Pin_mapping Pin mapping]
  * [panStamp_NRG#Info_memory Info memory]
+ * [panStamp_NRG#Memory_Organization Memory Organization]
  * [panStamp_NRG#Programming_methods Programming methods]
  * [panStamp_NRG#Energia_IDE Energia IDE]
 
