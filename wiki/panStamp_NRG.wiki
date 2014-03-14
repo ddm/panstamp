@@ -47,7 +47,7 @@ The following table shows how the memory of the CC430F5137 MCU is distributed:
 
 <img height="600" src="http://www.panstamp.com/images/cc430_memory.png"></img>
 
-One of the interesting things of the MSP430 architecture is that Flash and RAM share a common addressing schema so that we can access address locations in the same way, regardless of the nature of the memory. This is really appreciated for example when a given constant variable needs to be permanently located in flash since this variable will never be copied into RAM by the stack.
+One of the interesting things about the MSP430 architecture is that Flash and RAM share a common addressing schema so that we can access address locations in the same way, regardless of the nature of the memory. This is really appreciated for example when a given constant variable needs to be permanently located in flash since this variable will never be copied into RAM by the stack.
 
 = Info memory =
 
