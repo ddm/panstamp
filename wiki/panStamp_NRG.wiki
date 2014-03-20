@@ -9,6 +9,7 @@
  * [panStamp_NRG#Memory_Organization Memory Organization]
  * [panStamp_NRG#Programming_methods Programming methods]
  * [panStamp_NRG#Energia_IDE Energia IDE]
+ * [panStamp_NRG#Documents Documents]
 
 = Specifications =
 
@@ -75,3 +76,7 @@ In order to load a new firmware, the _panStamp NRG_ board has to enter the bootl
 [http://www.energia.nu Energia] is a variation of [http://processing.org/ Processing], the original IDE used by [http://www.arduino.cc/ Arduino], for MSP430's and Stellaris processors. Energia now provides support for _panStamp NRG_ as well so that users switching from _panStamp AVR_ to _panStamp NRG_ will notice very few differences on the programming side.
 
 Like the AVR version of panStamp with the Arduino IDE, most of the critical aspects of the NRG board (radio, power management, RTC, ...) are covered by the panStamp library and only generic functions like UART, SPI, I2C and I/O management are delegated to Energia in order to guarantee compatibility with other libraries.
+
+= Documents =
+
+ * [https://sites.google.com/a/panstamp.com/panstamp/downloads/panstamp-nrg.pdf Schematics]
