@@ -386,7 +386,7 @@ class CloudAPI:
         try:
             endpoint = NetworkAPI.get_endpoint(endp)
             if endpoint is not None:
-		populated_message= message.replace("${id}", str(endpoint.id))
+                populated_message= message.replace("${id}", str(endpoint.id))
                 populated_message= populated_message.replace("${location}", str(endpoint.location))
                 populated_message= populated_message.replace("${name}", str(endpoint.name))
                 populated_message= populated_message.replace("${type}", str(endpoint.type))
@@ -398,3 +398,26 @@ class CloudAPI:
             return None
         except LagartoException as ex:
             ex.log()
+
+    @staticmethod
+    def push_grovestreams(endp, api_key, comp_id):
+        """
+        Push data to GroveStreams
+
+        @param endp: endpoint identification string
+        format 1: process.location.name
+        format 2: process.id        
+        @param api_key: GroveStreams API key
+        @param comp_id: GroveStreams component ID
+        
+        @return HTTP response from GroveStreams
+        """
+        try:
+          endpoint = NetworkAPI.get_endpoint(endp)
+          if endpoint is not None:
+              packet = GroveStreamsPacket(api_key, [(comp_id, endpoint.value)])
+              return packet.push()
+          return None
+        except LagartoException as ex:
+            ex.log()
+

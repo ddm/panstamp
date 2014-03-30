@@ -259,3 +259,51 @@ class AutoRemotePacket:
         # Parameters
         self.params = urllib.urlencode(params_dict)
         ApiLog.logger.debug('AutoRemotePacket.params: '+self.params)
+
+
+class GroveStreamsPacket:
+    """
+    Generic GroveStreams packet class
+    """
+    def push(self):
+        """
+        Push values to GroveStreams
+        
+        @return response from GroveStreams
+        """
+        header = {"Connection" : "close", "Content-type": "application/json",
+                       "Cookie" : "api_key=" + self.api_key}
+        url = "grovestreams.com"
+        res = None
+
+        try:
+            conn = httplib.HTTPConnection(url, timeout=8)
+            conn.request('PUT', "/api/feed", self.data, header)
+            response = conn.getresponse()
+            res = response.reason
+        except:
+            pass
+        
+        conn.close()
+
+        return res
+
+
+    def __init__(self, api_key, comp_id, endpoints):
+        """
+        Constructor
+        
+        @param api_key: GroveStreams API key
+        @param comp_id: component id
+        @param endpoints: list of (datastream, value) pairs
+        """
+        # API key
+        self.api_key = api_key
+        
+        datastreams = {"compId" : comp_id}
+        for endp in endpoints:
+            datastreams[endp[0]] = endp[1]
+            
+        self.data = urllib.urlencode(datastreams)
+
+

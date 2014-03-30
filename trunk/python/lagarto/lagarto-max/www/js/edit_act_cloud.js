@@ -1,4 +1,4 @@
-/* Copyright (c) Daniel Berenguer (panStamp) 2012 */
+/* Copyright (c) Daniel Berenguer (panStamp) 2014 */
 
 var codeLine, statement, statementType = "action";
 var endpointTypes = {};
@@ -32,6 +32,8 @@ function onchangeService()
     document.getElementById("item2box").src = "../edit_item2_twitter.html";
   else if (service == "autoremote")
     document.getElementById("item2box").src = "../edit_item2_autoremote.html";}
+  else if (service == "grovestreams")
+    document.getElementById("item2box").src = "../edit_item2_grovestreams.html";}
 
 /**
  * Return python representation of the network action
