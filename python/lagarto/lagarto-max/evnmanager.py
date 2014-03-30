@@ -401,3 +401,4 @@ class EventScript(threading.Thread):
         
         # Run event handler
         self.start()
+
