@@ -1,4 +1,4 @@
-Cmp-Mod V01 Genere par PcbNew le Thu 21 Jun 2012 12:38:48 PM CEST
+Cmp-Mod V01 Created by CvPcb (2013-mar-13)-testing date = Fri 21 Mar 2014 07:19:46 PM CET
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD14DA;
@@ -45,8 +45,8 @@ EndCmp
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19B2;
 Reference = BIN7;
-ValeurCmp = CONN_3;
-IdModule  = terminal_block_5mm_3P;
+ValeurCmp = CONN_2;
+IdModule  = terminal_block_5mm_2P;
 EndCmp
 
 BeginCmp
@@ -120,6 +120,20 @@ IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
+TimeStamp = /4FAD1A96/4FD8C292;
+Reference = C10;
+ValeurCmp = 100n;
+IdModule  = SM0603S;
+EndCmp
+
+BeginCmp
+TimeStamp = /4FE47CB1;
+Reference = C11;
+ValeurCmp = 100n;
+IdModule  = SM0603S;
+EndCmp
+
+BeginCmp
 TimeStamp = /4E2EDD72;
 Reference = D1;
 ValeurCmp = DIODESCH;
@@ -130,35 +144,35 @@ BeginCmp
 TimeStamp = /4E2D1265;
 Reference = D2;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD14D8;
 Reference = D3;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD1987;
 Reference = D4;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD199D;
 Reference = D5;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD198E;
 Reference = D6;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
@@ -193,28 +207,28 @@ BeginCmp
 TimeStamp = /4FACEA45/4FAD19D1;
 Reference = D11;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19C2;
 Reference = D12;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19B0;
 Reference = D13;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19BF;
 Reference = D14;
 ValeurCmp = LED;
-IdModule  = SM0603_POL;
+IdModule  = SM0603S_POL;
 EndCmp
 
 BeginCmp
@@ -246,31 +260,17 @@ IdModule  = SOD323;
 EndCmp
 
 BeginCmp
-TimeStamp = /4FAD1A96/4FAD1BED;
-Reference = D19;
-ValeurCmp = LED;
-IdModule  = SM0603_POL;
+TimeStamp = /501FE68B;
+Reference = F1;
+ValeurCmp = FUSE;
+IdModule  = SM1206;
 EndCmp
 
 BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A84;
-Reference = D20;
-ValeurCmp = LED;
-IdModule  = SM0603_POL;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A9E;
-Reference = D21;
-ValeurCmp = LED;
-IdModule  = SM0603_POL;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A89;
-Reference = D22;
-ValeurCmp = LED;
-IdModule  = SM0603_POL;
+TimeStamp = /4FE47C45;
+Reference = GPIO_CONN_1;
+ValeurCmp = CONN_4;
+IdModule  = SIL-4;
 EndCmp
 
 BeginCmp
@@ -353,119 +353,112 @@ EndCmp
 BeginCmp
 TimeStamp = /4FACEA45/4FAD14D7;
 Reference = R2;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD1988;
 Reference = R3;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD199E;
 Reference = R4;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD198D;
 Reference = R5;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD14DF;
 Reference = R6;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD1980;
 Reference = R7;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD1996;
 Reference = R8;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD1995;
 Reference = R9;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19D2;
 Reference = R10;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19C1;
 Reference = R11;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19AF;
 Reference = R12;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19C0;
 Reference = R13;
-ValeurCmp = 470;
+ValeurCmp = 1k5;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19CA;
 Reference = R14;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19C9;
 Reference = R15;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19B7;
 Reference = R16;
-ValeurCmp = 1k;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FACEA45/4FAD19B8;
 Reference = R17;
-ValeurCmp = 1k;
-IdModule  = SM0603S;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FAD1BEE;
-Reference = R18;
-ValeurCmp = 470;
+ValeurCmp = 2k2;
 IdModule  = SM0603S;
 EndCmp
 
@@ -479,7 +472,7 @@ EndCmp
 BeginCmp
 TimeStamp = /4FAD1A96/4FAD1D96;
 Reference = R22;
-ValeurCmp = 22k;
+ValeurCmp = 21k;
 IdModule  = SM0603S;
 EndCmp
 
@@ -487,13 +480,6 @@ BeginCmp
 TimeStamp = /4FAD1A96/4FAD1DDC;
 Reference = R24;
 ValeurCmp = 10K;
-IdModule  = SM0603S;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A83;
-Reference = R25;
-ValeurCmp = 470;
 IdModule  = SM0603S;
 EndCmp
 
@@ -514,21 +500,7 @@ EndCmp
 BeginCmp
 TimeStamp = /4FAD1A96/4FCC6A82;
 Reference = R28;
-ValeurCmp = 22k;
-IdModule  = SM0603S;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A9D;
-Reference = R29;
-ValeurCmp = 470;
-IdModule  = SM0603S;
-EndCmp
-
-BeginCmp
-TimeStamp = /4FAD1A96/4FCC6A8A;
-Reference = R30;
-ValeurCmp = 470;
+ValeurCmp = 21k;
 IdModule  = SM0603S;
 EndCmp
 
@@ -563,14 +535,14 @@ EndCmp
 BeginCmp
 TimeStamp = /4FAD1A96/4FCC6A9C;
 Reference = R35;
-ValeurCmp = 22k;
+ValeurCmp = 21k;
 IdModule  = SM0603S;
 EndCmp
 
 BeginCmp
 TimeStamp = /4FAD1A96/4FCC6A8B;
 Reference = R36;
-ValeurCmp = 22k;
+ValeurCmp = 21k;
 IdModule  = SM0603S;
 EndCmp
 
