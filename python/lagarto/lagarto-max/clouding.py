@@ -278,7 +278,7 @@ class GroveStreamsPacket:
 
         try:
             conn = httplib.HTTPConnection(url, timeout=8)
-            conn.request('PUT', "/api/feed", self.data, header)
+            conn.request('PUT', "/api/feed", json.dumps(self.datastreams), header)
             response = conn.getresponse()
             res = response.reason
         except:
@@ -300,10 +300,12 @@ class GroveStreamsPacket:
         # API key
         self.api_key = api_key
         
-        datastreams = {"compId" : comp_id}
+        self.datastreams = []   
+        
         for endp in endpoints:
-            datastreams[endp[0]] = endp[1]
-            
-        self.data = urllib.urlencode(datastreams)
+            dstream = {"compId" : comp_id}
+            dstream["streamId"] = endp[0]
+            dstream["data"] = endp[1]
+            self.datastreams.append(dstream)
 
 
