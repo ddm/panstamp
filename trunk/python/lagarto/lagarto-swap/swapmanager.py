@@ -26,18 +26,18 @@ __author__="Daniel Berenguer"
 __date__  ="$Jan 23, 2012$"
 #########################################################################
 
+import os
+import sys
+
 from swap.SwapInterface import SwapInterface
 from swap.protocol.SwapDefs import SwapState
 from swap.xmltools.XmlSettings import XmlSettings
 from swap.xmltools.XmlSerial import XmlSerial
 from swap.xmltools.XmlNetwork import XmlNetwork
 
-import os
-import sys
-
 working_dir = os.path.dirname(__file__)
-lagarto_dir = os.path.split(working_dir)[0]
-lagarto_dir = os.path.join(lagarto_dir, "lagarto")
+panstamp_dir = os.path.split(working_dir)[0]
+lagarto_dir = os.path.join(panstamp_dir, "lagarto")
 sys.path.append(lagarto_dir) 
 from lagartocomms import LagartoServer
 

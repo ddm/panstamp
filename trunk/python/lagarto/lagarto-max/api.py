@@ -35,7 +35,7 @@ sys.path.append(MaxDefinitions.lagarto_dir)
 from lagartoresources import LagartoEndpoint, LagartoException
 from xmltools import XmlSettings
 
-from clouding import PachubePacket, ThingSpeakPacket, OpenSensePacket, OpenSense, TwitterMessage, AutoRemotePacket
+from clouding import PachubePacket, ThingSpeakPacket, OpenSensePacket, OpenSense, TwitterMessage, AutoRemotePacket, GroveStreamsPacket
 
 
 class TimeAPI:
@@ -415,7 +415,8 @@ class CloudAPI:
         try:
           endpoint = NetworkAPI.get_endpoint(endp)
           if endpoint is not None:
-              packet = GroveStreamsPacket(api_key, [(comp_id, endpoint.value)])
+              endpdata = (endpoint.location + "." + endpoint.name,  str(endpoint.value))
+              packet = GroveStreamsPacket(api_key, comp_id, [endpdata])
               return packet.push()
           return None
         except LagartoException as ex:
