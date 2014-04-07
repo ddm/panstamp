@@ -24,6 +24,8 @@ __author__="Daniel Berenguer"
 __date__  ="$Mar 31, 2012$"
 #########################################################################
 
+from maxdefs import MaxDefinitions
+
 import logging
 import os
 import httplib
@@ -32,6 +34,7 @@ import json
 import subprocess
 from time import strftime
 
+
 class ApiLog:
     """
     API logging class
@@ -39,6 +42,7 @@ class ApiLog:
     # Logging
     logger = logging.getLogger('Lagarto-Max')
     logging.basicConfig(format='%(asctime)s %(module)s %(levelname)s %(message)s',filename='lagarto-max-cloud.log',level=logging.INFO)
+
 
 class PachubePacket:
     """
@@ -270,9 +274,11 @@ class GroveStreamsPacket:
         Push values to GroveStreams
         
         @return response from GroveStreams
-        """
+        """        
+
         header = {"Connection" : "close", "Content-type": "application/json",
-                       "Cookie" : "api_key=" + self.api_key}
+                       "X-Forwarded-For": MaxDefinitions.ip_address, "Cookie" : "org=panStamp;api_key=" + self.api_key}
+
         url = "grovestreams.com"
         res = None
 

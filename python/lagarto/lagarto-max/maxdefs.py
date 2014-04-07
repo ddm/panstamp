@@ -36,3 +36,5 @@ class MaxDefinitions:
     working_dir = os.path.dirname(__file__)
     _tmp_dir = os.path.split(working_dir)[0]
     lagarto_dir = os.path.join(_tmp_dir, "lagarto")
+    ip_address = ""
+
