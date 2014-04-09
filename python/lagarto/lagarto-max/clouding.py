@@ -277,7 +277,7 @@ class GroveStreamsPacket:
         """        
 
         header = {"Connection" : "close", "Content-type": "application/json",
-                       "X-Forwarded-For": MaxDefinitions.ip_address, "Cookie" : "org=panStamp;api_key=" + self.api_key}
+                       "X-Forwarded-For": self.comp_id, "Cookie" : "org=panStamp;api_key=" + self.api_key}
 
         url = "grovestreams.com"
         res = None
@@ -306,8 +306,11 @@ class GroveStreamsPacket:
         # API key
         self.api_key = api_key
         
+        # Component ID
+        self.comp_id = comp_id
+
         self.datastreams = []   
-        
+
         for endp in endpoints:
             dstream = {"compId" : comp_id}
             dstream["streamId"] = endp[0]
