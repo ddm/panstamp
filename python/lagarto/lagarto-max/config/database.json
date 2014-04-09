@@ -1,13 +1,16 @@
 {
   "database": {
-    "power_consumptions": {
+    "humidities": {
       "endpoints": [
-        "Lagarto-SWAP.SWAP.Energy_consumption_0", 
-        "Lagarto-SWAP.SWAP.Energy_consumption_1", 
-        "Lagarto-SWAP.SWAP.Energy_consumption_2", 
-        "Lagarto-SWAP.SWAP.Energy_consumption_3"
+        "Lagarto-SWAP.SWAP.Humidity"
       ], 
-      "interval": "1h"
+      "interval": "5m"
+    }, 
+    "temperatures": {
+      "endpoints": [
+        "Lagarto-SWAP.SWAP.Temperature"
+      ], 
+      "interval": "5m"
     }
   }
 }
