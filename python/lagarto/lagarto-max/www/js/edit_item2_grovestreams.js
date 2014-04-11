@@ -15,7 +15,7 @@ function updateValues()
   fillServers(servers);
 
   var fldApiKey = document.getElementById("apikey");
-  var fldCompId = document.getElementById("compid");
+  var fldCompTempId = document.getElementById("comptempid");
 
   var end, start = codeLine.indexOf(", \"");
   if (start > -1)
@@ -28,7 +28,7 @@ function updateValues()
       start = end + 4;
       end = codeLine.indexOf("\")", start);
       if (end > -1)
-        fldCompId.value = codeLine.substring(start, end);
+        fldCompTempId.value = codeLine.substring(start, end);
     }
   }
 }
@@ -138,9 +138,9 @@ function getItem2()
   var endp = document.getElementById("endp").value;
   var apiKey = document.getElementById("apikey").value;
 
-  var compId = document.getElementById("compid").value;
+  var compTempId = document.getElementById("comptempid").value;
 
-  var item2 = "\"" + server + "." + endp + "\", \"" + apiKey + "\", \"" + compId + "\"";
+  var item2 = "\"" + server + "." + endp + "\", \"" + apiKey + "\", \"" + compTempId + "\"";
 
   return item2;
 }
