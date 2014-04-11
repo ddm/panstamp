@@ -277,14 +277,14 @@ class GroveStreamsPacket:
         """        
 
         header = {"Connection" : "close", "Content-type": "application/json",
-                       "X-Forwarded-For": self.comp_id, "Cookie" : "api_key=" + self.api_key}
+                       "X-Forwarded-For": endpoints[0][0], "Cookie" : "api_key=" + self.api_key}
 
         url = "grovestreams.com"
         res = None
 
         try:
             conn = httplib.HTTPConnection(url, timeout=8)
-            conn.request('PUT', "/api/feed", json.dumps(self.datastreams), header)
+            conn.request('PUT', "/api/feed?compTmplId=" + self.comp_id, json.dumps(self.datastreams), header)
             response = conn.getresponse()
             res = response.reason
         except:
@@ -309,11 +309,14 @@ class GroveStreamsPacket:
         # Component ID
         self.comp_id = comp_id
 
+        # List of endpoints
+        self.endpoints = endpoints
+
         self.datastreams = []   
 
         for endp in endpoints:
-            dstream = {"compId" : comp_id}
-            dstream["streamId"] = endp[0]
+            dstream = {"compId" : endp[0]}
+            dstream["streamId"] = "data"
             dstream["data"] = endp[1]
             self.datastreams.append(dstream)
 
