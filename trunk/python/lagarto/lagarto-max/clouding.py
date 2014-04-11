@@ -277,14 +277,17 @@ class GroveStreamsPacket:
         """        
 
         header = {"Connection" : "close", "Content-type": "application/json",
-                       "X-Forwarded-For": urllib.urlencode(endpoints[0][0]), "Cookie" : "api_key=" + self.api_key}
+                       "X-Forwarded-For": self.endpoints[0][0], "Cookie" : "api_key=" + self.api_key}
 
         url = "grovestreams.com"
         res = None
 
         try:
             conn = httplib.HTTPConnection(url, timeout=8)
-            conn.request('PUT', "/api/feed?compTmplId=" + self.comp_id, json.dumps(self.datastreams), header)
+            if self.template_id is not None:
+                conn.request('PUT', "/api/feed?compTmplId=" + self.template_id, json.dumps(self.datastreams), header)
+            else:
+                conn.request('PUT', "/api/feed", json.dumps(self.datastreams), header)
             response = conn.getresponse()
             res = response.reason
         except:
@@ -295,19 +298,21 @@ class GroveStreamsPacket:
         return res
 
 
-    def __init__(self, api_key, comp_id, endpoints):
+    def __init__(self, api_key, template_id, endpoints):
         """
         Constructor
         
         @param api_key: GroveStreams API key
-        @param comp_id: component id
+        @param template_id: component template id
         @param endpoints: list of (datastream, value) pairs
         """
         # API key
         self.api_key = api_key
         
         # Component ID
-        self.comp_id = comp_id
+        self.template_id = None
+        if template_id != "":
+            self.template_id = template_id        
 
         # List of endpoints
         self.endpoints = endpoints

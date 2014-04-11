@@ -400,7 +400,7 @@ class CloudAPI:
             ex.log()
 
     @staticmethod
-    def push_grovestreams(endp, api_key, comp_id):
+    def push_grovestreams(endp, api_key, template_id):
         """
         Push data to GroveStreams
 
@@ -408,7 +408,7 @@ class CloudAPI:
         format 1: process.location.name
         format 2: process.id        
         @param api_key: GroveStreams API key
-        @param comp_id: GroveStreams component ID
+        @param template_id: GroveStreams template component ID
         
         @return HTTP response from GroveStreams
         """
@@ -416,7 +416,7 @@ class CloudAPI:
           endpoint = NetworkAPI.get_endpoint(endp)
           if endpoint is not None:
               endpdata = (endpoint.location + "." + endpoint.name,  str(endpoint.value))
-              packet = GroveStreamsPacket(api_key, comp_id, [endpdata])
+              packet = GroveStreamsPacket(api_key, template_id, [endpdata])
               return packet.push()
           return None
         except LagartoException as ex:
