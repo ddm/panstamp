@@ -277,7 +277,7 @@ class GroveStreamsPacket:
         """        
 
         header = {"Connection" : "close", "Content-type": "application/json",
-                       "X-Forwarded-For": endpoints[0][0], "Cookie" : "api_key=" + self.api_key}
+                       "X-Forwarded-For": urllib.urlencode(endpoints[0][0]), "Cookie" : "api_key=" + self.api_key}
 
         url = "grovestreams.com"
         res = None
