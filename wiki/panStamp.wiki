@@ -41,6 +41,6 @@ panStamps can be programmed in two ways:
 
 panStamps come with the Arduino bootloader preinstalled. Fuse values are listed here:
 
- * Extended = 0x05
+ * Extended = 0x07
  * High = 0xD8
  * Low = 0xE2
