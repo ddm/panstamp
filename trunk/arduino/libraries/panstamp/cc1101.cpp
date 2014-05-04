@@ -193,7 +193,7 @@ void CC1101::reset(void)
   cc1101_Deselect();                    // Deselect CC1101
 
   setDefaultRegs();                     // Reconfigure CC1101
-  setRegsFromEeprom();                  // Take user settings from EEPROM
+//  setRegsFromEeprom();                  // Take user settings from EEPROM
 }
 
 /**
@@ -374,6 +374,11 @@ void CC1101::setCarrierFreq(byte freq)
       writeReg(CC1101_FREQ2,  CC1101_DEFVAL_FREQ2_433);
       writeReg(CC1101_FREQ1,  CC1101_DEFVAL_FREQ1_433);
       writeReg(CC1101_FREQ0,  CC1101_DEFVAL_FREQ0_433);
+      break;
+    case CFREQ_918:
+      writeReg(CC1101_FREQ2,  CC1101_DEFVAL_FREQ2_918);
+      writeReg(CC1101_FREQ1,  CC1101_DEFVAL_FREQ1_918);
+      writeReg(CC1101_FREQ0,  CC1101_DEFVAL_FREQ0_918);
       break;
     default:
       writeReg(CC1101_FREQ2,  CC1101_DEFVAL_FREQ2_868);
