@@ -152,7 +152,11 @@ void AVRRTC::sleepWd(unsigned char time)
   // Disable ADC
   ADCSRA &= ~(1 << ADEN);
   // Unpower functions
+#if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
+  PRR0 = 0xFF;
+#else
   PRR = 0xFF;
+#endif
   //power_all_disable();
   //clock_prescale_set(clock_div_8);
   // Enter sleep mode
@@ -188,7 +192,11 @@ void AVRRTC::sleepRtc(unsigned char time)
   // Disable ADC
   ADCSRA &= ~(1 << ADEN);
   // Unpower functions
+#if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
+  PRR0 = 0xFF;
+#else
   PRR = 0xFF;
+#endif
   // Enter sleep mode
   sleep_mode();
 

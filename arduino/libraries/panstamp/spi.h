@@ -30,6 +30,26 @@
 /**
  * SPI pins
  */
+
+#if defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
+
+#define SPI_SS   53     // PB0 = SPI_SS
+#define SPI_MOSI 51     // PB2 = MOSI
+#define SPI_MISO 50     // PB3 = MISO
+#define SPI_SCK  52     // PB1 = SCK
+#define GDO0	 2     // PD4 = INT4
+
+#define PORT_SPI_MISO  PINB
+#define BIT_SPI_MISO   3
+
+#define PORT_SPI_SS  PORTB
+#define BIT_SPI_SS   0
+
+#define PORT_GDO0  PINE
+#define BIT_GDO0   4
+
+#else
+
 #define SPI_SS   10     // PB2 = SPI_SS
 #define SPI_MOSI 11     // PB3 = MOSI
 #define SPI_MISO 12     // PB4 = MISO
@@ -44,6 +64,8 @@
 
 #define PORT_GDO0  PIND
 #define BIT_GDO0  2
+
+#endif
 
 /**
  * Macros

@@ -100,7 +100,7 @@ void isrGDO0event(void)
     static CCPACKET ccPacket;
     static SWPACKET swPacket;
     REGISTER *reg;
-    static bool eval = true;
+    bool eval = true;
 
     if (panstamp.cc1101.receiveData(&ccPacket) > 0)
     {
@@ -220,21 +220,6 @@ void PANSTAMP::init()
 
   // Security disabled by default
   security = 0;
-
-  #ifdef SWAP_EXTENDED_ADDRESS
-/*
-  // Read extended device address from EEPROM
-  swapAddress = EEPROM.read(EEPROM_DEVICE_ADDR);
-  swapAddress <<= 8;
-  swapAddress = EEPROM.read(EEPROM_DEVICE_ADDR + 1);
-*/
-  #endif
-
-/*
-  // Read periodic Tx interval from EEPROM
-  txInterval[0] = EEPROM.read(EEPROM_TX_INTERVAL);
-  txInterval[1] = EEPROM.read(EEPROM_TX_INTERVAL + 1);
-*/
 
   delayMicroseconds(50);  
 
@@ -433,6 +418,23 @@ void PANSTAMP::enableRfRx(bool ena)
     disableIRQ_GDO0();
 }
 
+/**
+ * updateEeprom
+ *
+ * Prepare EEPROM for extended addresses in case it is not yet
+ */
+/*
+void PANSTAMP::updateEeprom(void)
+{
+  unsigned int addr;
+  unsigned char b;
+
+
+  b = EEPROM.read(EEPROM_TX_INTERVAL);
+  if ((b != 0x00) && (b != 0xFF))
+  EEPROM.write(addr+1, b);
+}
+*/
 /**
  * Pre-instantiate PANSTAMP object
  */
