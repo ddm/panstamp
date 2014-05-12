@@ -1,3 +1,7 @@
+May 12 2014 - Version 2.1
+---------------------------
+- Bug fixed in repeater functionality. Only one hope was allowed.
+
 Sep 13 2013 - Version 2.0
 ---------------------------
 - Added support for extended (2-byte) addresses. SWAP_EXTENDED_ADDRESS definition in config.h
