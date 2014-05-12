@@ -150,7 +150,7 @@ boolean SWPACKET::send(void)
   while(!(res = panstamp.cc1101.sendData(packet)) && i>1)
   {
     i--;
-    delay(SWAP_TX_DELAY);
+    delayMicroseconds(SWAP_TX_DELAY * 1000);
   }
 
   return res;
