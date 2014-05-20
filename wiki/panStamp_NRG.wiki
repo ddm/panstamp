@@ -35,7 +35,7 @@
  * Footprint for SMA edge connector
  * Programmable via SBW and serial GDB
 
-<img width="400" src="http://www.panstamp.com/announcements/panstampnrgiscoming/panStamp_NRG_parts.png" align="center" title="panStamp NRG top view"></img>
+<img width="400" src="http://www.panstamp.com/images/panStamp_NRG_parts.png" align="center" title="panStamp NRG top view"></img>
 
 = Pin mapping =
 
