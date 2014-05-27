@@ -103,6 +103,18 @@ boolean SWPACKET::send(void)
   byte i;
   boolean res;
 
+  // LE -> BE conversion for numeric values
+  if (value.type == SWDTYPE_INTEGER)
+  {
+    for(i=0 ; i<value.length ; i++)
+      packet.data[i+SWAP_DATA_HEAD_LEN + 1] = value.data[value.length-1-i];
+  }
+  else
+  {
+    for(i=0 ; i<value.length ; i++)
+      packet.data[i+SWAP_DATA_HEAD_LEN + 1] = value.data[i];
+  }
+
   // Smart encryption only available for simple (1-byte) addressing schema
   #ifndef SWAP_EXTENDED_ADDRESS
     // Need to encrypt packet?
@@ -134,17 +146,6 @@ boolean SWPACKET::send(void)
     packet.data[5] = regAddr;
     packet.data[6] = regId;
   #endif
-
-  if (value.type == SWDTYPE_INTEGER)
-  {
-    for(i=0 ; i<value.length ; i++)
-      packet.data[i+SWAP_DATA_HEAD_LEN + 1] = value.data[value.length-1-i];
-  }
-  else
-  {
-    for(i=0 ; i<value.length ; i++)
-      packet.data[i+SWAP_DATA_HEAD_LEN + 1] = value.data[i];
-  }
 
   i = SWAP_NB_TX_TRIES;
   while(!(res = panstamp.cc1101.sendData(packet)) && i>1)
