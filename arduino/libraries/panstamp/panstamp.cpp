@@ -252,6 +252,17 @@ void PANSTAMP::reset()
 }
 
 /**
+ * wakeUp
+ *
+ * Wake from sleep mode
+ */
+void PANSTAMP::wakeUp(void)
+{
+  rtc.wakeUp();
+  systemState = SYSTATE_RXON;
+}
+
+/**
  * goToSleep
  *
  * Sleep whilst in power-down mode. This function currently uses sleepWd or
