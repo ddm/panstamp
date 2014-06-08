@@ -65,7 +65,7 @@ On the other hand, _panStamp NRG_ can also be programmed serially from [http://w
 
 The following is the necessary wiring diagram according of the programming method being used:
 
-<img width="600" src="http://www.panstamp.com/files/nrg_pgm_layout.png" align="center" title="panStamp NRG pin mapping"></img>
+<img width="600" src="http://www.panstamp.com/images/nrg_pgm_layout.png" align="center" title="panStamp NRG pin mapping"></img>
 
 == Serial programming - Booting sequence ==
 
