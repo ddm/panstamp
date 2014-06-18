@@ -34,7 +34,7 @@ void setup()
 }
 }}}
 
-If you are using the CC1101 class with the basic radio example, then you can enter your carrier frequency in a similar way:
+If you are using the CC1101 class with the [https://code.google.com/p/panstamp/wiki/LowLevelLibrary#Basic_example basic radio example], then you can enter your carrier frequency in a similar way:
 
 {{{
 void setup()
