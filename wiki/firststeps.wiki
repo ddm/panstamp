@@ -29,10 +29,20 @@ Tools->Boards on the Arduino IDE. Otherwise, you can download [http://code.googl
 void setup()
 {
   // Init panStamp
-  panstamp.init(CFREQ_915);  // CFREQ_868, CFREQ_918 also supported
+  panstamp.init(CFREQ_915);  // CFREQ_868 and CFREQ_918 also supported
                              // CFREQ_433 supported by the library but not by the hardware modules
 }
 }}}
+
+If you are using the CC1101 class with the basic radio example, then you can enter your carrier frequency in a similar way:
+
+{{{
+  // Init radio class
+  cc1101.init(CFREQ_915);    // CFREQ_868 and CFREQ_918 also supported
+                             // CFREQ_433 supported by the library but not by the hardware modules
+}}}
+
+In case that no argument were provided in the init call, 868 MHz will be selected as the default carrier frequency.
 
 8. Place an antenna according to your carrier frequency. A wire stub
 works just fine:
