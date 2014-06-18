@@ -10,8 +10,8 @@ http://www.panstamp.com/_/rsrc/1352127280683/announcements/newupdatedimageforras
 
 = Getting started =
 
-  # Download the latest image here: http://www.panstamp.org/lagarto_images/lagarto_rpi_0.7_2gb.zip
-  # Unzip and write the image to the SD card (at least 8 GB) according to the [http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_the_image_to_an_SD_Card_on_Windows Raspberry Pi Wiki]:
+  # Download the latest image here: http://www.panstamp.org/lagarto_images/lagarto_rpi_0.8_2gb.zip
+  # Unzip and write the image to the SD card (at least 2 GB) according to the [http://elinux.org/RPi_Easy_SD_Card_Setup#Copying_the_image_to_an_SD_Card_on_Windows Raspberry Pi Wiki]:
     * For Windows, use [http://sourceforge.net/projects/win32diskimager/ Win32 Disk Imager]
     * For Linux, use `dd if=lagarto_rpi_xyz.img of=/dev/sdc`
   # Insert the SD card in your Raspberry Pi and boot it up.
