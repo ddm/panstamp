@@ -129,9 +129,11 @@ This 4-bit field counts the amount of times that a wireless packet is repeated. 
 
 This 4-bit value specifies the type of security defense used to protect data fields and avoid external attacks.
 
- * security = 0 -> No data encryption, security nonce disabled
- * security = 1 -> No data encryption, security nonce enabled
- * security = 2 -> Smart encryption and security nonce enabled
+ * bit 3 -> Reserved.
+ * bit 2 -> AES encryption bit. 1: enabled, 0: disabled
+ * bit 1 -> Smart encryption bit. 1: enabled, 0: disabled
+ * bit 0 -> Security nonce bit. 1: enabled, 0: disabled
+
 
 == Security nonce ==
 
