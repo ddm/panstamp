@@ -1,4 +1,6 @@
 #labels basic,steps,panstamp,arduino
+*This wiki refers to the old API for Arduino IDE 1.0.x. For the latest API (still under beta-test) compatible with Arduino IDE 1.5.x, we recommend visiting our [https://github.com/panStamp/panstamp/wiki new wiki].*
+
 = Working with panStamps: first steps =
 
 These are some important steps to follow before you start playing with
